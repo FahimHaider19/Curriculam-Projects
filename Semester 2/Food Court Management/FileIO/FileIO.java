@@ -3,12 +3,12 @@ package FileIO;
 import java.lang.*;
 import java.io.*;
 
-public class FileReadWrite {
+public class FileIO {
     private File file;
     private FileWriter writer;
     private FileReader reader;
     private BufferedReader bfr;
-    public FileReadWrite(){
+    public FileIO(){
         file = new File("History.txt");
         if (file.exists())
             file.delete();

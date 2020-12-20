@@ -6,17 +6,17 @@ import FileIO.*;
 public class Start{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        FoodCourt foodcourt = new FoodCourt();
+        Market market = new Market();
         FileIO frwd = new FileIO();
-        Restaurant restaurant = null;
+        Shop shop = null;
         Employee employee = null;
-        FoodItem fooditem = null;
+        Product product = null;
 
         while (true){
             System.out.println("1. Employee Management");
-            System.out.println("2. Restaurant Management");
-            System.out.println("3. Restauranr Food Item Management");
-            System.out.println("4. FoodItem Quantity Add-Sell");
+            System.out.println("2. Shop Management");
+            System.out.println("3. Shop Product Management");
+            System.out.println("4. Product Quantity Add-Sell");
             System.out.println("5. Exit");
             System.out.print("Select an option : ");
             switch (Integer.parseInt(sc.nextLine())){
@@ -42,7 +42,7 @@ public class Start{
                             System.out.print("Enter Employe Salary : ");
                             employee.setSalary(Double.parseDouble(sc.nextLine()));
 
-                            if(foodcourt.insertEmployee(employee)){
+                            if(market.insertEmployee(employee)){
                                 System.out.println("Employee Inserted");
                             } 
                             else System.out.println("Failed to insert Employee");
@@ -53,8 +53,8 @@ public class Start{
                             System.out.println("___________________________________________\n");
                             employee = null;
                             System.out.print("Enter Employee ID : ");
-                            employee = foodcourt.searchEmployee(sc.nextLine());
-                            if (foodcourt.removeEmployee(employee)){
+                            employee = market.searchEmployee(sc.nextLine());
+                            if (market.removeEmployee(employee)){
                                 System.out.println("Employee Removed");
                             } 
                             else System.out.println("Invalid employee ID");
@@ -65,7 +65,7 @@ public class Start{
                             System.out.println("___________________________________________\n");
                             employee = null;
                             System.out.print("Enter an Employee ID : ");
-                            employee = foodcourt.searchEmployee(sc.nextLine());
+                            employee = market.searchEmployee(sc.nextLine());
 
                             if (employee != null){
                                 System.out.println("\nEmployee found...");
@@ -80,7 +80,7 @@ public class Start{
                         case 4:
                             System.out.println("___________________________________________\n");
                             System.out.println("Employee List - \n");
-                            foodcourt.showAllEmployees();
+                            market.showAllEmployees();
                             System.out.println("___________________________________________\n");
                             break;
 
@@ -97,62 +97,62 @@ public class Start{
 
                 case 2:
                     System.out.println("___________________________________________\n");
-                    System.out.println(">>>>>>Restaurant Management<<<<<<");
-                    System.out.println("1. Insert New Restaurant");
-                    System.out.println("2. Remove Existing Restaurant");
-                    System.out.println("3. Show All Restaurant");
-                    System.out.println("4. Search A Restaurant");
+                    System.out.println(">>>>>>Shop Management<<<<<<");
+                    System.out.println("1. Insert New Shop");
+                    System.out.println("2. Remove Existing Shop");
+                    System.out.println("3. Show All Shop");
+                    System.out.println("4. Search A Shop");
                     System.out.println("5. Go Back");
 
                     System.out.print("Enter You Option : ");
                     switch (Integer.parseInt(sc.nextLine())){
                         case 1:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter Restaurant Name : ");
-                            restaurant.setName(sc.nextLine());
-                            System.out.print("Enter Restaurant ID : ");
-                            restaurant.setRid(sc.nextLine());
+                            shop = new Shop();
+                            System.out.print("Enter Shop Name : ");
+                            shop.setName(sc.nextLine());
+                            System.out.print("Enter Shop ID : ");
+                            shop.setSid(sc.nextLine());
 
-                            if (foodcourt.insertRestaurant(restaurant)){
-                                System.out.println("Restaurant Inserted");
+                            if (market.insertShop(shop)){
+                                System.out.println("Shop Inserted");
                             } 
-                            else System.out.println("Failed to insert restaurant.");
+                            else System.out.println("Failed to insert shops.");
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 2:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter a Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine());
+                            shop = new Shop();
+                            System.out.print("Enter a Shop ID : ");
+                            shop = market.searchShop(sc.nextLine());
 
-                            if (foodcourt.removeRestaurant(restaurant)) {
-                                System.out.println("Restaurant Removed.");
+                            if (market.removeShop(shop)) {
+                                System.out.println("Shop Removed.");
                             } 
-                            else System.out.println("Invalid restaurant ID");
+                            else System.out.println("Invalid shop ID");
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 3:
                             System.out.println("___________________________________________\n");
-                            System.out.println("Restaurant List - \n");
-                            foodcourt.showAllRestaurants();
+                            System.out.println("Shop List - \n");
+                            market.showAllShops();
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 4:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter an Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine());
+                            shop = new Shop();
+                            System.out.print("Enter an Shop ID : ");
+                            shop = market.searchShop(sc.nextLine());
 
-                            if (restaurant != null) {
-                                System.out.println("\nRestaurant Found...");
-                                System.out.println("Restaurant ID : " + restaurant.getRid());
-                                System.out.println("Restaurant Name : " + restaurant.getName());
+                            if (shop != null) {
+                                System.out.println("\nShop Found...");
+                                System.out.println("Shop ID : " + shop.getSid());
+                                System.out.println("Shop Name : " + shop.getName());
 
-                            } else System.out.println("Invalid restaurant ID");
+                            } else System.out.println("Invalid shop ID");
                             System.out.println("___________________________________________\n");
                             break;
 
@@ -169,67 +169,67 @@ public class Start{
 
                 case 3:
                     System.out.println("___________________________________________\n");
-                    System.out.println(">>>>>>Restauranr Food Item Management<<<<<<");
-                    System.out.println("1. Insert New Food Item");
-                    System.out.println("2. Remove Existing Food Item");
-                    System.out.println("3. Show All Food Items");
-                    System.out.println("4. Search a Food Item");
+                    System.out.println(">>>>>>Shop Product Management<<<<<<");
+                    System.out.println("1. Insert New Product Item");
+                    System.out.println("2. Remove Existing Product Item");
+                    System.out.println("3. Show All Product Items");
+                    System.out.println("4. Search a Product Item");
                     System.out.println("5. Go Back");
 
                     System.out.print("Enter You Option : ");
                     switch (Integer.parseInt(sc.nextLine())) {
                         case 1:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine()); 
+                            shop = new Shop();
+                            System.out.print("Enter Shop ID : ");
+                            shop = market.searchShop(sc.nextLine()); 
                             
-                            if (restaurant != null){
-                                System.out.println("Choose your Food Item Type - ");
-                                System.out.println("1. Main Dish");
-                                System.out.println("2. Appitizer");
-                                System.out.print("Enter Food Type : ");
+                            if (shop != null){
+                                System.out.println("Choose your Product Item Type - ");
+                                System.out.println("1. Local Product");
+                                System.out.println("2. Imported Product");
+                                System.out.print("Enter Product Type : ");
 
                                 switch (Integer.parseInt(sc.nextLine())) {
                                     case 1:
                                         System.out.println("___________________________________________\n");
-                                        fooditem = new MainDish();
-                                        System.out.print("Enter Food Item ID : ");
-                                        fooditem.setFid(sc.nextLine());
-                                        System.out.print("Enter Food Name : ");
-                                        fooditem.setName(sc.nextLine());
+                                        product = new LocalProduct();
+                                        System.out.print("Enter Product Item ID : ");
+                                        product.setPid(sc.nextLine());
+                                        System.out.print("Enter Product Name : ");
+                                        product.setName(sc.nextLine());
                                         System.out.print("Enter Quantity : ");
-                                        fooditem.setAvailableQuantity(Integer.parseInt(sc.nextLine()));
+                                        product.setAvailableQuantity(Integer.parseInt(sc.nextLine()));
                                         System.out.print("Enter Price : ");
-                                        fooditem.setPrice(Double.parseDouble(sc.nextLine()));
+                                        product.setPrice(Double.parseDouble(sc.nextLine()));
                                         System.out.print("Enter Category : ");
-                                        ((MainDish) fooditem).setCategory(sc.nextLine());
+                                        ((LocalProduct) product).setDiscountRate(Double.parseDouble(sc.nextLine()));
 
-                                        if(restaurant.insertFoodItem(fooditem)){
-                                            System.out.println("Food Item inserted.");
+                                        if(shop.insertProduct(product)){
+                                            System.out.println("Product Item inserted.");
                                         } 
-                                        else {System.out.println("Food Item Can Not be inserted.");}
+                                        else {System.out.println("Product Item Can Not be inserted.");}
                                         System.out.println("___________________________________________\n");
                                         break;
 
                                     case 2:
                                         System.out.println("___________________________________________\n");
-                                        fooditem = new Appitizers();
-                                        System.out.print("Enter Food Item ID : ");
-                                        fooditem.setFid(sc.nextLine());
-                                        System.out.print("Enter Food Name : ");
-                                        fooditem.setName(sc.nextLine());
+                                        product = new ImportedProduct();
+                                        System.out.print("Enter Product Item ID : ");
+                                        product.setPid(sc.nextLine());
+                                        System.out.print("Enter Product Name : ");
+                                        product.setName(sc.nextLine());
                                         System.out.print("Enter Quantity : ");
-                                        fooditem.setAvailableQuantity(Integer.parseInt(sc.nextLine()));
+                                        product.setAvailableQuantity(Integer.parseInt(sc.nextLine()));
                                         System.out.print("Enter Price : ");
-                                        fooditem.setPrice(Double.parseDouble(sc.nextLine()));
+                                        product.setPrice(Double.parseDouble(sc.nextLine()));
                                         System.out.print("Enter Size : ");
-                                        ((Appitizers)fooditem).setSize(Integer.parseInt(sc.nextLine()));
+                                        ((ImportedProduct)product).setCountryName(Integer.parseInt(sc.nextLine()));
 
-                                        if (restaurant.insertFoodItem(fooditem)) {
-                                            System.out.println("Food Item inserted");
+                                        if (shop.insertProduct(product)) {
+                                            System.out.println("Product Item inserted");
                                         } 
-                                        else {System.out.println("Failed to insert fooditem");}
+                                        else {System.out.println("Failed to insert product");}
                                         System.out.println("___________________________________________\n");
                                         break;
 
@@ -241,63 +241,63 @@ public class Start{
                                 }
 
                             } 
-                            else System.out.println("Invalid Restaurant ID.");
+                            else System.out.println("Invalid Shop ID.");
                             break;
 
                         case 2:
                             System.out.println("___________________________________________\n");
-                            fooditem = null;
+                            product = null;
                             System.out.println("---------------------------------");
-                            System.out.print("Enter Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine()); 
-                            if (restaurant == null) {
-                                System.out.println("Invalid Restaurant ID");
+                            System.out.print("Enter Shop ID : ");
+                            shop = market.searchShop(sc.nextLine()); 
+                            if (shop == null) {
+                                System.out.println("Invalid Shop ID");
                                 break;
                             }
-                            System.out.print("Enter a Food ID to Remove : ");
-                            fooditem = restaurant.searchFoodItem(sc.nextLine());
+                            System.out.print("Enter a Product ID to Remove : ");
+                            product = shop.searchProduct(sc.nextLine());
 
-                            if (fooditem != null) {
-                                if (restaurant.removeFoodItem(fooditem)){
-                                    System.out.println("Food Item Removed");
+                            if (product != null) {
+                                if (shop.removeProduct(product)){
+                                    System.out.println("Product Item Removed");
                                 } 
-                                else {System.out.println("Failed to remove food item.");}
+                                else {System.out.println("Failed to remove Product item.");}
                             } 
-                            else {System.out.println("Invalid food item ID");}
+                            else {System.out.println("Invalid Product item ID");}
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 3:
                             System.out.println("___________________________________________\n");
-                            System.out.print("Enter Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine());
-                            if (restaurant == null) {
-                                System.out.println("Invalid Restaurant ID");
+                            System.out.print("Enter Shop ID : ");
+                            shop = market.searchShop(sc.nextLine());
+                            if (shop == null) {
+                                System.out.println("Invalid Shop ID");
                                 break;
                             }
-                            restaurant.showAllFoodItems();
+                            shop.showAllProducts();
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 4:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter Restaurant ID : ");
-                            restaurant = foodcourt.searchRestaurant(sc.nextLine());
-                            if(restaurant == null){
-                                System.out.println("Invalid Restaurant ID");
+                            shop = new Shop();
+                            System.out.print("Enter Shop ID : ");
+                            shop = market.searchShop(sc.nextLine());
+                            if(shop == null){
+                                System.out.println("Invalid Shop ID");
                                 break;
                             }
-                            System.out.print("Enter an Food ID : ");
-                            String fid3 = sc.nextLine();
-                            fooditem = restaurant.searchFoodItem(fid3);
+                            System.out.print("Enter an Product ID : ");
+                            String pid3 = sc.nextLine();
+                            product = shop.searchProduct(pid3);
 
-                            if (fooditem != null){
-                                System.out.println("\nFood Item Found...");
-                                System.out.println("Food ID : " + fooditem.getFid());
-                                System.out.println("Food Name : " + fooditem.getName());
+                            if (product != null){
+                                System.out.println("\nProduct Item Found...");
+                                System.out.println("Product ID : " + product.getPid());
+                                System.out.println("Product Name : " + product.getName());
                             } 
-                            else System.out.println("Invalid food item ID");
+                            else System.out.println("Invalid Product item ID");
                             System.out.println("___________________________________________\n");
                             break;
                         case 5:
@@ -313,9 +313,9 @@ public class Start{
 
                 case 4:
                     System.out.println("___________________________________________\n");
-                    System.out.println(">>>>>>FoodItem Quantity Add-Sell<<<<<<");
-                    System.out.println("1. Add FoodItem");
-                    System.out.println("2. Sell FoodItem");
+                    System.out.println(">>>>>>Product Quantity Add-Sell<<<<<<");
+                    System.out.println("1. Add Product");
+                    System.out.println("2. Sell Product");
                     System.out.println("3. Show Add Sell History");
                     System.out.println("4. Go Back");
 
@@ -323,54 +323,54 @@ public class Start{
                     switch (Integer.parseInt(sc.nextLine())) {
                         case 1:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
-                            System.out.print("Enter Restaurant ID : ");
-                            String rid = sc.nextLine();
-                            restaurant = foodcourt.searchRestaurant(rid);
-                            if (restaurant != null){
-                                System.out.print("Enter Food ID : ");
-                                String fid = sc.nextLine();
-                                fooditem = restaurant.searchFoodItem(fid);
-                                if(fooditem != null){
+                            shop = new Shop();
+                            System.out.print("Enter Shop ID : ");
+                            String  sid = sc.nextLine();
+                            shop = market.searchShop(sid);
+                            if (shop != null){
+                                System.out.print("Enter Product ID : ");
+                                String pid = sc.nextLine();
+                                product = shop.searchProduct(pid);
+                                if(product != null){
                                     System.out.print("Enter Amount to Add Quantity : ");
                                     int quantity = Integer.parseInt(sc.nextLine());
-                                    if (fooditem.addQuantity(quantity)) {
-                                        System.out.println("Food Item added.");
-                                        frwd.writeInFile("Food Item Added => "+" Food Name : "+fooditem.getName()+ ", FId : "+fid+", Added Quantity : "+quantity);
+                                    if (product.addQuantity(quantity)) {
+                                        System.out.println("Product Item added.");
+                                        frwd.writeInFile("Product Item Added => "+" Product Name : "+product.getName()+ ", FId : "+pid+", Added Quantity : "+quantity);
                                     } 
-                                    else {System.out.println("Failed to add food item.");}
+                                    else {System.out.println("Failed to add Product item.");}
                                 } 
-                                else {System.out.print("Invalid Food ID");}
+                                else {System.out.print("Invalid Product ID");}
                             } 
-                            else {System.out.print("Invalid Restaurant ID.");}
+                            else {System.out.print("Invalid Shop ID.");}
                             System.out.println("___________________________________________\n");
                             break;
 
                         case 2:
                             System.out.println("___________________________________________\n");
-                            restaurant = new Restaurant();
+                            shop = new Shop();
                             System.out.println("---------------------------------");
-                            System.out.print("Enter Restaurant ID : ");
-                            String rid2 = sc.nextLine();
-                            restaurant = foodcourt.searchRestaurant(rid2);
-                            if (restaurant != null){
-                                System.out.print("Enter Food Item ID : ");
-                                String fid2 = sc.nextLine();
-                                fooditem = restaurant.searchFoodItem(fid2);
-                                if (fooditem != null){
+                            System.out.print("Enter Shop ID : ");
+                            String sid2 = sc.nextLine();
+                            shop = market.searchShop(sid2);
+                            if (shop != null){
+                                System.out.print("Enter Product Item ID : ");
+                                String pid2 = sc.nextLine();
+                                product = shop.searchProduct(pid2);
+                                if (product != null){
                                     System.out.print("Enter Amount to Sell Quantity : ");
                                     int quantity2 = Integer.parseInt(sc.nextLine());
 
-                                    if (fooditem.sellQuantity(quantity2)) {
+                                    if (product.sellQuantity(quantity2)) {
                                         System.out.println("Sell Done.");
-                                        frwd.writeInFile("Food Item Sold => "+" Food Name : "+fooditem.getName()+ ", FId : "+fid2+", Sold Quantity : "+quantity2);
+                                        frwd.writeInFile("Product Item Sold => "+" Product Name : "+product.getName()+ ", FId : "+pid2+", Sold Quantity : "+quantity2);
 
                                     } 
-                                    else {System.out.println("Failed to sell food item.");}
+                                    else {System.out.println("Failed to sell Product item.");}
                                 } 
-                                else {System.out.print("Invalid Food Item Number");}
+                                else {System.out.print("Invalid Product Item Number");}
                             } 
-                            else {System.out.print("Invalid Restaurant ID.");}
+                            else {System.out.print("Invalid Shop ID.");}
                             System.out.println("___________________________________________\n");
                             break;
 
