@@ -1,0 +1,12 @@
+D:\GameStore\bin\Debug\GameStore.exe.config
+D:\GameStore\bin\Debug\GameStore.exe
+D:\GameStore\bin\Debug\GameStore.pdb
+D:\GameStore\obj\Debug\GameStore.csproj.AssemblyReference.cache
+D:\GameStore\obj\Debug\GameStore.Properties.Resources.resources
+D:\GameStore\obj\Debug\GameStore.csproj.GenerateResource.cache
+D:\GameStore\obj\Debug\GameStore.csproj.CoreCompileInputs.cache
+D:\GameStore\obj\Debug\GameStore.exe
+D:\GameStore\obj\Debug\GameStore.pdb
+D:\GameStore\obj\Debug\GameStore.LogIn.resources
+D:\GameStore\obj\Debug\GameStore.Register.resources
+D:\GameStore\obj\Debug\GameStore.MainWindow.resources
