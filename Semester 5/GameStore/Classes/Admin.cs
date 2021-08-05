@@ -15,5 +15,36 @@ namespace GameStore.Classes
         long nid;
         char sex;
         string address;
+
+        public int Age
+        {
+            set { this.age = value; }
+            get { return this.age; }
+        }
+        public string FirstName
+        {
+            set { this.firstName = value; }
+            get { return this.firstName; }
+        }
+        public string LastName
+        {
+            set { this.lastName = value; }
+            get { return this.lastName; }
+        }
+        public long Nid
+        {
+            set { this.nid = value; }
+            get { return this.nid; }
+        }
+        public char Sex
+        {
+            set { this.sex = value; }
+            get { return this.sex; }
+        }
+        public string Address
+        {
+            set { this.address = value; }
+            get { return this.address; }
+        }
     }
 }

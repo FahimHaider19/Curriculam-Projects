@@ -16,5 +16,51 @@ namespace GameStore.Classes
         List<Game> games =  new List<Game>();
         List<News> news = new List<News>();
         List<RefundRequests> refundRequests = new List<RefundRequests>();
+
+        public string ViewAs
+        {
+            set { this.viewAs = value; }
+            get { return this.viewAs; }
+        }
+        public string Region
+        {
+            set { this.region = value; }
+            get { return this.region; }
+        }
+        public Game[] FeaturedGames
+        {
+            set { this.featuredGames = value; }
+            get { return this.featuredGames; }
+        }
+        public News[] TopNews
+        {
+            set { this.topNews = value; }
+            get { return this.topNews; }
+        }
+        public List<User> User
+        {
+            set { this.user = value; }
+            get { return this.user; }
+        }
+        public List<Game> Games
+        {
+            set { this.games = value; }
+            get { return this.games; }
+        }
+        public List<News> News
+        {
+            set { this.news = value; }
+            get { return this.news; }
+        }
+        public List<RefundRequests> RefundRequests
+        {
+            set { this.refundRequests = value; }
+            get { return this.refundRequests; }
+        }
+
+
+
+
+
     }
 }

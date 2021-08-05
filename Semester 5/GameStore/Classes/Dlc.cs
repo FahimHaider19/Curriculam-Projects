@@ -9,5 +9,10 @@ namespace GameStore.Classes
     class Dlc : Product
     {
         string gameName;
+        public string GameName
+        {
+            set { this.gameName = value; }
+            get { return this.gameName; }
+        }
     }
 }

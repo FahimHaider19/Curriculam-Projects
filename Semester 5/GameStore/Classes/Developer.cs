@@ -14,5 +14,10 @@ namespace GameStore.Classes
         void setDiscount(Game game, double discountPercentage) { }
         void removeDiscount(Game game) { }
         void removePublishedGame(Game game) { }
+        public List<Game> PublishedGames
+        {
+            set { this.publishedGames = value; }
+            get { return this.publishedGames; }
+        }
     }
 }
