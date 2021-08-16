@@ -19,38 +19,6 @@ namespace GameStore.Classes
         string releaseDate;
         List<string> genre =  new List<string>();
 
-        public List<string> Genre
-        {
-            set { this.genre = value; }
-            get { return this.genre; }
-        }
-        public string ReleaseDate
-        {
-            set { this.releaseDate = value; }
-            get { return this.releaseDate; }
-        }
-        public string Developer
-        {
-            set { this.developer = value; }
-            get { return this.developer; }
-        }
-        public string Publisher
-        {
-            set { this.publisher = value; }
-            get { return this.publisher; }
-        }
-
-        public string ImageLocations
-        {
-            set { this.imageLocations = value; }
-            get { return this.imageLocations; }
-        }
-        public int DiscountRate
-        {
-            set { this.discountRate = value; }
-            get { return this.discountRate; }
-        }
-       
         public string Name
         {
             set { this.name = value; }
@@ -71,5 +39,36 @@ namespace GameStore.Classes
             set { this.description = value; }
             get { return this.description; }
         }
+        public int DiscountRate
+        {
+            set { this.discountRate = value; }
+            get { return this.discountRate; }
+        }
+        public string ImageLocations
+        {
+            set { this.imageLocations = value; }
+            get { return this.imageLocations; }
+        }
+        public string Developer
+        {
+            set { this.developer = value; }
+            get { return this.developer; }
+        }
+        public string Publisher
+        {
+            set { this.publisher = value; }
+            get { return this.publisher; }
+        }
+        public string ReleaseDate
+        {
+            set { this.releaseDate = value; }
+            get { return this.releaseDate; }
+        }
+        public List<string> Genre
+        {
+            set { this.genre = value; }
+            get { return this.genre; }
+        }
+               
     }
 }

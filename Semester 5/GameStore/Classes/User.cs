@@ -8,33 +8,20 @@ namespace GameStore.Classes
 {
     abstract class User
     {
+        protected long userID;
         protected string userName;
-        int userID;
-        
         protected string email;
         protected string secondaryMail;
         protected string phone;
         protected string country;
         protected PaymentCard card = new PaymentCard();
-
         KeyValuePair<bool, string> notifications = new KeyValuePair<bool, string>();
 
-        public KeyValuePair<bool, string> Notifications
-        {
-            set { this.notifications = value; }
-            get { return this.notifications; }
-        }
-        public PaymentCard Card
-        {
-            set { this.card = value; }
-            get { return this.card; }
-        }
-        public int UserId
+        public long UserId
         {
             set { this.userID = value; }
             get { return this.userID; }
         }
-       
         public string UserName
         {
             set { this.userName = value; }
@@ -60,5 +47,16 @@ namespace GameStore.Classes
             set { this.country = value; }
             get { return this.country; }
         }
+        public PaymentCard Card
+        {
+            set { this.card = value; }
+            get { return this.card; }
+        }
+        public KeyValuePair<bool, string> Notifications
+        {
+            set { this.notifications = value; }
+            get { return this.notifications; }
+        }
+               
     }
 }

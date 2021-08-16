@@ -14,6 +14,7 @@ namespace GameStore.Classes
         string storage;
         string os;
         string languageRestriction;
+
         public string Processor
         {
             set { this.processor = value; }
@@ -44,9 +45,6 @@ namespace GameStore.Classes
             set { this.languageRestriction = value; }
             get { return this.languageRestriction; }
         }
-
-
-
 
     }
 }

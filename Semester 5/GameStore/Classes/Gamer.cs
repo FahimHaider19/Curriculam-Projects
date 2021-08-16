@@ -22,43 +22,14 @@ namespace GameStore.Classes
         List<Game> purchasedGames = new List<Game>();
         List<Dlc> purchasedDlcs = new List<Dlc>();
         Gamer[] friends;
-        Gamer[] friendRequests;
+        List<Gamer> friendRequests = new List<Gamer>();
         List<Product> wishlist = new List<Product>();
         List<Product> cart = new List<Product>();
         List<Receipt> purchaseHistory = new List<Receipt>();
-        long[] favouriteGamesId;
-
+        //long[] favouriteGamesId; added to game property
         Dictionary<long, int> playtime = new Dictionary<long, int>();
-
         RefundRequests[] refundRequests = new RefundRequests[5];
 
-        public  string Region
-        {
-            set { this.region = value; }
-            get { return this.region; }
-        }
-
-        public Dictionary<long, int> Playtime
-        {
-            set { this.playtime = value; }
-            get { return this.playtime; }
-        }
-        public double StoreCredit
-        {
-            set { this.storeCredit = value; }
-            get { return this.storeCredit; }
-        }
-        public bool BanStatus
-        {
-            set { this.banStatus = value; }
-            get { return this.banStatus; }
-        }
-
-        public int XP
-        {
-            set { this.xp = value; }
-            get { return this.xp; }
-        }
         public int Age
         {
             set { this.age = value; }
@@ -74,6 +45,11 @@ namespace GameStore.Classes
             set { this.lastName = value; }
             get { return this.lastName; }
         }
+        public long Nid
+        {
+            set { this.nid = value; }
+            get { return this.nid; }
+        }
         public char Sex
         {
             set { this.sex = value; }
@@ -84,22 +60,30 @@ namespace GameStore.Classes
             set { this.address = value; }
             get { return this.address; }
         }
-        public long Nid
+        public  string Region
         {
-            set { this.nid = value; }
-            get { return this.nid; }
+            set { this.region = value; }
+            get { return this.region; }
         }
-       
+        public double StoreCredit
+        {
+            set { this.storeCredit = value; }
+            get { return this.storeCredit; }
+        }
+        public bool BanStatus
+        {
+            set { this.banStatus = value; }
+            get { return this.banStatus; }
+        }
+        public int XP
+        {
+            set { this.xp = value; }
+            get { return this.xp; }
+        }
         public List<Game> PurchasedGames
         {
             set { this.purchasedGames = value; }
             get { return this.purchasedGames; }
-        }
-
-        public RefundRequests[] RefundRequests
-        {
-            set { this.refundRequests = value; }
-            get { return this.refundRequests; }
         }
         public Gamer[] Friends
         {
@@ -107,12 +91,7 @@ namespace GameStore.Classes
             get { return this.friends; }
 
         }
-        public long[] FavouriteGamesId
-        {
-            set { this.favouriteGamesId = value; }
-            get { return this.favouriteGamesId; }
-        }
-        public Gamer[] FriendRequests
+        public List<Gamer> FriendRequests
         {
             set { this.friendRequests = value; }
             get { return this.friendRequests; }
@@ -137,6 +116,70 @@ namespace GameStore.Classes
         {
             set { this.purchasedDlcs = value; }
             get { return this.purchasedDlcs; }
+        }
+        /*public long[] FavouriteGamesId
+        {
+            set { this.favouriteGamesId = value; }
+            get { return this.favouriteGamesId; }
+        }*/
+        public Dictionary<long, int> Playtime
+        {
+            set { this.playtime = value; }
+            get { return this.playtime; }
+        }
+        public RefundRequests[] RefundRequests
+        {
+            set { this.refundRequests = value; }
+            get { return this.refundRequests; }
+        }
+
+        bool addFriends(Gamer gamer)
+        {
+            bool flag = false;
+            for(int i=0;i<friends.Length; i++) 
+                if (friends[i] == null)
+                {
+                    friends[i] = gamer;
+                    flag = true;
+                    break;
+                }
+            return flag;
+        }
+        bool removeFriends(Gamer gamer)
+        {
+            bool flag = false;
+            for (int i = 0; i < friends.Length; i++)
+                if (friends[i] == gamer)
+                {
+                    friends[i] = null;
+                    flag = true;
+                    break;
+                }
+            return flag;
+        }
+        bool addRefundRequests(RefundRequests refundRequest)
+        {
+            bool flag = false;
+            for (int i = 0; i < refundRequests.Length; i++)
+                if (refundRequests[i] == null)
+                {
+                    refundRequests[i] = refundRequest;
+                    flag = true;
+                    break;
+                }
+            return flag;
+        }
+        bool removeRefundRequests(RefundRequests refundRequest)
+        {
+            bool flag = false;
+            for (int i = 0; i < refundRequests.Length; i++)
+                if (refundRequests[i] == refundRequest)
+                {
+                    refundRequests[i] = null;
+                    flag = true;
+                    break;
+                }
+            return flag;
         }
     }
 }

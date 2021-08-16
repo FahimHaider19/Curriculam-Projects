@@ -60,10 +60,87 @@
     <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\SystemRequirements.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="testUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="testUC.Designer.cs">
+      <DependentUpon>testUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlBrowse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlBrowse.Designer.cs">
+      <DependentUpon>UserControlBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlCart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlCart.Designer.cs">
+      <DependentUpon>UserControlCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlGamePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlGamePage.Designer.cs">
+      <DependentUpon>UserControlGamePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlLibrary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlLibrary.Designer.cs">
+      <DependentUpon>UserControlLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlNews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlNews.Designer.cs">
+      <DependentUpon>UserControlNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlProfile.Designer.cs">
+      <DependentUpon>UserControlProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlReadNews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlReadNews.Designer.cs">
+      <DependentUpon>UserControlReadNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControllStore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControllStore.Designer.cs">
+      <DependentUpon>UserControllStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlWishlist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlWishlist.Designer.cs">
+      <DependentUpon>UserControlWishlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\GameBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\GameBox.Designer.cs">
+      <DependentUpon>GameBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\IDeveloperManagement.cs" />
     <Compile Include="Interface\IGamerManagement.cs" />
     <Compile Include="Interface\IPurchase.cs" />
     <Compile Include="Interface\IStoreManagement.cs" />
+    <Compile Include="WinForms\NewsBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\NewsBox.Designer.cs">
+      <DependentUpon>NewsBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +161,22 @@
     <Compile Include="WinForms\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForms\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testUC.resx">
+      <DependentUpon>testUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\GameBox.resx">
+      <DependentUpon>GameBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,8 +192,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WinForms\NewsBox.resx">
+      <DependentUpon>NewsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlBrowse.resx">
+      <DependentUpon>UserControlBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlGamePage.resx">
+      <DependentUpon>UserControlGamePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlLibrary.resx">
+      <DependentUpon>UserControlLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControllStore.resx">
+      <DependentUpon>UserControllStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlWishlist.resx">
+      <DependentUpon>UserControlWishlist.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,5 +230,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="RedDeadRedemption2.jpg" />
+    <None Include="Resources\news.png" />
+    <None Include="Resources\dropdown.png" />
+    <None Include="Resources\shop.png" />
+    <None Include="Resources\library.png" />
+    <None Include="Resources\wishlist.png" />
+    <None Include="Resources\sign out.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\icons8-sign-out-30.png" />
+    <None Include="Resources\icons8-shopify-30.png" />
+    <None Include="Resources\icons8-settings-30.png" />
+    <None Include="Resources\icons8-online-store-30.png" />
+    <None Include="Resources\icons8-list-view-30.png" />
+    <None Include="Resources\icons8-fast-cart-30.png" />
+    <None Include="Resources\icons8-book-shelf-30.png" />
+    <None Include="Resources\RedDeadRedemption2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

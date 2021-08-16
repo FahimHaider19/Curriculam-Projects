@@ -10,6 +10,8 @@ namespace GameStore.Classes
     {
         Game[] featuredGames = new Game[10];
         News[] topNews =  new News[10];
+        Game[] gamesOnSale = new Game[10];
+        Game[] trendingGames = new Game[10];
         string viewAs;
         List<User> user = new List<User>();
         string region;
@@ -17,6 +19,26 @@ namespace GameStore.Classes
         List<News> news = new List<News>();
         List<RefundRequests> refundRequests = new List<RefundRequests>();
 
+        public Game[] FeaturedGames
+        {
+            set { this.featuredGames = value; }
+            get { return this.featuredGames; }
+        }
+        public Game[] GamesOnSale
+        {
+            set { this.gamesOnSale = value; }
+            get { return this.gamesOnSale; }
+        }
+        public Game[] GrendingGames
+        {
+            set { this.trendingGames = value; }
+            get { return this.trendingGames; }
+        }
+        public News[] TopNews
+        {
+            set { this.topNews = value; }
+            get { return this.topNews; }
+        }
         public string ViewAs
         {
             set { this.viewAs = value; }
@@ -26,16 +48,6 @@ namespace GameStore.Classes
         {
             set { this.region = value; }
             get { return this.region; }
-        }
-        public Game[] FeaturedGames
-        {
-            set { this.featuredGames = value; }
-            get { return this.featuredGames; }
-        }
-        public News[] TopNews
-        {
-            set { this.topNews = value; }
-            get { return this.topNews; }
         }
         public List<User> User
         {
@@ -57,10 +69,6 @@ namespace GameStore.Classes
             set { this.refundRequests = value; }
             get { return this.refundRequests; }
         }
-
-
-
-
 
     }
 }

@@ -8,6 +8,10 @@ namespace GameStore.Classes
 {
     class Game : Product
     {
+        bool isFavourite;
+
+
+
         SystemRequirements systemRequirments;
         List<Dlc> dlcs = new List<Dlc>();
         List<Review> reviews = new List<Review>();

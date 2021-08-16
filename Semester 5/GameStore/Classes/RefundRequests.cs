@@ -11,6 +11,7 @@ namespace GameStore.Classes
         long refundRequestId;
         User user;
         Product product;
+
         public long RefundRequestId
         {
             set { this.refundRequestId = value; }
@@ -26,5 +27,6 @@ namespace GameStore.Classes
             set { this.product = value; }
             get { return this.product; }
         }
+
     }
 }

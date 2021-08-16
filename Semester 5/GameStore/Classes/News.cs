@@ -13,6 +13,7 @@ namespace GameStore.Classes
         string topic;
         string date;
         string description;
+
         public long NewsId
         {
             set { this.newsID = value; }

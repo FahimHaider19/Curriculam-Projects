@@ -19,6 +19,7 @@ namespace GameStore
             //Application.Run(new LogIn());
             //Application.Run(new Register());
             //Application.Run(new MainWindow());
+            Application.Run(new WinForms.TestForm());
         }
     }
 }
