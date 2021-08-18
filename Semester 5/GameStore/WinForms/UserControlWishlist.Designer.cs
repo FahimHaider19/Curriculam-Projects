@@ -80,7 +80,7 @@ namespace GameStore.WinForms
             // 
             this.labelGenre.AutoSize = true;
             this.labelGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGenre.Location = new System.Drawing.Point(318, 94);
+            this.labelGenre.Location = new System.Drawing.Point(318, 91);
             this.labelGenre.Name = "labelGenre";
             this.labelGenre.Size = new System.Drawing.Size(181, 24);
             this.labelGenre.TabIndex = 4;

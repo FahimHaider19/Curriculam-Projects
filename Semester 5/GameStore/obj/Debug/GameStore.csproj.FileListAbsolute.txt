@@ -28,7 +28,8 @@ D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.Resource.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControllStore.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlLibrary.resources
-D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.testUC.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlBrowse.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlGamePage.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlWishlist.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlCart.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlDashboardAdmin.resources

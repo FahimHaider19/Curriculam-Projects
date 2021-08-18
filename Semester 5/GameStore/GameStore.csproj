@@ -65,23 +65,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="testUC.cs">
+    <Compile Include="WinForms\FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlDashboardAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="testUC.Designer.cs">
-      <DependentUpon>testUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\UserControlBrowse.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinForms\UserControlBrowse.Designer.cs">
-      <DependentUpon>UserControlBrowse.cs</DependentUpon>
+    <Compile Include="WinForms\UserControlDashboardAdmin.Designer.cs">
+      <DependentUpon>UserControlDashboardAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlCart.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WinForms\UserControlCart.Designer.cs">
       <DependentUpon>UserControlCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlBrowse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlBrowse.Designer.cs">
+      <DependentUpon>UserControlBrowse.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlGamePage.cs">
       <SubType>UserControl</SubType>
@@ -171,8 +177,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="testUC.resx">
-      <DependentUpon>testUC.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\UserControlCart.resx">
+      <DependentUpon>UserControlCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\GameBox.resx">
       <DependentUpon>GameBox.cs</DependentUpon>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlBrowse.resx">
       <DependentUpon>UserControlBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlDashboardAdmin.resx">
+      <DependentUpon>UserControlDashboardAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlGamePage.resx">
       <DependentUpon>UserControlGamePage.cs</DependentUpon>

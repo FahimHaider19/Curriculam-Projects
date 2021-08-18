@@ -32,25 +32,24 @@ namespace GameStore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.paneldrag = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.panelStoreDropdown = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.labelTopBanner = new System.Windows.Forms.Label();
+            this.panelCenter = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonLibrary = new System.Windows.Forms.Button();
             this.buttonNews = new System.Windows.Forms.Button();
             this.buttonDropDown = new System.Windows.Forms.Button();
-            this.panelStoreDropdown = new System.Windows.Forms.Panel();
             this.buttonCart = new System.Windows.Forms.Button();
             this.buttonWishlist = new System.Windows.Forms.Button();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.buttonSignOut = new System.Windows.Forms.Button();
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelTopBanner = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelUsername = new System.Windows.Forms.Label();
             this.panelLeft.SuspendLayout();
             this.panelStoreDropdown.SuspendLayout();
-            this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +60,7 @@ namespace GameStore
             this.paneldrag.Location = new System.Drawing.Point(0, 0);
             this.paneldrag.Margin = new System.Windows.Forms.Padding(2);
             this.paneldrag.Name = "paneldrag";
-            this.paneldrag.Size = new System.Drawing.Size(1317, 16);
+            this.paneldrag.Size = new System.Drawing.Size(1300, 16);
             this.paneldrag.TabIndex = 4;
             // 
             // panelLeft
@@ -79,8 +78,80 @@ namespace GameStore
             this.panelLeft.Location = new System.Drawing.Point(0, 16);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(195, 713);
+            this.panelLeft.Size = new System.Drawing.Size(195, 759);
             this.panelLeft.TabIndex = 5;
+            // 
+            // panelStoreDropdown
+            // 
+            this.panelStoreDropdown.Controls.Add(this.buttonCart);
+            this.panelStoreDropdown.Controls.Add(this.buttonWishlist);
+            this.panelStoreDropdown.Controls.Add(this.buttonBrowse);
+            this.panelStoreDropdown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelStoreDropdown.Location = new System.Drawing.Point(0, 107);
+            this.panelStoreDropdown.Margin = new System.Windows.Forms.Padding(2);
+            this.panelStoreDropdown.Name = "panelStoreDropdown";
+            this.panelStoreDropdown.Size = new System.Drawing.Size(195, 131);
+            this.panelStoreDropdown.TabIndex = 6;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(195, 65);
+            this.panelLogo.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.labelUsername);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.labelTopBanner);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(195, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1105, 46);
+            this.panel1.TabIndex = 7;
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelUsername.Location = new System.Drawing.Point(942, 0);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(119, 46);
+            this.labelUsername.TabIndex = 3;
+            this.labelUsername.Text = "UserName";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelTopBanner
+            // 
+            this.labelTopBanner.AutoSize = true;
+            this.labelTopBanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopBanner.Location = new System.Drawing.Point(3, 2);
+            this.labelTopBanner.Name = "labelTopBanner";
+            this.labelTopBanner.Size = new System.Drawing.Size(110, 42);
+            this.labelTopBanner.TabIndex = 0;
+            this.labelTopBanner.Text = "Label";
+            // 
+            // panelCenter
+            // 
+            this.panelCenter.AutoScroll = true;
+            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCenter.Location = new System.Drawing.Point(195, 62);
+            this.panelCenter.Name = "panelCenter";
+            this.panelCenter.Size = new System.Drawing.Size(1105, 713);
+            this.panelCenter.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox1.Location = new System.Drawing.Point(1061, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 46);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonSettings
             // 
@@ -154,18 +225,6 @@ namespace GameStore
             this.buttonDropDown.TabIndex = 9;
             this.buttonDropDown.UseVisualStyleBackColor = true;
             this.buttonDropDown.Click += new System.EventHandler(this.buttonDropDown_Click);
-            // 
-            // panelStoreDropdown
-            // 
-            this.panelStoreDropdown.Controls.Add(this.buttonCart);
-            this.panelStoreDropdown.Controls.Add(this.buttonWishlist);
-            this.panelStoreDropdown.Controls.Add(this.buttonBrowse);
-            this.panelStoreDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStoreDropdown.Location = new System.Drawing.Point(0, 107);
-            this.panelStoreDropdown.Margin = new System.Windows.Forms.Padding(2);
-            this.panelStoreDropdown.Name = "panelStoreDropdown";
-            this.panelStoreDropdown.Size = new System.Drawing.Size(195, 131);
-            this.panelStoreDropdown.TabIndex = 6;
             // 
             // buttonCart
             // 
@@ -245,15 +304,6 @@ namespace GameStore
             this.buttonHome.UseVisualStyleBackColor = true;
             this.buttonHome.Click += new System.EventHandler(this.buttonStore_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(195, 65);
-            this.panelLogo.TabIndex = 5;
-            // 
             // buttonSignOut
             // 
             this.buttonSignOut.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -263,7 +313,7 @@ namespace GameStore
             this.buttonSignOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSignOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonSignOut.Image")));
             this.buttonSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSignOut.Location = new System.Drawing.Point(0, 671);
+            this.buttonSignOut.Location = new System.Drawing.Point(0, 717);
             this.buttonSignOut.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSignOut.Name = "buttonSignOut";
             this.buttonSignOut.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -271,58 +321,6 @@ namespace GameStore
             this.buttonSignOut.TabIndex = 4;
             this.buttonSignOut.Text = "Sign Out";
             this.buttonSignOut.UseVisualStyleBackColor = true;
-            // 
-            // panelCenter
-            // 
-            this.panelCenter.AutoScroll = true;
-            this.panelCenter.Controls.Add(this.panel1);
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(195, 16);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1122, 713);
-            this.panelCenter.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.labelUsername);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.labelTopBanner);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1122, 46);
-            this.panel1.TabIndex = 0;
-            // 
-            // labelTopBanner
-            // 
-            this.labelTopBanner.AutoSize = true;
-            this.labelTopBanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopBanner.Location = new System.Drawing.Point(3, 2);
-            this.labelTopBanner.Name = "labelTopBanner";
-            this.labelTopBanner.Size = new System.Drawing.Size(110, 42);
-            this.labelTopBanner.TabIndex = 0;
-            this.labelTopBanner.Text = "Label";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(1078, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 46);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelUsername
-            // 
-            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelUsername.Location = new System.Drawing.Point(959, 0);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(119, 46);
-            this.labelUsername.TabIndex = 3;
-            this.labelUsername.Text = "UserName";
-            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainWindow
             // 
@@ -332,6 +330,7 @@ namespace GameStore
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1317, 729);
             this.Controls.Add(this.panelCenter);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.paneldrag);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -339,7 +338,6 @@ namespace GameStore
             this.Text = "MainWindow";
             this.panelLeft.ResumeLayout(false);
             this.panelStoreDropdown.ResumeLayout(false);
-            this.panelCenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -362,10 +360,10 @@ namespace GameStore
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Button buttonLibrary;
         private System.Windows.Forms.Button buttonNews;
-        private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelTopBanner;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelTopBanner;
+        private System.Windows.Forms.Panel panelCenter;
     }
 }

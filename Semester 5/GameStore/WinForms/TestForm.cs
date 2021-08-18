@@ -15,24 +15,14 @@ namespace GameStore.WinForms
         public TestForm()
         {
             InitializeComponent();
-            //Gamebox
-            //GameBox g = new GameBox("Red Dead Redemption 2");
-            //g.BackColor = Color.Purple;
-            //flowLayoutPanel1.Controls.Add(g);
-
-            //flowLayoutPanel1.Controls.Add(new NewsBox());
-            //flowLayoutPanel1.Controls.Add(new NewsBox());
-            //flowLayoutPanel1.Controls.Add(new NewsBox());
-            //tableLayoutPanel1.Controls.Add(new NewsBox());
-            //tableLayoutPanel1.Controls.Add(new NewsBox());
-            //tableLayoutPanel1.Controls.Add(new NewsBox());
-            
-            NewsBox n = new NewsBox();
-            NewsBox n2 = new NewsBox();
-            NewsBox n3 = new NewsBox();
-            //panel1.Controls.Add(new Button());
-            //n.Dock = DockStyle.Fill;
-
+            flowLayoutPanel1.Controls.Add(new UserControlCart());
+            /*
+            UserControlWishlist ucw = new UserControlWishlist();
+            UserControlWishlist ucw1 = new UserControlWishlist();
+            flowLayoutPanel1.Controls.Add(ucw);
+            flowLayoutPanel1.Controls.Add(ucw1);
+            ucw.Dock = DockStyle.Top;
+            ucw.Dock = DockStyle.Top;*/
 
         }
 

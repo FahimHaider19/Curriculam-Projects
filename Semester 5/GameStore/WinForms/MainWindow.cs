@@ -16,10 +16,12 @@ namespace GameStore
         public MainWindow()
         {
             InitializeComponent();
-            panelStoreDropdown.Hide();
-            UserControlGamePage ucg = new UserControlGamePage();
-            panelCenter.Controls.Add(ucg);
-            ucg.Dock = DockStyle.Top;
+            //panelStoreDropdown.Hide();
+            //UserControlCart tu = new UserControlCart();
+            //panelCenter.Controls.Add(tu);
+
+
+            
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -79,7 +81,7 @@ namespace GameStore
             //ucl2.GameBox1.LabelGameboxGameName.Text = "Hellu";
 
             //panelCenter.Controls.Add();
-            /*
+            
             List<GameBox> gb = new List<GameBox>();
             for (int i = 0; i < 20; i++)
             {
@@ -87,6 +89,9 @@ namespace GameStore
                 str += i;
                 gb.Add(new GameBox(str));
             }
+
+
+
             List<UserControlLibrary> rows = new List<UserControlLibrary>();
                 
             for(int i = 0; i < Convert.ToInt32(Math.Ceiling(gb.Count / 6.0)); i++)
@@ -103,7 +108,7 @@ namespace GameStore
                 panelCenter.Controls.Add(rows[i]);
                 rows[i].Dock = DockStyle.Top;
             }
-            /*
+            
             /*
             UserControlLibrary l1 = new UserControlLibrary();
             panelCenter.Controls.Add(l1);
