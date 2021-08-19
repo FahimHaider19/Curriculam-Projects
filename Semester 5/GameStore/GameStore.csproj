@@ -60,22 +60,52 @@
     <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\SystemRequirements.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="FormDeveloper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeveloper.Designer.cs">
+      <DependentUpon>FormDeveloper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlDeveloperManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDeveloperManagement.Designer.cs">
+      <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlPublishNews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlPublishNews.Designer.cs">
+      <DependentUpon>UserControlPublishNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlUserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlUserManagement.Designer.cs">
+      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlPublishGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlPublishGame.Designer.cs">
+      <DependentUpon>UserControlPublishGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlNews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlNews.Designer.cs">
+      <DependentUpon>UserControlNews.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForms\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\UserControlDashboardAdmin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinForms\UserControlDashboardAdmin.Designer.cs">
-      <DependentUpon>UserControlDashboardAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlCart.cs">
       <SubType>UserControl</SubType>
@@ -100,12 +130,6 @@
     </Compile>
     <Compile Include="WinForms\UserControlLibrary.Designer.cs">
       <DependentUpon>UserControlLibrary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\UserControlNews.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinForms\UserControlNews.Designer.cs">
-      <DependentUpon>UserControlNews.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlProfile.cs">
       <SubType>UserControl</SubType>
@@ -173,9 +197,27 @@
     <Compile Include="WinForms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormDeveloper.resx">
+      <DependentUpon>FormDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDeveloperManagement.resx">
+      <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlPublishNews.resx">
+      <DependentUpon>UserControlPublishNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlUserManagement.resx">
+      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlPublishGame.resx">
+      <DependentUpon>UserControlPublishGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlNews.resx">
+      <DependentUpon>UserControlNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlCart.resx">
       <DependentUpon>UserControlCart.cs</DependentUpon>
@@ -209,9 +251,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlBrowse.resx">
       <DependentUpon>UserControlBrowse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\UserControlDashboardAdmin.resx">
-      <DependentUpon>UserControlDashboardAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlGamePage.resx">
       <DependentUpon>UserControlGamePage.cs</DependentUpon>
