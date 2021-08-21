@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class Developer : User
+    public class Developer : User
     {
         List<Game> publishedGames = new List<Game>();
         

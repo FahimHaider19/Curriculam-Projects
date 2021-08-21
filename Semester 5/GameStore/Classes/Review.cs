@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class Review
+    public class Review
     {
         Gamer gamer;
         Game game;

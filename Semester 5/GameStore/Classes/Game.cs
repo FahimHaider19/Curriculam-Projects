@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class Game : Product
+    public class Game : Product
     {
         bool isFavourite;
 
@@ -16,7 +16,10 @@ namespace GameStore.Classes
         List<Dlc> dlcs = new List<Dlc>();
         List<Review> reviews = new List<Review>();
         List<News> news = new List<News>();
+        //List<string> genre = new List<string>();
 
+        public Game() { }
+        public Game(string name) { this.Name = name; }
         public SystemRequirements SystemRequirements
         {
             set { this.systemRequirments = value; }
@@ -37,6 +40,24 @@ namespace GameStore.Classes
             set { this.news = value; }
             get { return this.news; }
         }
-
+        public List<string> Genre
+        {
+            set { this.genre = value; }
+            get { return this.genre; }
+        }
+        public Game Copy()
+        {
+            Game temp = new Game();
+            temp.name = this.name;
+            temp.productId = this.productId;
+            temp.price = price;
+            temp.description = description;
+            temp.discountRate = discountRate;
+            temp.imageLocations = this.imageLocations;
+            temp.developer = this.developer;
+            temp.publisher = this.publisher;
+            temp.releaseDate = this.releaseDate;
+            return temp;
+        }
     }
 }

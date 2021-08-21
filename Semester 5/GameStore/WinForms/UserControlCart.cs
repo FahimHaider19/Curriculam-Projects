@@ -20,9 +20,9 @@ namespace GameStore
             flowLayoutPanel1.Controls.Add(ucw);
             flowLayoutPanel1.Controls.Add(ucw1);
             flowLayoutPanel1.Controls.Add(new UserControlWishlist());
-
-
         }
+
+
 
         private void testUC_Load(object sender, EventArgs e)
         {

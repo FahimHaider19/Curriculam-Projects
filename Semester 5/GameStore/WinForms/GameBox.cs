@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameStore.Classes;
 
 namespace GameStore
 {
@@ -16,7 +17,14 @@ namespace GameStore
         {
             InitializeComponent();
         }
-        public GameBox(string title)
+        public GameBox(Game game)
+        {
+            InitializeComponent();
+            //picturebox;
+            labelGameboxGameName.Text = game.Name;
+            labelpriceTag.Text = game.Price + "$";
+        }
+        public GameBox(string title) //delete later, for test purpose only
         {
             InitializeComponent();
             this.pictureBox.Image = GameStore.Resource.RedDeadRedemption2;
@@ -25,12 +33,12 @@ namespace GameStore
         }
         public PictureBox PictureBox
         {
-            get;
-            set;
+            set { this.pictureBox = value; }
+            get { return pictureBox; }
         }
         public Label LabelGameboxGameName
         {
-            get{ return labelGameboxGameName; }
+            get { return labelGameboxGameName; }
             set { this.labelGameboxGameName = value; }
         }
         public Label LabelpriceTag

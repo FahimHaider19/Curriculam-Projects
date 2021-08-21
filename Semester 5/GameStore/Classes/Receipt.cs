@@ -6,22 +6,14 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class Receipt
+    public class Receipt
     {
-        long purchaseId;
         long customerId;
-        //Product productItem;
         string productType;
-        string productName;
-        string baseGame; //only if productType == DLC
+        long productId;
         string dateAndTime;
         double price;
 
-        public long PurchaseId
-        {
-            set { this.purchaseId = value; }
-            get { return this.purchaseId; }
-        }
         public long CustomerId
         {
             set { this.customerId = value; }
@@ -37,18 +29,11 @@ namespace GameStore.Classes
             set { this.productType = value; }
             get { return this.productType; }
         }
-        public string ProductName
+        public long ProductId
         {
-            set { this.productName = value; }
-            get { return this.productName; }
+            set { this.productId = value; }
+            get { return this.productId; }
         }
-
-        public string BaseGame
-        {
-            set { this.baseGame = value; }
-            get { return this.baseGame; }
-        }
-
         public string DateAndTime
         {
             set { this.dateAndTime = value; }

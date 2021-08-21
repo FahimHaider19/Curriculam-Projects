@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    abstract class Product
+    public abstract class Product
     {
         protected string name;
         protected long productId;
         protected double price;
         protected string description;
         protected int discountRate;
-        string imageLocations;
-        string developer;
-        string publisher;
-        string releaseDate;
-        List<string> genre =  new List<string>();
+        protected string imageLocations;
+        protected string developer;
+        protected string publisher;
+        protected string releaseDate;
+        protected List<string> genre =  new List<string>();
 
         public string Name
         {

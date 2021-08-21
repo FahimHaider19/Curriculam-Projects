@@ -7,13 +7,13 @@ using GameStore.Interface;
 
 namespace GameStore.Classes
 {
-    class Gamer : User//, IPurchase
+    public class Gamer : User//, IPurchase
     {
         int age;
         string firstName;
         string lastName;
         long nid;
-        char sex;
+        string sex;
         string address;
         double storeCredit;
         int xp;
@@ -50,7 +50,7 @@ namespace GameStore.Classes
             set { this.nid = value; }
             get { return this.nid; }
         }
-        public char Sex
+        public string Sex
         {
             set { this.sex = value; }
             get { return this.sex; }
@@ -181,5 +181,6 @@ namespace GameStore.Classes
                 }
             return flag;
         }
+
     }
 }

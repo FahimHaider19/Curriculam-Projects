@@ -60,7 +60,7 @@ namespace GameStore
             this.paneldrag.Location = new System.Drawing.Point(0, 0);
             this.paneldrag.Margin = new System.Windows.Forms.Padding(2);
             this.paneldrag.Name = "paneldrag";
-            this.paneldrag.Size = new System.Drawing.Size(1300, 16);
+            this.paneldrag.Size = new System.Drawing.Size(1317, 16);
             this.paneldrag.TabIndex = 4;
             // 
             // panelLeft
@@ -78,7 +78,7 @@ namespace GameStore
             this.panelLeft.Location = new System.Drawing.Point(0, 16);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(195, 759);
+            this.panelLeft.Size = new System.Drawing.Size(195, 713);
             this.panelLeft.TabIndex = 5;
             // 
             // buttonSettings
@@ -138,6 +138,7 @@ namespace GameStore
             this.buttonNews.TabIndex = 10;
             this.buttonNews.Text = "News";
             this.buttonNews.UseVisualStyleBackColor = true;
+            this.buttonNews.Click += new System.EventHandler(this.buttonNews_Click);
             // 
             // buttonDropDown
             // 
@@ -184,6 +185,7 @@ namespace GameStore
             this.buttonCart.TabIndex = 3;
             this.buttonCart.Text = "Cart";
             this.buttonCart.UseVisualStyleBackColor = true;
+            this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // buttonWishlist
             // 
@@ -203,6 +205,7 @@ namespace GameStore
             this.buttonWishlist.TabIndex = 2;
             this.buttonWishlist.Text = "Wishlist";
             this.buttonWishlist.UseVisualStyleBackColor = true;
+            this.buttonWishlist.Click += new System.EventHandler(this.buttonWishlist_Click);
             // 
             // buttonBrowse
             // 
@@ -262,7 +265,7 @@ namespace GameStore
             this.buttonSignOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSignOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonSignOut.Image")));
             this.buttonSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSignOut.Location = new System.Drawing.Point(0, 717);
+            this.buttonSignOut.Location = new System.Drawing.Point(0, 671);
             this.buttonSignOut.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSignOut.Name = "buttonSignOut";
             this.buttonSignOut.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -270,6 +273,7 @@ namespace GameStore
             this.buttonSignOut.TabIndex = 4;
             this.buttonSignOut.Text = "Sign Out";
             this.buttonSignOut.UseVisualStyleBackColor = true;
+            this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
             // 
             // panel1
             // 
@@ -279,7 +283,7 @@ namespace GameStore
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(195, 16);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1105, 46);
+            this.panel1.Size = new System.Drawing.Size(1122, 46);
             this.panel1.TabIndex = 7;
             // 
             // labelUsername
@@ -287,7 +291,7 @@ namespace GameStore
             this.labelUsername.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelUsername.Location = new System.Drawing.Point(942, 0);
+            this.labelUsername.Location = new System.Drawing.Point(959, 0);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(119, 46);
             this.labelUsername.TabIndex = 3;
@@ -297,7 +301,7 @@ namespace GameStore
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(1061, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1078, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(44, 46);
             this.pictureBox1.TabIndex = 2;
@@ -315,11 +319,11 @@ namespace GameStore
             // 
             // panelCenter
             // 
-            this.panelCenter.AutoScroll = true;
+            this.panelCenter.AutoSize = true;
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCenter.Location = new System.Drawing.Point(195, 62);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1105, 713);
+            this.panelCenter.Size = new System.Drawing.Size(1122, 0);
             this.panelCenter.TabIndex = 8;
             // 
             // MainWindow
@@ -342,6 +346,7 @@ namespace GameStore
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

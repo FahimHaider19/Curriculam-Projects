@@ -32,7 +32,6 @@ D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlGamePage.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlWishlist.resources
 D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlCart.resources
-D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlDashboardAdmin.resources
 I:\Github\Curriculam-Projects\Semester 5\GameStore\bin\Debug\GameStore.exe.config
 I:\Github\Curriculam-Projects\Semester 5\GameStore\bin\Debug\GameStore.exe
 I:\Github\Curriculam-Projects\Semester 5\GameStore\bin\Debug\GameStore.pdb
@@ -60,3 +59,42 @@ I:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.csproj.Ge
 I:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.csproj.CoreCompileInputs.cache
 I:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.exe
 I:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.pdb
+I:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlDeveloperManagement.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.csproj.AssemblyReference.cache
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.FormDeveloper.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.Resource.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlDeveloperManagement.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlPublishNews.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.FormAdmin.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControlReadNews.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlUserManagement.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlPublishGame.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlNews.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.UserControlCart.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.GameBox.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.LogIn.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.MainWindow.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.Properties.Resources.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.NewsBox.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.Register.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.TestForm.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControlBrowse.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControlGamePage.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControlLibrary.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControllStore.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.WinForms.UserControlWishlist.resources
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.csproj.GenerateResource.cache
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.csproj.CoreCompileInputs.cache
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.exe
+C:\Users\WolfEye19\Desktop\GameStore\obj\Debug\GameStore.pdb
+C:\Users\WolfEye19\Desktop\GameStore\bin\Debug\GameStore.exe.config
+C:\Users\WolfEye19\Desktop\GameStore\bin\Debug\GameStore.exe
+C:\Users\WolfEye19\Desktop\GameStore\bin\Debug\GameStore.pdb
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.FormDeveloper.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlDeveloperManagement.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlPublishNews.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.FormAdmin.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.WinForms.UserControlReadNews.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlUserManagement.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlPublishGame.resources
+D:\Github\Curriculam-Projects\Semester 5\GameStore\obj\Debug\GameStore.UserControlNews.resources

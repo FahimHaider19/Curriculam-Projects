@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class News
+    public class News
     {
         long newsID;
+        long productID;
         string title;
         string topic;
         string date;
@@ -18,6 +19,11 @@ namespace GameStore.Classes
         {
             set { this.newsID = value; }
             get { return this.newsID; }
+        }
+        public long ProductId
+        {
+            set { this.productID = value; }
+            get { return this.productID; }
         }
         public string Title
         {

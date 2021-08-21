@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class SystemRequirements
+    public class SystemRequirements
     {
         string processor;
         string memory;

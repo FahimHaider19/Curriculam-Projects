@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameStore.WinForms;
+using GameStore.Classes;
+using GameStore.DataAccess;
 
 namespace GameStore
 {
@@ -15,13 +17,21 @@ namespace GameStore
         [STAThread]
         static void Main()
         {
+            Store store = new Store();
+            UsersDataAccess uda = new UsersDataAccess(store);
+            store.Uda = uda;
+            uda.GetUsers();
+            uda.GetProducts();
+            //uda.getNews();
+            uda.getProductRecord(store.Gamers[0]);
+            uda.getReceipt(store.Gamers[0]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new LogIn());
+
+            Application.Run(new LogIn(store));
             //Application.Run(new Register());
             Application.Run(new MainWindow());
             //Application.Run(new TestForm());
-            
             
         }
     }

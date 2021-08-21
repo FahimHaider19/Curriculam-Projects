@@ -48,9 +48,10 @@ namespace GameStore
             this.labelLogin.AutoSize = true;
             this.labelLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelLogin.Location = new System.Drawing.Point(232, 602);
+            this.labelLogin.Location = new System.Drawing.Point(155, 391);
+            this.labelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(54, 20);
+            this.labelLogin.Size = new System.Drawing.Size(37, 13);
             this.labelLogin.TabIndex = 18;
             this.labelLogin.Text = "Log In";
             // 
@@ -59,9 +60,10 @@ namespace GameStore
             this.labelAlreadyHaveAnAccount.AutoSize = true;
             this.labelAlreadyHaveAnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelAlreadyHaveAnAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelAlreadyHaveAnAccount.Location = new System.Drawing.Point(171, 582);
+            this.labelAlreadyHaveAnAccount.Location = new System.Drawing.Point(114, 378);
+            this.labelAlreadyHaveAnAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAlreadyHaveAnAccount.Name = "labelAlreadyHaveAnAccount";
-            this.labelAlreadyHaveAnAccount.Size = new System.Drawing.Size(189, 20);
+            this.labelAlreadyHaveAnAccount.Size = new System.Drawing.Size(130, 13);
             this.labelAlreadyHaveAnAccount.TabIndex = 17;
             this.labelAlreadyHaveAnAccount.Text = "Already have an Account!";
             // 
@@ -69,9 +71,10 @@ namespace GameStore
             // 
             this.showPassCheckbox1.AutoSize = true;
             this.showPassCheckbox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.showPassCheckbox1.Location = new System.Drawing.Point(91, 312);
+            this.showPassCheckbox1.Location = new System.Drawing.Point(61, 203);
+            this.showPassCheckbox1.Margin = new System.Windows.Forms.Padding(2);
             this.showPassCheckbox1.Name = "showPassCheckbox1";
-            this.showPassCheckbox1.Size = new System.Drawing.Size(148, 24);
+            this.showPassCheckbox1.Size = new System.Drawing.Size(102, 17);
             this.showPassCheckbox1.TabIndex = 16;
             this.showPassCheckbox1.Text = "Show Password";
             this.showPassCheckbox1.UseVisualStyleBackColor = true;
@@ -79,21 +82,24 @@ namespace GameStore
             // registerButton
             // 
             this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerButton.Location = new System.Drawing.Point(123, 514);
+            this.registerButton.Location = new System.Drawing.Point(82, 334);
+            this.registerButton.Margin = new System.Windows.Forms.Padding(2);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(283, 56);
+            this.registerButton.Size = new System.Drawing.Size(189, 36);
             this.registerButton.TabIndex = 15;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(86, 230);
+            this.label3.Location = new System.Drawing.Point(57, 149);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 25);
+            this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Password";
             // 
@@ -101,19 +107,22 @@ namespace GameStore
             // 
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(91, 262);
+            this.passwordBox.Location = new System.Drawing.Point(61, 170);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(362, 35);
+            this.passwordBox.Size = new System.Drawing.Size(242, 26);
             this.passwordBox.TabIndex = 13;
+            this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(86, 144);
+            this.label2.Location = new System.Drawing.Point(57, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 12;
             this.label2.Text = "Username";
             // 
@@ -121,10 +130,12 @@ namespace GameStore
             // 
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usernameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameBox.Location = new System.Drawing.Point(91, 176);
+            this.usernameBox.Location = new System.Drawing.Point(61, 114);
+            this.usernameBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(362, 35);
+            this.usernameBox.Size = new System.Drawing.Size(242, 26);
             this.usernameBox.TabIndex = 11;
+            this.usernameBox.TextChanged += new System.EventHandler(this.usernameBox_TextChanged);
             // 
             // labelRegisterBanner
             // 
@@ -134,9 +145,10 @@ namespace GameStore
             this.labelRegisterBanner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelRegisterBanner.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegisterBanner.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelRegisterBanner.Location = new System.Drawing.Point(189, 95);
+            this.labelRegisterBanner.Location = new System.Drawing.Point(126, 62);
+            this.labelRegisterBanner.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRegisterBanner.Name = "labelRegisterBanner";
-            this.labelRegisterBanner.Size = new System.Drawing.Size(143, 41);
+            this.labelRegisterBanner.Size = new System.Drawing.Size(97, 30);
             this.labelRegisterBanner.TabIndex = 10;
             this.labelRegisterBanner.Text = "Register";
             // 
@@ -144,9 +156,10 @@ namespace GameStore
             // 
             this.showPassCheckbox2.AutoSize = true;
             this.showPassCheckbox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.showPassCheckbox2.Location = new System.Drawing.Point(91, 428);
+            this.showPassCheckbox2.Location = new System.Drawing.Point(61, 278);
+            this.showPassCheckbox2.Margin = new System.Windows.Forms.Padding(2);
             this.showPassCheckbox2.Name = "showPassCheckbox2";
-            this.showPassCheckbox2.Size = new System.Drawing.Size(148, 24);
+            this.showPassCheckbox2.Size = new System.Drawing.Size(102, 17);
             this.showPassCheckbox2.TabIndex = 21;
             this.showPassCheckbox2.Text = "Show Password";
             this.showPassCheckbox2.UseVisualStyleBackColor = true;
@@ -156,9 +169,10 @@ namespace GameStore
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(86, 346);
+            this.label6.Location = new System.Drawing.Point(57, 225);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 25);
+            this.label6.Size = new System.Drawing.Size(121, 17);
             this.label6.TabIndex = 20;
             this.label6.Text = "Confirm Password";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -167,17 +181,19 @@ namespace GameStore
             // 
             this.confirmPasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.confirmPasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPasswordBox.Location = new System.Drawing.Point(91, 378);
+            this.confirmPasswordBox.Location = new System.Drawing.Point(61, 246);
+            this.confirmPasswordBox.Margin = new System.Windows.Forms.Padding(2);
             this.confirmPasswordBox.Name = "confirmPasswordBox";
-            this.confirmPasswordBox.Size = new System.Drawing.Size(362, 35);
+            this.confirmPasswordBox.Size = new System.Drawing.Size(242, 26);
             this.confirmPasswordBox.TabIndex = 19;
+            this.confirmPasswordBox.TextChanged += new System.EventHandler(this.confirmPasswordBox_TextChanged);
             // 
             // Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(522, 686);
+            this.ClientSize = new System.Drawing.Size(348, 446);
             this.Controls.Add(this.showPassCheckbox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.confirmPasswordBox);
@@ -190,9 +206,11 @@ namespace GameStore
             this.Controls.Add(this.label2);
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.labelRegisterBanner);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

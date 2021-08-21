@@ -7,13 +7,13 @@ using GameStore.Interface;
 
 namespace GameStore.Classes
 {
-    class Admin : User//, IDeveloperManagement, IGamerManagement, IStoreManagement
+    public class Admin : User//, IDeveloperManagement, IGamerManagement, IStoreManagement
     {
         int age;
         string firstName;
         string lastName;
         long nid;
-        char sex;
+        string sex;
         string address;
 
         public int Age
@@ -36,7 +36,7 @@ namespace GameStore.Classes
             set { this.nid = value; }
             get { return this.nid; }
         }
-        public char Sex
+        public string Sex
         {
             set { this.sex = value; }
             get { return this.sex; }

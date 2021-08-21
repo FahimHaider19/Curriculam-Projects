@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    abstract class User
+    public abstract class User
     {
         protected long userID;
         protected string userName;

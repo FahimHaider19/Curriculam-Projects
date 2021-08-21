@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,10 +61,12 @@
     <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\SystemRequirements.cs" />
     <Compile Include="Classes\User.cs" />
-    <Compile Include="FormDeveloper.cs">
+    <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\UsersDataAccess.cs" />
+    <Compile Include="WinForms\FormDeveloper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDeveloper.Designer.cs">
+    <Compile Include="WinForms\FormDeveloper.Designer.cs">
       <DependentUpon>FormDeveloper.cs</DependentUpon>
     </Compile>
     <Compile Include="Resource.Designer.cs">
@@ -71,16 +74,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControlDeveloperManagement.cs">
+    <Compile Include="WinForms\UserControlDeveloperManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlDeveloperManagement.Designer.cs">
+    <Compile Include="WinForms\UserControlDeveloperManagement.Designer.cs">
       <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlPublishNews.cs">
+    <Compile Include="WinForms\UserControlPublishNews.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlPublishNews.Designer.cs">
+    <Compile Include="WinForms\UserControlPublishNews.Designer.cs">
       <DependentUpon>UserControlPublishNews.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlUserManagement.cs">
@@ -197,18 +200,24 @@
     <Compile Include="WinForms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormDeveloper.resx">
+    <EmbeddedResource Include="WinForms\FormDeveloper.resx">
       <DependentUpon>FormDeveloper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlDeveloperManagement.resx">
+    <EmbeddedResource Include="WinForms\UserControlDeveloperManagement.resx">
       <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlPublishNews.resx">
+    <EmbeddedResource Include="WinForms\UserControlPublishNews.resx">
       <DependentUpon>UserControlPublishNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlReadNews.resx">
+      <DependentUpon>UserControlReadNews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlUserManagement.resx">
       <DependentUpon>UserControlUserManagement.cs</DependentUpon>

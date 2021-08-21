@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class PaymentCard
+    public class PaymentCard
     {
         string brand;
         int length;

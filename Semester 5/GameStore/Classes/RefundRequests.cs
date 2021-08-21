@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Classes
 {
-    class RefundRequests
+    public class RefundRequests
     {
         long refundRequestId;
         User user;
