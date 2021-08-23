@@ -30,19 +30,21 @@ namespace GameStore
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.textBoxTitle = new System.Windows.Forms.TextBox();
-            this.textBoxImages = new System.Windows.Forms.TextBox();
-            this.labelImages = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.textBoxGameTopic = new System.Windows.Forms.TextBox();
             this.labelGameTopic = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.textBoxImages = new System.Windows.Forms.TextBox();
+            this.labelImages = new System.Windows.Forms.Label();
+            this.textBoxTitle = new System.Windows.Forms.TextBox();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonInsertNews = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.buttonInsertNews);
             this.panel.Controls.Add(this.textBoxGameTopic);
             this.panel.Controls.Add(this.labelGameTopic);
             this.panel.Controls.Add(this.textBoxDescription);
@@ -57,41 +59,23 @@ namespace GameStore
             this.panel.Size = new System.Drawing.Size(1121, 664);
             this.panel.TabIndex = 0;
             // 
-            // labelTitle
+            // textBoxGameTopic
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.labelTitle.Location = new System.Drawing.Point(125, 105);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(59, 25);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Title :";
+            this.textBoxGameTopic.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGameTopic.Location = new System.Drawing.Point(283, 292);
+            this.textBoxGameTopic.Name = "textBoxGameTopic";
+            this.textBoxGameTopic.Size = new System.Drawing.Size(456, 33);
+            this.textBoxGameTopic.TabIndex = 8;
             // 
-            // textBoxTitle
+            // labelGameTopic
             // 
-            this.textBoxTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTitle.Location = new System.Drawing.Point(283, 97);
-            this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(456, 33);
-            this.textBoxTitle.TabIndex = 2;
-            // 
-            // textBoxImages
-            // 
-            this.textBoxImages.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxImages.Location = new System.Drawing.Point(283, 168);
-            this.textBoxImages.Name = "textBoxImages";
-            this.textBoxImages.Size = new System.Drawing.Size(456, 33);
-            this.textBoxImages.TabIndex = 4;
-            // 
-            // labelImages
-            // 
-            this.labelImages.AutoSize = true;
-            this.labelImages.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.labelImages.Location = new System.Drawing.Point(125, 176);
-            this.labelImages.Name = "labelImages";
-            this.labelImages.Size = new System.Drawing.Size(84, 25);
-            this.labelImages.TabIndex = 3;
-            this.labelImages.Text = "Images :";
+            this.labelGameTopic.AutoSize = true;
+            this.labelGameTopic.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelGameTopic.Location = new System.Drawing.Point(125, 300);
+            this.labelGameTopic.Name = "labelGameTopic";
+            this.labelGameTopic.Size = new System.Drawing.Size(124, 25);
+            this.labelGameTopic.TabIndex = 7;
+            this.labelGameTopic.Text = "Game/Topic :";
             // 
             // textBoxDescription
             // 
@@ -111,23 +95,53 @@ namespace GameStore
             this.labelDescription.TabIndex = 5;
             this.labelDescription.Text = "Description :";
             // 
-            // textBoxGameTopic
+            // textBoxImages
             // 
-            this.textBoxGameTopic.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGameTopic.Location = new System.Drawing.Point(283, 292);
-            this.textBoxGameTopic.Name = "textBoxGameTopic";
-            this.textBoxGameTopic.Size = new System.Drawing.Size(456, 33);
-            this.textBoxGameTopic.TabIndex = 8;
+            this.textBoxImages.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxImages.Location = new System.Drawing.Point(283, 168);
+            this.textBoxImages.Name = "textBoxImages";
+            this.textBoxImages.Size = new System.Drawing.Size(456, 33);
+            this.textBoxImages.TabIndex = 4;
             // 
-            // labelGameTopic
+            // labelImages
             // 
-            this.labelGameTopic.AutoSize = true;
-            this.labelGameTopic.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.labelGameTopic.Location = new System.Drawing.Point(125, 300);
-            this.labelGameTopic.Name = "labelGameTopic";
-            this.labelGameTopic.Size = new System.Drawing.Size(124, 25);
-            this.labelGameTopic.TabIndex = 7;
-            this.labelGameTopic.Text = "Game/Topic :";
+            this.labelImages.AutoSize = true;
+            this.labelImages.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelImages.Location = new System.Drawing.Point(125, 176);
+            this.labelImages.Name = "labelImages";
+            this.labelImages.Size = new System.Drawing.Size(84, 25);
+            this.labelImages.TabIndex = 3;
+            this.labelImages.Text = "Images :";
+            // 
+            // textBoxTitle
+            // 
+            this.textBoxTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTitle.Location = new System.Drawing.Point(283, 97);
+            this.textBoxTitle.Name = "textBoxTitle";
+            this.textBoxTitle.Size = new System.Drawing.Size(456, 33);
+            this.textBoxTitle.TabIndex = 2;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelTitle.Location = new System.Drawing.Point(125, 105);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(59, 25);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Title :";
+            // 
+            // buttonInsertNews
+            // 
+            this.buttonInsertNews.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonInsertNews.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsertNews.Location = new System.Drawing.Point(369, 361);
+            this.buttonInsertNews.Name = "buttonInsertNews";
+            this.buttonInsertNews.Size = new System.Drawing.Size(224, 44);
+            this.buttonInsertNews.TabIndex = 9;
+            this.buttonInsertNews.Text = "Confirm";
+            this.buttonInsertNews.UseVisualStyleBackColor = true;
+            this.buttonInsertNews.Click += new System.EventHandler(this.buttonInsertNews_Click);
             // 
             // UserControlPublishNews
             // 
@@ -153,5 +167,6 @@ namespace GameStore
         private System.Windows.Forms.Label labelImages;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonInsertNews;
     }
 }

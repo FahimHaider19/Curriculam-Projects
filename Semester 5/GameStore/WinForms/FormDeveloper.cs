@@ -7,13 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameStore.Classes;
 
 namespace GameStore
 {
     public partial class FormDeveloper : Form
     {
+        Store store;
         public FormDeveloper()
         {
+            InitializeComponent();
+        }
+        public FormDeveloper(Store store)
+        {
+            this.store = store;
             InitializeComponent();
         }
 
@@ -54,12 +61,29 @@ namespace GameStore
 
         private void buttonGameManagement_Click(object sender, EventArgs e)
         {
+            panelCenter.Controls.Clear();
+            UserControlgameManageMentcs game = new UserControlgameManageMentcs(store);
+            panelCenter.Controls.Add(game);
+            game.Dock = DockStyle.Fill;
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        
 
+        private void buttonPublishGames_Click(object sender, EventArgs e)
+        {
+            panelCenter.Controls.Clear();
+            UserControlPublishGame pubcgames = new UserControlPublishGame(store);
+            panelCenter.Controls.Add(pubcgames);
+            pubcgames.Dock = DockStyle.Fill;
+        }
+
+        private void buttonPublishNews_Click(object sender, EventArgs e)
+        {
+            panelCenter.Controls.Clear();
+            UserControlPublishNews publishnew = new UserControlPublishNews(store);
+            panelCenter.Controls.Add(publishnew);
+            publishnew.Dock = DockStyle.Fill;
         }
     }
 }

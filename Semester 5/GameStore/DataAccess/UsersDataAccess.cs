@@ -46,7 +46,7 @@ namespace GameStore.DataAccess
             g.Sex = reader["sex"].ToString();
             g.Email = reader["email"].ToString();
             g.SecondaryMail = reader["secondary_mail"].ToString();
-            g.Nid = (long)reader["nid"];
+           // g.Nid = (long)reader["nid"];
             g.Phone = reader["phone"].ToString();
             g.Address = reader["address"].ToString();
             g.Country = reader["country"].ToString();
@@ -72,59 +72,17 @@ namespace GameStore.DataAccess
         }
         public void GetUsers() //List<User>
         {
-            //List<Gamer> gamers = new List<Gamer>();
-            //List<Developer> developers = new List<Developer>();
-            //List<Admin> admins = new List<Admin>();
+           
             string sqlUser = "Select * from Users";
             SqlDataReader readerUser = this.GetData(sqlUser);
             while (readerUser.Read())
             {
-                /*
-                if(readerUser["user_type"].ToString()=="admin" && store.LoggedInUser.Email== readerUser["email"].ToString())
+                if (readerUser["user_type"].ToString() == "gamer")
                 {
-                    Admin a = new Admin();
-                    a.UserId = (long)readerUser["userID"];
-                    a.UserName = readerUser["username"].ToString();
-                    a.FirstName = readerUser["first_name"].ToString();
-                    a.LastName = readerUser["last_name"].ToString();
-                    a.Age = (int)readerUser["age"];
-                    a.Sex = readerUser["sex"].ToString();
-                    a.Email = readerUser["email"].ToString();
-                    a.SecondaryMail = readerUser["secondary_mail"].ToString();
-                    a.Nid = (long)readerUser["nid"];
-                    a.Phone = readerUser["phone"].ToString();
-                    a.Address = readerUser["address"].ToString();
-                    a.Country = readerUser["country"].ToString();
-                    long cardNumber = (long)readerUser["card"]; //retrive card
-                    //cardReader = this.GetData("Select * from PaymentCards where ")
-                    //notifications
-                    //add if logged in as admin
-                    store.LoggedInUser = a;
-                }
-                else */if (readerUser["user_type"].ToString() == "gamer")
-                {
-                    /*Gamer g = new Gamer();
-                    g.UserId = (long)readerUser["userID"];
-                    g.UserName = readerUser["username"].ToString();
-                    g.FirstName = readerUser["first_name"].ToString();
-                    g.LastName = readerUser["last_name"].ToString();
-                    g.Age = (int)readerUser["age"];
-                    g.Sex = readerUser["sex"].ToString();
-                    g.Email = readerUser["email"].ToString();
-                    g.SecondaryMail = readerUser["secondary_mail"].ToString();
-                    g.Nid = (long)readerUser["nid"];
-                    g.Phone = readerUser["phone"].ToString();
-                    g.Address = readerUser["address"].ToString();
-                    g.Country = readerUser["country"].ToString();
-                    g.StoreCredit = (double)readerUser["store_credit"];
-                    g.XP = (int)readerUser["xp"];
-                    g.BanStatus = (bool)readerUser["banstatus"];
-                    g.Region = readerUser["region"].ToString();
-                    long cardNumber = (long)readerUser["card"]; */
-                    //retrive card
-                    //cardReader = this.GetData("Select * from PaymentCards where ")
-                    //notifications
-                    store.Gamers.Add(getGamer(readerUser));
+                    Gamer g = getGamer(readerUser);
+
+
+                    store.Gamers.Add(g);
 
                     //if (store.LoggedInUser.Email == readerUser["email"].ToString()) store.LoggedInUser = g;
                 }
@@ -222,7 +180,7 @@ namespace GameStore.DataAccess
                         News news = new News();
                         news.NewsId = (long)newssqlreader["newsId"];
                         news.Title = newssqlreader["title"].ToString();
-                        news.Topic = newssqlreader["domain"].ToString();
+                       // news.Topic = newssqlreader["domain"].ToString();
                         news.Date = newssqlreader["date"].ToString();
                         news.Description = newssqlreader["description"].ToString();
                         game.News.Add(news);

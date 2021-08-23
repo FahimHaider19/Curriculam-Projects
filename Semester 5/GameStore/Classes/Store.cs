@@ -23,6 +23,17 @@ namespace GameStore.Classes
         List<News> news = new List<News>();
         List<RefundRequests> refundRequests = new List<RefundRequests>();
 
+        public Game getGame(string name)
+        {
+            foreach (Game g in games)
+            {
+                if (g.Name == name)
+                {
+                    return g;
+                }
+            }
+            return null;
+        }
         public UsersDataAccess Uda
         {
             set { this.uda = value; }

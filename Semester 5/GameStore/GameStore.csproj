@@ -63,6 +63,12 @@
     <Compile Include="Classes\User.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\UsersDataAccess.cs" />
+    <Compile Include="WinForms\UserControlgameManageMentcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlgameManageMentcs.Designer.cs">
+      <DependentUpon>UserControlgameManageMentcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\FormDeveloper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <Compile Include="WinForms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WinForms\UserControlgameManageMentcs.resx">
+      <DependentUpon>UserControlgameManageMentcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormDeveloper.resx">
       <DependentUpon>FormDeveloper.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +298,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="RedDeadRedemption2.jpg" />
+    <None Include="Resources\icons8-browse-page-30.png" />
     <None Include="Resources\news.png" />
     <None Include="Resources\dropdown.png" />
     <None Include="Resources\shop.png" />

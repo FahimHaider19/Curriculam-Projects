@@ -31,19 +31,19 @@ namespace GameStore
         {
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelManageMent = new System.Windows.Forms.Panel();
+            this.buttonPublishGames = new System.Windows.Forms.Button();
+            this.buttonPublishNews = new System.Windows.Forms.Button();
+            this.buttonGameManagement = new System.Windows.Forms.Button();
+            this.panelCenter = new System.Windows.Forms.Panel();
             this.buttonSignOut = new System.Windows.Forms.Button();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonMyProfile = new System.Windows.Forms.Button();
             this.buttonDashBoard = new System.Windows.Forms.Button();
             this.buttonNews = new System.Windows.Forms.Button();
-            this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelManageMent = new System.Windows.Forms.Panel();
-            this.buttonPublishNews = new System.Windows.Forms.Button();
-            this.buttonGameManagement = new System.Windows.Forms.Button();
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.buttonPublishGames = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             this.panelManageMent.SuspendLayout();
             this.SuspendLayout();
@@ -73,80 +73,6 @@ namespace GameStore
             this.panelLeft.Size = new System.Drawing.Size(196, 713);
             this.panelLeft.TabIndex = 1;
             // 
-            // buttonSignOut
-            // 
-            this.buttonSignOut.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonSignOut.FlatAppearance.BorderSize = 0;
-            this.buttonSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSignOut.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonSignOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonSignOut.Location = new System.Drawing.Point(0, 671);
-            this.buttonSignOut.Name = "buttonSignOut";
-            this.buttonSignOut.Size = new System.Drawing.Size(196, 42);
-            this.buttonSignOut.TabIndex = 7;
-            this.buttonSignOut.Text = "Sign Out";
-            this.buttonSignOut.UseVisualStyleBackColor = true;
-            // 
-            // buttonSettings
-            // 
-            this.buttonSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSettings.FlatAppearance.BorderSize = 0;
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonSettings.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonSettings.Location = new System.Drawing.Point(0, 310);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(196, 42);
-            this.buttonSettings.TabIndex = 6;
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = true;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
-            // 
-            // buttonMyProfile
-            // 
-            this.buttonMyProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonMyProfile.FlatAppearance.BorderSize = 0;
-            this.buttonMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMyProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonMyProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonMyProfile.Location = new System.Drawing.Point(0, 268);
-            this.buttonMyProfile.Name = "buttonMyProfile";
-            this.buttonMyProfile.Size = new System.Drawing.Size(196, 42);
-            this.buttonMyProfile.TabIndex = 5;
-            this.buttonMyProfile.Text = "MyProfile";
-            this.buttonMyProfile.UseVisualStyleBackColor = true;
-            this.buttonMyProfile.Click += new System.EventHandler(this.buttonMyProfile_Click);
-            // 
-            // buttonDashBoard
-            // 
-            this.buttonDashBoard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonDashBoard.FlatAppearance.BorderSize = 0;
-            this.buttonDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDashBoard.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonDashBoard.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonDashBoard.Location = new System.Drawing.Point(0, 226);
-            this.buttonDashBoard.Name = "buttonDashBoard";
-            this.buttonDashBoard.Size = new System.Drawing.Size(196, 42);
-            this.buttonDashBoard.TabIndex = 4;
-            this.buttonDashBoard.Text = "DashBoard";
-            this.buttonDashBoard.UseVisualStyleBackColor = true;
-            this.buttonDashBoard.Click += new System.EventHandler(this.buttonDashBoard_Click);
-            // 
-            // buttonNews
-            // 
-            this.buttonNews.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonNews.FlatAppearance.BorderSize = 0;
-            this.buttonNews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNews.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonNews.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonNews.Location = new System.Drawing.Point(0, 184);
-            this.buttonNews.Name = "buttonNews";
-            this.buttonNews.Size = new System.Drawing.Size(196, 42);
-            this.buttonNews.TabIndex = 3;
-            this.buttonNews.Text = "News";
-            this.buttonNews.UseVisualStyleBackColor = true;
-            this.buttonNews.Click += new System.EventHandler(this.buttonNews_Click);
-            // 
             // buttonBrowse
             // 
             this.buttonBrowse.Dock = System.Windows.Forms.DockStyle.Top;
@@ -154,6 +80,8 @@ namespace GameStore
             this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBrowse.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.buttonBrowse.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonBrowse.Image = global::GameStore.Resource.browse;
+            this.buttonBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBrowse.Location = new System.Drawing.Point(0, 142);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(196, 42);
@@ -161,23 +89,6 @@ namespace GameStore
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
             this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
-            // 
-            // buttonHome
-            // 
-            this.buttonHome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonHome.FlatAppearance.BorderSize = 0;
-            this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHome.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.buttonHome.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonHome.Image = global::GameStore.Resource.home;
-            this.buttonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHome.Location = new System.Drawing.Point(0, 100);
-            this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(196, 42);
-            this.buttonHome.TabIndex = 1;
-            this.buttonHome.Text = "Home";
-            this.buttonHome.UseVisualStyleBackColor = true;
-            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // panelLogo
             // 
@@ -198,6 +109,20 @@ namespace GameStore
             this.panelManageMent.Size = new System.Drawing.Size(1121, 49);
             this.panelManageMent.TabIndex = 0;
             // 
+            // buttonPublishGames
+            // 
+            this.buttonPublishGames.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPublishGames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPublishGames.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.buttonPublishGames.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonPublishGames.Location = new System.Drawing.Point(380, 0);
+            this.buttonPublishGames.Name = "buttonPublishGames";
+            this.buttonPublishGames.Size = new System.Drawing.Size(377, 49);
+            this.buttonPublishGames.TabIndex = 3;
+            this.buttonPublishGames.Text = "Publish Games";
+            this.buttonPublishGames.UseVisualStyleBackColor = true;
+            this.buttonPublishGames.Click += new System.EventHandler(this.buttonPublishGames_Click);
+            // 
             // buttonPublishNews
             // 
             this.buttonPublishNews.Dock = System.Windows.Forms.DockStyle.Right;
@@ -210,7 +135,7 @@ namespace GameStore
             this.buttonPublishNews.TabIndex = 2;
             this.buttonPublishNews.Text = "Publish News";
             this.buttonPublishNews.UseVisualStyleBackColor = true;
-            this.buttonPublishNews.Click += new System.EventHandler(this.button1_Click);
+            this.buttonPublishNews.Click += new System.EventHandler(this.buttonPublishNews_Click);
             // 
             // buttonGameManagement
             // 
@@ -234,18 +159,106 @@ namespace GameStore
             this.panelCenter.Size = new System.Drawing.Size(1121, 664);
             this.panelCenter.TabIndex = 2;
             // 
-            // buttonPublishGames
+            // buttonSignOut
             // 
-            this.buttonPublishGames.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPublishGames.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPublishGames.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.buttonPublishGames.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonPublishGames.Location = new System.Drawing.Point(380, 0);
-            this.buttonPublishGames.Name = "buttonPublishGames";
-            this.buttonPublishGames.Size = new System.Drawing.Size(377, 49);
-            this.buttonPublishGames.TabIndex = 3;
-            this.buttonPublishGames.Text = "Publish Games";
-            this.buttonPublishGames.UseVisualStyleBackColor = true;
+            this.buttonSignOut.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonSignOut.FlatAppearance.BorderSize = 0;
+            this.buttonSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSignOut.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonSignOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSignOut.Image = global::GameStore.Resource.sign_out;
+            this.buttonSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSignOut.Location = new System.Drawing.Point(0, 671);
+            this.buttonSignOut.Name = "buttonSignOut";
+            this.buttonSignOut.Size = new System.Drawing.Size(196, 42);
+            this.buttonSignOut.TabIndex = 7;
+            this.buttonSignOut.Text = "Sign Out";
+            this.buttonSignOut.UseVisualStyleBackColor = true;
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonSettings.FlatAppearance.BorderSize = 0;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonSettings.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSettings.Image = global::GameStore.Resource.settings;
+            this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSettings.Location = new System.Drawing.Point(0, 310);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(196, 42);
+            this.buttonSettings.TabIndex = 6;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            // 
+            // buttonMyProfile
+            // 
+            this.buttonMyProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonMyProfile.FlatAppearance.BorderSize = 0;
+            this.buttonMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonMyProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonMyProfile.Image = global::GameStore.Resource.profile;
+            this.buttonMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMyProfile.Location = new System.Drawing.Point(0, 268);
+            this.buttonMyProfile.Name = "buttonMyProfile";
+            this.buttonMyProfile.Size = new System.Drawing.Size(196, 42);
+            this.buttonMyProfile.TabIndex = 5;
+            this.buttonMyProfile.Text = "MyProfile";
+            this.buttonMyProfile.UseVisualStyleBackColor = true;
+            this.buttonMyProfile.Click += new System.EventHandler(this.buttonMyProfile_Click);
+            // 
+            // buttonDashBoard
+            // 
+            this.buttonDashBoard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonDashBoard.FlatAppearance.BorderSize = 0;
+            this.buttonDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashBoard.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonDashBoard.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonDashBoard.Image = global::GameStore.Resource.dashboard;
+            this.buttonDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDashBoard.Location = new System.Drawing.Point(0, 226);
+            this.buttonDashBoard.Name = "buttonDashBoard";
+            this.buttonDashBoard.Size = new System.Drawing.Size(196, 42);
+            this.buttonDashBoard.TabIndex = 4;
+            this.buttonDashBoard.Text = "DashBoard";
+            this.buttonDashBoard.UseVisualStyleBackColor = true;
+            this.buttonDashBoard.Click += new System.EventHandler(this.buttonDashBoard_Click);
+            // 
+            // buttonNews
+            // 
+            this.buttonNews.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonNews.FlatAppearance.BorderSize = 0;
+            this.buttonNews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNews.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonNews.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonNews.Image = global::GameStore.Resource.news;
+            this.buttonNews.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNews.Location = new System.Drawing.Point(0, 184);
+            this.buttonNews.Name = "buttonNews";
+            this.buttonNews.Size = new System.Drawing.Size(196, 42);
+            this.buttonNews.TabIndex = 3;
+            this.buttonNews.Text = "News";
+            this.buttonNews.UseVisualStyleBackColor = true;
+            this.buttonNews.Click += new System.EventHandler(this.buttonNews_Click);
+            // 
+            // buttonHome
+            // 
+            this.buttonHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonHome.FlatAppearance.BorderSize = 0;
+            this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHome.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonHome.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonHome.Image = global::GameStore.Resource.home;
+            this.buttonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonHome.Location = new System.Drawing.Point(0, 100);
+            this.buttonHome.Name = "buttonHome";
+            this.buttonHome.Size = new System.Drawing.Size(196, 42);
+            this.buttonHome.TabIndex = 1;
+            this.buttonHome.Text = "Home";
+            this.buttonHome.UseVisualStyleBackColor = true;
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // FormDeveloper
             // 

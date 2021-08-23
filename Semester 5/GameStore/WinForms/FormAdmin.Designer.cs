@@ -40,10 +40,10 @@ namespace GameStore.WinForms
             this.panelIcon = new System.Windows.Forms.Panel();
             this.buttonSignOut = new System.Windows.Forms.Button();
             this.panelManagementTab = new System.Windows.Forms.Panel();
+            this.buttonUserManagement = new System.Windows.Forms.Button();
             this.buttonDeveloperManagement = new System.Windows.Forms.Button();
             this.buttonStoreManagement = new System.Windows.Forms.Button();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.buttonUserManagement = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             this.panelManagementTab.SuspendLayout();
             this.SuspendLayout();
@@ -211,6 +211,20 @@ namespace GameStore.WinForms
             this.panelManagementTab.Size = new System.Drawing.Size(1108, 49);
             this.panelManagementTab.TabIndex = 3;
             // 
+            // buttonUserManagement
+            // 
+            this.buttonUserManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUserManagement.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUserManagement.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonUserManagement.Location = new System.Drawing.Point(369, 0);
+            this.buttonUserManagement.Name = "buttonUserManagement";
+            this.buttonUserManagement.Size = new System.Drawing.Size(370, 49);
+            this.buttonUserManagement.TabIndex = 5;
+            this.buttonUserManagement.Text = "User Management";
+            this.buttonUserManagement.UseVisualStyleBackColor = true;
+            this.buttonUserManagement.Click += new System.EventHandler(this.buttonUserManagement_Click);
+            // 
             // buttonDeveloperManagement
             // 
             this.buttonDeveloperManagement.Dock = System.Windows.Forms.DockStyle.Right;
@@ -223,6 +237,7 @@ namespace GameStore.WinForms
             this.buttonDeveloperManagement.TabIndex = 4;
             this.buttonDeveloperManagement.Text = "Developer Management";
             this.buttonDeveloperManagement.UseVisualStyleBackColor = true;
+            this.buttonDeveloperManagement.Click += new System.EventHandler(this.buttonDeveloperManagement_Click);
             // 
             // buttonStoreManagement
             // 
@@ -245,19 +260,6 @@ namespace GameStore.WinForms
             this.panelCenter.Size = new System.Drawing.Size(1108, 385);
             this.panelCenter.TabIndex = 4;
             // 
-            // buttonUserManagement
-            // 
-            this.buttonUserManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUserManagement.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUserManagement.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonUserManagement.Location = new System.Drawing.Point(369, 0);
-            this.buttonUserManagement.Name = "buttonUserManagement";
-            this.buttonUserManagement.Size = new System.Drawing.Size(370, 49);
-            this.buttonUserManagement.TabIndex = 5;
-            this.buttonUserManagement.Text = "User Management";
-            this.buttonUserManagement.UseVisualStyleBackColor = true;
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +272,7 @@ namespace GameStore.WinForms
             this.Controls.Add(this.panelTop);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAdmin_FormClosing);
             this.panelLeft.ResumeLayout(false);
             this.panelManagementTab.ResumeLayout(false);
             this.ResumeLayout(false);
