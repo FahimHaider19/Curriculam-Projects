@@ -11,10 +11,11 @@ namespace GameStore.Classes
     {
         UsersDataAccess uda;
         User loggedInUser;
-        Game[] featuredGames = new Game[10];
-        News[] topNews =  new News[10];
-        Game[] gamesOnSale = new Game[10];
-        Game[] trendingGames = new Game[10];
+        string projectDirectory = System.IO.Directory.GetCurrentDirectory().Replace("\\bin\\Debug", "");
+        List<Game> featuredGames = new List<Game>();
+        News[] topNews =  new News[4];
+        Game[] gamesOnSale = new Game[6];
+        Game[] trendingGames = new Game[6];
         string viewAs;
         List<Developer> developers = new List<Developer>();
         List<Gamer> gamers = new List<Gamer>();
@@ -22,18 +23,8 @@ namespace GameStore.Classes
         List<Game> games =  new List<Game>();
         List<News> news = new List<News>();
         List<RefundRequests> refundRequests = new List<RefundRequests>();
+        List<Game> pending = new List<Game>();
 
-        public Game getGame(string name)
-        {
-            foreach (Game g in games)
-            {
-                if (g.Name == name)
-                {
-                    return g;
-                }
-            }
-            return null;
-        }
         public UsersDataAccess Uda
         {
             set { this.uda = value; }
@@ -44,7 +35,12 @@ namespace GameStore.Classes
             set { this.loggedInUser = value; }
             get { return loggedInUser; }
         }
-        public Game[] FeaturedGames
+        public string ProjectDirectory
+        {
+            set { this.projectDirectory = value; }
+            get { return projectDirectory; }
+        }
+        public List<Game> FeaturedGames
         {
             set { this.featuredGames = value; }
             get { return this.featuredGames; }
@@ -54,7 +50,7 @@ namespace GameStore.Classes
             set { this.gamesOnSale = value; }
             get { return this.gamesOnSale; }
         }
-        public Game[] GrendingGames
+        public Game[] TrendingGames
         {
             set { this.trendingGames = value; }
             get { return this.trendingGames; }
@@ -99,11 +95,27 @@ namespace GameStore.Classes
             set { this.refundRequests = value; }
             get { return this.refundRequests; }
         }
+        public List<Game> Pending
+        {
+            set { this.pending = value; }
+            get { return this.pending; }
+        }
         public Game getGame(long id)
         {
             foreach(Game g in games)
             {
                 if(g.ProductId == id)
+                {
+                    return g;
+                }
+            }
+            return null;
+        }
+        public Game getGame(string name)
+        {
+            foreach (Game g in games)
+            {
+                if (g.Name == name)
                 {
                     return g;
                 }
@@ -135,6 +147,14 @@ namespace GameStore.Classes
             }
             return null;
         }
-
+        public News getNews(string title)
+        {
+            foreach(News n in news)
+            {
+                if (n.Title == title)
+                    return n;
+            }
+            return null;
+        }
     }
 }

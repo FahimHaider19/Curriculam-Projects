@@ -8,22 +8,16 @@ namespace GameStore.Classes
 {
     public class Review
     {
-        Gamer gamer;
-        Game game;
+        string user;
         long productId;
         int rating;
         bool positive;
         string review;
 
-        public Gamer Gamer
+        public string User
         {
-            set { this.gamer = value; }
-            get { return this.gamer; }
-        }
-        public Game Game
-        {
-            set { this.game = value; }
-            get { return this.game; }
+            set { this.user = value; }
+            get { return this.user; }
         }
         public long ProductId
         {

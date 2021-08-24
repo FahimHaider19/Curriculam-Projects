@@ -1,7 +1,7 @@
 ﻿
 namespace GameStore
 {
-    partial class MainWindow
+    partial class FormGamer
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@ namespace GameStore
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.paneldrag = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGamer));
             this.panelLeft = new System.Windows.Forms.Panel();
             this.buttonSettings = new System.Windows.Forms.Button();
+            this.buttonMyProfile = new System.Windows.Forms.Button();
             this.buttonLibrary = new System.Windows.Forms.Button();
             this.buttonNews = new System.Windows.Forms.Button();
             this.buttonDropDown = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@ namespace GameStore
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonSignOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelUsername = new System.Windows.Forms.Label();
@@ -50,23 +51,17 @@ namespace GameStore
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelLeft.SuspendLayout();
             this.panelStoreDropdown.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // paneldrag
-            // 
-            this.paneldrag.Dock = System.Windows.Forms.DockStyle.Top;
-            this.paneldrag.Location = new System.Drawing.Point(0, 0);
-            this.paneldrag.Margin = new System.Windows.Forms.Padding(2);
-            this.paneldrag.Name = "paneldrag";
-            this.paneldrag.Size = new System.Drawing.Size(1317, 16);
-            this.paneldrag.TabIndex = 4;
-            // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(18)))), ((int)(((byte)(23)))));
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.panelLeft.Controls.Add(this.buttonSettings);
+            this.panelLeft.Controls.Add(this.buttonMyProfile);
             this.panelLeft.Controls.Add(this.buttonLibrary);
             this.panelLeft.Controls.Add(this.buttonNews);
             this.panelLeft.Controls.Add(this.buttonDropDown);
@@ -75,10 +70,10 @@ namespace GameStore
             this.panelLeft.Controls.Add(this.panelLogo);
             this.panelLeft.Controls.Add(this.buttonSignOut);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 16);
+            this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(195, 713);
+            this.panelLeft.Size = new System.Drawing.Size(195, 729);
             this.panelLeft.TabIndex = 5;
             // 
             // buttonSettings
@@ -91,7 +86,7 @@ namespace GameStore
             this.buttonSettings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonSettings.Image = ((System.Drawing.Image)(resources.GetObject("buttonSettings.Image")));
             this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSettings.Location = new System.Drawing.Point(0, 322);
+            this.buttonSettings.Location = new System.Drawing.Point(0, 436);
             this.buttonSettings.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -99,6 +94,25 @@ namespace GameStore
             this.buttonSettings.TabIndex = 13;
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+            // 
+            // buttonMyProfile
+            // 
+            this.buttonMyProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonMyProfile.FlatAppearance.BorderSize = 0;
+            this.buttonMyProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.buttonMyProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonMyProfile.Image = global::GameStore.Resource.profile;
+            this.buttonMyProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMyProfile.Location = new System.Drawing.Point(0, 394);
+            this.buttonMyProfile.Name = "buttonMyProfile";
+            this.buttonMyProfile.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.buttonMyProfile.Size = new System.Drawing.Size(195, 42);
+            this.buttonMyProfile.TabIndex = 17;
+            this.buttonMyProfile.Text = "My Profile";
+            this.buttonMyProfile.UseVisualStyleBackColor = true;
+            this.buttonMyProfile.Click += new System.EventHandler(this.buttonMyProfile_Click);
             // 
             // buttonLibrary
             // 
@@ -110,7 +124,7 @@ namespace GameStore
             this.buttonLibrary.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonLibrary.Image = ((System.Drawing.Image)(resources.GetObject("buttonLibrary.Image")));
             this.buttonLibrary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLibrary.Location = new System.Drawing.Point(0, 280);
+            this.buttonLibrary.Location = new System.Drawing.Point(0, 352);
             this.buttonLibrary.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLibrary.Name = "buttonLibrary";
             this.buttonLibrary.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -128,9 +142,9 @@ namespace GameStore
             this.buttonNews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNews.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonNews.Image = global::GameStore.Resource.news;
+            this.buttonNews.Image = ((System.Drawing.Image)(resources.GetObject("buttonNews.Image")));
             this.buttonNews.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNews.Location = new System.Drawing.Point(0, 238);
+            this.buttonNews.Location = new System.Drawing.Point(0, 310);
             this.buttonNews.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNews.Name = "buttonNews";
             this.buttonNews.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -147,8 +161,8 @@ namespace GameStore
             this.buttonDropDown.FlatAppearance.BorderSize = 0;
             this.buttonDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDropDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDropDown.Image = global::GameStore.Resource.dropdown;
-            this.buttonDropDown.Location = new System.Drawing.Point(152, 70);
+            this.buttonDropDown.Image = ((System.Drawing.Image)(resources.GetObject("buttonDropDown.Image")));
+            this.buttonDropDown.Location = new System.Drawing.Point(155, 142);
             this.buttonDropDown.Name = "buttonDropDown";
             this.buttonDropDown.Size = new System.Drawing.Size(37, 32);
             this.buttonDropDown.TabIndex = 9;
@@ -161,7 +175,7 @@ namespace GameStore
             this.panelStoreDropdown.Controls.Add(this.buttonWishlist);
             this.panelStoreDropdown.Controls.Add(this.buttonBrowse);
             this.panelStoreDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStoreDropdown.Location = new System.Drawing.Point(0, 107);
+            this.panelStoreDropdown.Location = new System.Drawing.Point(0, 179);
             this.panelStoreDropdown.Margin = new System.Windows.Forms.Padding(2);
             this.panelStoreDropdown.Name = "panelStoreDropdown";
             this.panelStoreDropdown.Size = new System.Drawing.Size(195, 131);
@@ -195,7 +209,7 @@ namespace GameStore
             this.buttonWishlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonWishlist.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonWishlist.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonWishlist.Image = ((System.Drawing.Image)(resources.GetObject("buttonWishlist.Image")));
+            this.buttonWishlist.Image = global::GameStore.Resource.icons8_list_30;
             this.buttonWishlist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonWishlist.Location = new System.Drawing.Point(0, 42);
             this.buttonWishlist.Margin = new System.Windows.Forms.Padding(2);
@@ -235,9 +249,9 @@ namespace GameStore
             this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonHome.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonHome.Image = global::GameStore.Resource.home;
+            this.buttonHome.Image = ((System.Drawing.Image)(resources.GetObject("buttonHome.Image")));
             this.buttonHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonHome.Location = new System.Drawing.Point(0, 65);
+            this.buttonHome.Location = new System.Drawing.Point(0, 137);
             this.buttonHome.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -249,12 +263,23 @@ namespace GameStore
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.pictureBox2);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(195, 65);
+            this.panelLogo.Size = new System.Drawing.Size(195, 137);
             this.panelLogo.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(172, 118);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // buttonSignOut
             // 
@@ -265,7 +290,7 @@ namespace GameStore
             this.buttonSignOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonSignOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonSignOut.Image")));
             this.buttonSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSignOut.Location = new System.Drawing.Point(0, 671);
+            this.buttonSignOut.Location = new System.Drawing.Point(0, 687);
             this.buttonSignOut.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSignOut.Name = "buttonSignOut";
             this.buttonSignOut.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
@@ -281,7 +306,7 @@ namespace GameStore
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.labelTopBanner);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(195, 16);
+            this.panel1.Location = new System.Drawing.Point(195, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1122, 46);
             this.panel1.TabIndex = 7;
@@ -290,6 +315,7 @@ namespace GameStore
             // 
             this.labelUsername.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.labelUsername.Location = new System.Drawing.Point(959, 0);
             this.labelUsername.Name = "labelUsername";
@@ -311,6 +337,7 @@ namespace GameStore
             // 
             this.labelTopBanner.AutoSize = true;
             this.labelTopBanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopBanner.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelTopBanner.Location = new System.Drawing.Point(3, 2);
             this.labelTopBanner.Name = "labelTopBanner";
             this.labelTopBanner.Size = new System.Drawing.Size(110, 42);
@@ -321,12 +348,12 @@ namespace GameStore
             // 
             this.panelCenter.AutoSize = true;
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCenter.Location = new System.Drawing.Point(195, 62);
+            this.panelCenter.Location = new System.Drawing.Point(195, 46);
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(1122, 0);
             this.panelCenter.TabIndex = 8;
             // 
-            // MainWindow
+            // FormGamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -336,12 +363,13 @@ namespace GameStore
             this.Controls.Add(this.panelCenter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.paneldrag);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "MainWindow";
+            this.Name = "FormGamer";
             this.Text = "MainWindow";
             this.panelLeft.ResumeLayout(false);
             this.panelStoreDropdown.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -351,8 +379,6 @@ namespace GameStore
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel paneldrag;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelStoreDropdown;
         private System.Windows.Forms.Button buttonCart;
@@ -370,5 +396,7 @@ namespace GameStore
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelTopBanner;
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonMyProfile;
     }
 }

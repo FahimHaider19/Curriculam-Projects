@@ -17,6 +17,12 @@ namespace GameStore.Classes
         protected string developer;
         protected string publisher;
         protected string releaseDate;
+        protected bool featured;
+        protected int onSale;
+        protected int trending;
+        protected bool published;
+        string imageBox;
+        string imageCover;
         protected List<string> genre =  new List<string>();
 
         public string Name
@@ -64,11 +70,40 @@ namespace GameStore.Classes
             set { this.releaseDate = value; }
             get { return this.releaseDate; }
         }
+        public bool Featured
+        {
+            set { this.featured = value; }
+            get { return featured; }
+        }
+        public int OnSale
+        {
+            set { this.onSale = value; }
+            get { return onSale; }
+        }
+        public int Trending
+        {
+            set { this.trending = value; }
+            get { return trending; }
+        }
         public List<string> Genre
         {
             set { this.genre = value; }
             get { return this.genre; }
         }
-               
+        public bool Published
+        {
+            set { this.published = true; }
+            get { return published; }
+        }
+        public string ImageBox
+        {
+            set { this.imageBox = value; }
+            get { return this.imageBox; }
+        }
+        public string ImageCover
+        {
+            set { this.imageCover = value; }
+            get { return this.imageCover; }
+        }
     }
 }

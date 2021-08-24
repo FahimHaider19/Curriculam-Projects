@@ -7,14 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameStore.Classes;
 
 namespace GameStore.WinForms
 {
     public partial class UserControlReadNews : UserControl
     {
+        Store store;
+        News news;
         public UserControlReadNews()
         {
             InitializeComponent();
+        }
+        public UserControlReadNews(News news)
+        {
+            this.news = news;
+            InitializeComponent();
+            labelTitle.Text = news.Title;
+            LabelDescription.Text = news.Description;
+            labelPosted.Text = "Posted : "+news.Date;
+            //pictureBox.Image = Image.FromFile(store.ProjectDirectory+ @"\Resources\"+news.ImageCover);
         }
         public Label LabelTitle
         {

@@ -21,7 +21,7 @@ namespace GameStore.DataAccess
         {
             command = new SqlCommand(sql, connection);
             return command.ExecuteReader();
-
+            
 
         }
 

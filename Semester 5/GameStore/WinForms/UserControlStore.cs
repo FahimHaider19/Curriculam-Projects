@@ -7,16 +7,74 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameStore.Classes;
+
 
 namespace GameStore.WinForms
 {
-    public partial class UserControllStore : UserControl
+    public partial class UserControlStore : UserControl
     {
-        public UserControllStore()
+        Store store;
+        Panel panel;
+        int index = 0;
+        string[] str = new string[5] { "581580.jpg", "destiny_2_forsaken.jpg", "ElQObD9VMAUnIZF.jpg", "og.jpg", "602603.jpg" };
+
+        /*public UserControlStore()
         {
             InitializeComponent();
+            loadImage();
+        }*/
+        public UserControlStore(Store store, Panel panel)
+        {
+            this.store = store;
+            this.panel = panel;
+            InitializeComponent();
+            loadImage();
+            LoadPage();
         }
+        public void loadImage()
+        {
+            timer.Enabled = true;
+            pictureBox.Image = Image.FromFile(store.ProjectDirectory+"\\"+str[index%5]);
+            index++;
+        }
+        public void LoadPage()
+        {
+            InsertGamebox(this.gameOnSale1, store.GamesOnSale[0]);
+            InsertGamebox(this.gameOnSale2, store.GamesOnSale[1]);
+            InsertGamebox(this.gameOnSale3, store.GamesOnSale[2]);
+            InsertGamebox(this.gameOnSale4, store.GamesOnSale[3]);
+            InsertGamebox(this.gameOnSale5, store.GamesOnSale[4]);
+            InsertGamebox(this.gameOnSale6, store.GamesOnSale[5]);
 
+            InsertGamebox(this.TrendingGame1, store.TrendingGames[0]);
+            InsertGamebox(this.TrendingGame2, store.TrendingGames[1]);
+            InsertGamebox(this.TrendingGame3, store.TrendingGames[2]);
+            InsertGamebox(this.TrendingGame4, store.TrendingGames[3]);
+            InsertGamebox(this.TrendingGame5, store.TrendingGames[4]);
+            InsertGamebox(this.TrendingGame6, store.TrendingGames[5]);
+
+            InsertNews(this.TopNews1, store.TopNews[0]);
+            InsertNews(this.TopNews2, store.TopNews[1]);
+            InsertNews(this.TopNews3, store.TopNews[2]);
+            InsertNews(this.TopNews4, store.TopNews[3]);
+        }
+        
+        public void InsertGamebox(GameBox to, Game game)
+        {
+            to.Game = game;
+            to.Panel = panel;
+            //to.PictureBox = game.ImageLocations;
+            to.LabelGameboxGameName.Text = game.Name;
+            to.LabelpriceTag.Text = game.Price.ToString()+"$";
+        }
+        public void InsertNews(NewsBox newsBox, News news)
+        {
+            newsBox.Panel = panel;
+            newsBox.News = news;
+            //newsBox.PictureBox = 
+            newsBox.LabelNewsTitle.Text = news.Title;
+        }
         public GameBox GameOnSale1
         {
             set { this.gameOnSale1 = value; }
@@ -79,37 +137,7 @@ namespace GameStore.WinForms
             set { this.trendingGame6 = value; }
             get { return trendingGame6; }
         }
-        public GameBox TrendingGame7
-        {
-            set { this.trendingGame7 = value; }
-            get { return trendingGame7; }
-        }
-        public GameBox TrendingGame8
-        {
-            set { this.trendingGame8 = value; }
-            get { return trendingGame8; }
-        }
-        public GameBox TrendingGame9
-        {
-            set { this.trendingGame9 = value; }
-            get { return trendingGame9; }
-        }
-        public GameBox TrendingGame10
-        {
-            set { this.trendingGame10 = value; }
-            get { return trendingGame10; }
-        }
-        public GameBox TrendingGame11
-        {
-            set { this.trendingGame11 = value; }
-            get { return trendingGame11; }
-        }
-        public GameBox TrendingGame12
-        {
-            set { this.trendingGame12 = value; }
-            get { return trendingGame12; }
-        }
-
+        
         public  NewsBox TopNews1
         {
             set { this.topNews1 = value; }
@@ -135,5 +163,11 @@ namespace GameStore.WinForms
         {
 
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            loadImage();
+        }
+        
     }
 }

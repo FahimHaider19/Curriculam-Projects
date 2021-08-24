@@ -18,19 +18,19 @@ namespace GameStore.DataAccess
         public Admin getAdmin(SqlDataReader reader)
         {
             Admin a = new Admin();
-            a.UserId = (long)reader["userID"];
-            a.UserName = reader["username"].ToString();
-            a.FirstName = reader["first_name"].ToString();
-            a.LastName = reader["last_name"].ToString();
-            a.Age = (int)reader["age"];
-            a.Sex = reader["sex"].ToString();
-            a.Email = reader["email"].ToString();
-            a.SecondaryMail = reader["secondary_mail"].ToString();
-            a.Nid = (long)reader["nid"];
-            a.Phone = reader["phone"].ToString();
-            a.Address = reader["address"].ToString();
-            a.Country = reader["country"].ToString();
-            long cardNumber = (long)reader["card"];
+            if (reader["userID"] != DBNull.Value) a.UserId = (long)reader["userID"];
+            if (reader["username"] != DBNull.Value) a.UserName = reader["username"].ToString();
+            if (reader["first_name"] != DBNull.Value) a.FirstName = reader["first_name"].ToString();
+            if (reader["last_name"] != DBNull.Value) a.LastName = reader["last_name"].ToString();
+            if (reader["age"] != DBNull.Value) a.Age = (int)reader["age"];
+            if (reader["sex"] != DBNull.Value) a.Sex = reader["sex"].ToString();
+            if (reader["email"] != DBNull.Value) a.Email = reader["email"].ToString();
+            if (reader["secondary_mail"] != DBNull.Value) a.SecondaryMail = reader["secondary_mail"].ToString();
+            if (reader["nid"] != DBNull.Value) a.Nid = (long)reader["nid"];
+            if (reader["phone"] != DBNull.Value) a.Phone = reader["phone"].ToString();
+            if (reader["address"] != DBNull.Value) a.Address = reader["address"].ToString();
+            if (reader["country"] != DBNull.Value) a.Country = reader["country"].ToString();
+            //long cardNumber = (long)reader["card"];
             store.LoggedInUser = a;
 
             return a;
@@ -38,63 +38,61 @@ namespace GameStore.DataAccess
         public Gamer getGamer(SqlDataReader reader)
         {
             Gamer g = new Gamer();
-            g.UserId = (long)reader["userID"];
-            g.UserName = reader["username"].ToString();
-            g.FirstName = reader["first_name"].ToString();
-            g.LastName = reader["last_name"].ToString();
-            g.Age = (int)reader["age"];
-            g.Sex = reader["sex"].ToString();
-            g.Email = reader["email"].ToString();
-            g.SecondaryMail = reader["secondary_mail"].ToString();
-           // g.Nid = (long)reader["nid"];
-            g.Phone = reader["phone"].ToString();
-            g.Address = reader["address"].ToString();
-            g.Country = reader["country"].ToString();
-            g.StoreCredit = (double)reader["store_credit"];
-            g.XP = (int)reader["xp"];
-            g.BanStatus = (bool)reader["banstatus"];
-            g.Region = reader["region"].ToString();
-            long cardNumber = (long)reader["card"];
+            if (reader["userID"] != DBNull.Value) g.UserId = (long)reader["userID"];
+            if (reader["username"] != DBNull.Value) g.UserName = reader["username"].ToString();
+            if(reader["first_name"] != DBNull.Value) g.FirstName = reader["first_name"].ToString();
+            if (reader["last_name"] != DBNull.Value) g.LastName = reader["last_name"].ToString();
+            if (reader["age"] != DBNull.Value) g.Age = (int)reader["age"];
+            if (reader["sex"] != DBNull.Value) g.Sex = reader["sex"].ToString();
+            if (reader["email"] != DBNull.Value) g.Email = reader["email"].ToString();
+            if (reader["secondary_mail"] != DBNull.Value) g.SecondaryMail = reader["secondary_mail"].ToString();
+            if (reader["phone"] != DBNull.Value) g.Phone = reader["phone"].ToString();
+            if (reader["address"] != DBNull.Value) g.Address = reader["address"].ToString();
+            if (reader["country"] != DBNull.Value) g.Country = reader["country"].ToString();
+            if (reader["store_credit"] != DBNull.Value) g.StoreCredit = (double)reader["store_credit"];
+            if (reader["xp"] != DBNull.Value) g.XP = (int)reader["xp"];
+            if (reader["banstatus"] != DBNull.Value) g.BanStatus = (bool)reader["banstatus"];
+            if (reader["region"] != DBNull.Value) g.Region = reader["region"].ToString();
 
             return g;
         }
         public Developer getDeveloper(SqlDataReader reader)
         {
             Developer d = new Developer();
-            d.UserId = (long)reader["userID"];
-            d.UserName = reader["username"].ToString();
-            d.Email = reader["email"].ToString();
-            d.SecondaryMail = reader["secondary_mail"].ToString();
-            d.Phone = reader["phone"].ToString();
-            d.Country = reader["country"].ToString();
+            if (reader["userID"] != DBNull.Value) d.UserId = (long)reader["userID"];
+            if (reader["username"] != DBNull.Value) d.UserName = reader["username"].ToString();
+            if (reader["email"] != DBNull.Value) d.Email = reader["email"].ToString();
+            if (reader["secondary_mail"] != DBNull.Value) d.SecondaryMail = reader["secondary_mail"].ToString();
+            if (reader["phone"] != DBNull.Value) d.Phone = reader["phone"].ToString();
+            if (reader["country"] != DBNull.Value) d.Country = reader["country"].ToString();
 
             return d;
         }
         public void GetUsers() //List<User>
         {
-           
+            //List<Gamer> gamers = new List<Gamer>();
+            //List<Developer> developers = new List<Developer>();
+            //List<Admin> admins = new List<Admin>();
             string sqlUser = "Select * from Users";
             SqlDataReader readerUser = this.GetData(sqlUser);
             while (readerUser.Read())
             {
+                
                 if (readerUser["user_type"].ToString() == "gamer")
                 {
-                    Gamer g = getGamer(readerUser);
-
-
-                    store.Gamers.Add(g);
-
-                    //if (store.LoggedInUser.Email == readerUser["email"].ToString()) store.LoggedInUser = g;
+                    Gamer gamer = getGamer(readerUser);
+                    store.Gamers.Add(gamer);
+      
                 }
                 else if (readerUser["user_type"].ToString() == "developer")
                 {
                     Developer d = new Developer();
-                    d.UserId = (long)readerUser["userID"];
-                    d.UserName = readerUser["username"].ToString();
-                    d.Email = readerUser["email"].ToString();
-                    d.SecondaryMail = readerUser["secondary_mail"].ToString();
-                    d.Phone = readerUser["phone"].ToString();
-                    d.Country = readerUser["country"].ToString();
+                    if (readerUser["userID"] != DBNull.Value) d.UserId = (long)readerUser["userID"];
+                    if (readerUser["username"] != DBNull.Value) d.UserName = readerUser["username"].ToString();
+                    if (readerUser["email"] != DBNull.Value) d.Email = readerUser["email"].ToString();
+                    if (readerUser["secondary_mail"] != DBNull.Value) d.SecondaryMail = readerUser["secondary_mail"].ToString();
+                    if (readerUser["phone"] != DBNull.Value) d.Phone = readerUser["phone"].ToString();
+                    if (readerUser["country"] != DBNull.Value)  d.Country = readerUser["country"].ToString();
                     //long cardNumber = (long)reader["card"]; //retrive card
                     //cardReader = this.GetData("Select * from PaymentCards where ")
                     //notifications
@@ -117,18 +115,31 @@ namespace GameStore.DataAccess
                 if (reader["productType"].ToString() == "game")
                 {
                     Game game = new Game();
-                    game.Name = reader["name"].ToString();
-                    game.ProductId = (long)reader["productId"];
-                    game.Price = (double)reader["price"];
-
-                    game.Description = reader["description"].ToString();
-                    // game.DiscountRate = (int)reader["discountRate"];
-                    game.ImageLocations = reader["imageLocations"].ToString();
-                    game.Developer = reader["developer"].ToString();
-                    game.Publisher = reader["publisher"].ToString();
-                    game.ReleaseDate = reader["releaseDate"].ToString();
-
+                    if (reader["name"] != DBNull.Value) game.Name = reader["name"].ToString();
+                    if (reader["productId"] != DBNull.Value) game.ProductId = (long)reader["productId"];
+                    if (reader["price"] != DBNull.Value) game.Price = (double)reader["price"];
+                    if (reader["systemRequirments"] != DBNull.Value) game.SystemRequirements = reader["systemRequirments"].ToString();
+                    if (reader["description"] != DBNull.Value) game.Description = reader["description"].ToString();
+                    if (reader["discountRate"] != DBNull.Value) game.DiscountRate = (int)reader["discountRate"];
+                    if (reader["imageBox"] != DBNull.Value) game.ImageBox = reader["imageBox"].ToString();
+                    if (reader["imageCover"] != DBNull.Value) game.ImageCover = reader["imageCover"].ToString();
+                    if (reader["developer"] != DBNull.Value) game.Developer = reader["developer"].ToString();
+                    if (reader["publisher"] != DBNull.Value) game.Publisher = reader["publisher"].ToString();
+                    if (reader["releaseDate"] != DBNull.Value) game.ReleaseDate = reader["releaseDate"].ToString();
+                    if (reader["featured"] != DBNull.Value) game.Featured = (bool)reader["featured"];
+                    if (reader["trending"] != DBNull.Value) game.Trending = (int)reader["trending"];
+                    if (reader["onsale"] != DBNull.Value) game.OnSale = (int)reader["onsale"];
+                    if (reader["published"] != DBNull.Value) game.Published = (bool)reader["published"];
                     store.Games.Add(game);
+
+                    if (game.Featured == true) store.FeaturedGames.Add(game);
+                    if(game.OnSale != -1 ) store.GamesOnSale[game.OnSale - 1] = game;
+                    if (game.Trending != -1) store.TrendingGames[game.Trending-1] = game;
+
+                    /*if (game.Published == true)
+                        store.Games.Add(game);
+                    else 
+                        store.Pending.Add(game);*/
 
                     string dlcsql = "select * from products where baseGameId='" + game.ProductId + "'";
 
@@ -136,17 +147,16 @@ namespace GameStore.DataAccess
                     while (dlcReader.Read())
                     {
                         Dlc d = new Dlc();
-                        d.BaseGameName = game.Name;  //bujhinai
-                        d.Name = dlcReader["name"].ToString();
-                        d.ProductId = (long)dlcReader["productId"];
-                        d.Price = (double)dlcReader["price"];
-
-                        d.Description = dlcReader["description"].ToString();
-                        // d.DiscountRate = (int)reader["discountRate"];
-                        d.ImageLocations = dlcReader["imageLocations"].ToString();
-                        d.Developer = dlcReader["developer"].ToString();
-                        d.Publisher = dlcReader["publisher"].ToString();
-                        d.ReleaseDate = dlcReader["releaseDate"].ToString();
+                        d.BaseGameName = game.Name;
+                        if (dlcReader["name"] != DBNull.Value) d.Name = dlcReader["name"].ToString();
+                        if (dlcReader["productId"] != DBNull.Value) d.ProductId = (long)dlcReader["productId"];
+                        if (dlcReader["price"] != DBNull.Value) d.Price = (double)dlcReader["price"];
+                        if (dlcReader["description"] != DBNull.Value) d.Description = dlcReader["description"].ToString();
+                        if (dlcReader["discountRate"] != DBNull.Value) d.DiscountRate = (int)dlcReader["discountRate"];
+                        if (dlcReader["developer"] != DBNull.Value) d.Developer = dlcReader["developer"].ToString();
+                        if (dlcReader["publisher"] != DBNull.Value) d.Publisher = dlcReader["publisher"].ToString();
+                        if (dlcReader["releaseDate"] != DBNull.Value) d.ReleaseDate = dlcReader["releaseDate"].ToString();
+                        if (dlcReader["published"] != DBNull.Value) d.Published = (bool)dlcReader["published"];
                         game.Dlcs.Add(d);
 
                     }
@@ -164,11 +174,12 @@ namespace GameStore.DataAccess
                     {
                         Review review = new Review();
                         // review.game.Name = reveiwreader[""];
-                        review.Rating = (int)reveiwreader["rating"];
-                        review.Positive = (bool)reveiwreader["positive"];
-                        review.ProductId = (long)reveiwreader["productId"];
+                        if (reveiwreader["name"] != DBNull.Value) review.User = reveiwreader["name"].ToString();
+                        if (reveiwreader["rating"] != DBNull.Value) review.Rating = (int)reveiwreader["rating"];
+                        //review.Positive = (bool)reveiwreader["positive"];
+                        if (reveiwreader["productId"] != DBNull.Value) review.ProductId = (long)reveiwreader["productId"];
                         // review.Gamer=
-                        review.Revieew = reveiwreader["review"].ToString();
+                        if (reveiwreader["review"] != DBNull.Value) review.Revieew = reveiwreader["review"].ToString();
 
                         game.Reviews.Add(review);
                     }
@@ -178,18 +189,17 @@ namespace GameStore.DataAccess
                     while (newssqlreader.Read())
                     {
                         News news = new News();
-                        news.NewsId = (long)newssqlreader["newsId"];
-                        news.Title = newssqlreader["title"].ToString();
-                       // news.Topic = newssqlreader["domain"].ToString();
-                        news.Date = newssqlreader["date"].ToString();
-                        news.Description = newssqlreader["description"].ToString();
+                        if (newssqlreader["newsId"] != DBNull.Value) news.NewsId = (long)newssqlreader["newsId"];
+                        if (newssqlreader["title"] != DBNull.Value) news.Title = newssqlreader["title"].ToString();
+                        if (newssqlreader["date"] != DBNull.Value) news.Date = newssqlreader["date"].ToString();
+                        if (newssqlreader["description"] != DBNull.Value) news.Description = newssqlreader["description"].ToString();
                         game.News.Add(news);
                         store.News.Add(news);
 
                     }
                 }
             }
-
+            for (int i = 0; i < 4; i++) store.TopNews[i] = store.News[i];
         }
 
         public void getNews()
@@ -238,16 +248,27 @@ namespace GameStore.DataAccess
                         }
                     }
                 }
-                else if (reader["listedAs"].ToString() == "wishlist") 
+                else if (reader["listedAs"].ToString() == "wishlist" && reader["productType"].ToString() == "game") 
                 {
                     long id = (long)reader["productId"];
                     Game gm = store.getGame(id).Copy();
                     gamer.Wishlist.Add(gm);
                 }
-                else if (reader["listedAs"].ToString() == "cart")
+                else if (reader["listedAs"].ToString() == "wishlist" && reader["productType"].ToString() == "dlc")
+                {
+                    long id = (long)reader["productId"];
+                    Dlc dlc = store.getDlc(id).Copy();
+                    gamer.Wishlist.Add(dlc);
+                }
+                else if (reader["listedAs"].ToString() == "cart" && reader["productType"].ToString() == "game")
                 {
                     Game gm = store.getGame((long)reader["productId"]).Copy();
                     gamer.Cart.Add(gm);
+                }
+                else if (reader["listedAs"].ToString() == "cart" && reader["productType"].ToString() == "dlc")
+                {
+                    Dlc dlc = store.getDlc((long)reader["productId"]).Copy();
+                    gamer.Cart.Add(dlc);
                 }
             }
         }

@@ -8,28 +8,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameStore.Classes;
+using GameStore.WinForms;
 
 namespace GameStore
 {
     public partial class GameBox : UserControl
     {
+        Game game;
+        Panel panel;
+        Store store;
         public GameBox()
         {
             InitializeComponent();
         }
-        public GameBox(Game game)
+        public GameBox(Game game, Panel panel, Store store)
         {
+            this.game = game;
+            this.panel = panel;
+            this.store = store;
             InitializeComponent();
-            //picturebox;
+            pictureBox.Image = Image.FromFile(store.ProjectDirectory + @"\Resources\" + game.ImageBox);
             labelGameboxGameName.Text = game.Name;
             labelpriceTag.Text = game.Price + "$";
         }
-        public GameBox(string title) //delete later, for test purpose only
+        public Game Game
         {
-            InitializeComponent();
-            this.pictureBox.Image = GameStore.Resource.RedDeadRedemption2;
-            this.pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.labelGameboxGameName.Text = title;
+            set { this.game = value; }
+            get { return game; }
         }
         public PictureBox PictureBox
         {
@@ -45,6 +50,21 @@ namespace GameStore
         {
             get { return labelpriceTag; }
             set { this.labelpriceTag = value; }
+        }
+        public Store Store
+        {
+            set { this.store = value; }
+            get { return store; }
+        }
+        public Panel Panel
+        {
+            set { this.panel = value; }
+            get { return panel; }
+        }
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(new UserControlGamePage(store, game));
         }
     }
 }

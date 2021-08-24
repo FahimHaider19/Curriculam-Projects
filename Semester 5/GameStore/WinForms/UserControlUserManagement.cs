@@ -14,7 +14,7 @@ namespace GameStore
     public partial class UserControlUserManagement : UserControl
     {
         Store store;
-        
+
         public UserControlUserManagement()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace GameStore
             this.store = store;
             InitializeComponent();
             reload();
-           
+
         }
         public void reload()
         {
@@ -68,26 +68,35 @@ namespace GameStore
 
         private void buttonBan_Click(object sender, EventArgs e)
         {
-           long id=long.Parse(listViewBanUsers.SelectedItems[0].Text);
-            store.getGamer(id).BanStatus = true;
-            string sql = "Update Users Set banstatus = '" +true +"' Where userId = '" + id + "'";
-            store.Uda.ExecuteQuery(sql);
-            reload();
+            
         }
 
         private void buttonUnbanUser_Click(object sender, EventArgs e)
         {
-            long id = long.Parse(listViewBanUsers.SelectedItems[0].Text);
-            store.getGamer(id).BanStatus = false;
-            string sql = "update Users set banstatus ='" + false + "' where userid='"+id+"'";
-            store.Uda.ExecuteQuery(sql);
-            reload();
-
+            
         }
 
         private void listViewBanUsers_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonBan_Click_1(object sender, EventArgs e)
+        {
+            long id = long.Parse(listViewBanUsers.SelectedItems[0].Text);
+            store.getGamer(id).BanStatus = true;
+            string sql = "Update Users Set banstatus = '" + true + "' Where userId = '" + id + "'";
+            store.Uda.ExecuteQuery(sql);
+            reload();
+        }
+
+        private void buttonUnbanUser_Click_1(object sender, EventArgs e)
+        {
+            long id = long.Parse(listViewBanUsers.SelectedItems[0].Text);
+            store.getGamer(id).BanStatus = false;
+            string sql = "update Users set banstatus ='" + false + "' where userid='" + id + "'";
+            store.Uda.ExecuteQuery(sql);
+            reload();
         }
     }
 }

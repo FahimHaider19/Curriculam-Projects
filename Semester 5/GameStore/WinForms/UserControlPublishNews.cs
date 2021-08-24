@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameStore.Classes;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace GameStore
 {
@@ -28,7 +26,13 @@ namespace GameStore
         }
         private void buttonInsertNews_Click(object sender, EventArgs e)
         {
-            if(textBoxGameTopic.Text == "" && textBoxDescription.Text == "" && textBoxTitle.Text == "")
+            
+
+        }
+
+        private void buttonInsertNews_Click_1(object sender, EventArgs e)
+        {
+            if (textBoxGameTopic.Text == "" && textBoxDescription.Text == "" && textBoxTitle.Text == "")
             {
                 MessageBox.Show("you have to give data's");
             }
@@ -58,7 +62,6 @@ namespace GameStore
                     MessageBox.Show("error in inserting");
                 }
             }
-
         }
     }
 }

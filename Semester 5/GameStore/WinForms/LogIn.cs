@@ -11,14 +11,15 @@ using System.Data.SqlClient;
 using System.Configuration;
 using GameStore.DataAccess;
 using GameStore.Classes;
+using GameStore.WinForms;
 
 namespace GameStore
 {
     public partial class LogIn : Form
     {
-        string username;
-        string password;
-        UsersDataAccess uda;
+        //string username;
+        //string password;
+        //UsersDataAccess uda;
         Store store;
         
         public LogIn()
@@ -65,14 +66,20 @@ namespace GameStore
                                 store.LoggedInUser = g;
                             }
                         }
+                        FormGamer formGamer = new FormGamer(store);
+                        formGamer.Show();
+                        this.Hide();
                     }
                     else if (reader["user_type"].ToString() == "admin")
                     {
                         store.LoggedInUser = store.Uda.getAdmin(reader);
+                        FormAdmin formAdmin = new FormAdmin(store);
+                        //FormAdmin formAdmin = new FormAdmin();
+                        formAdmin.Show();
+                        this.Hide();
                     }
                     else if (reader["user_type"].ToString() == "developer")
                     {
-                        //store.LoggedInUser = store.Uda.getGamer(reader);
                         foreach (Developer d in store.Developers)
                         {
                             if (d.Email == reader["email"].ToString())
@@ -80,6 +87,9 @@ namespace GameStore
                                 store.LoggedInUser = d;
                             }
                         }
+                        FormDeveloper formDeveloper = new FormDeveloper(store);
+                        formDeveloper.Show();
+                        this.Hide();
                     }
                     /*
                     username = reader["email"].ToString();
@@ -95,12 +105,10 @@ namespace GameStore
 
                         //next form
                     } */
-                    username = textBoxUserName.Text;
-                    password = textBoxPassword.Text;
+                    //username = textBoxUserName.Text;
+                    //password = textBoxPassword.Text;
 
-                    MainWindow mainWindow = new MainWindow(store);
-                    mainWindow.Show();
-                    this.Hide();
+                    
                 }
                 else
                 {

@@ -30,6 +30,7 @@ namespace GameStore
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
+            this.buttonInsertNews = new System.Windows.Forms.Button();
             this.textBoxGameTopic = new System.Windows.Forms.TextBox();
             this.labelGameTopic = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@ namespace GameStore
             this.labelImages = new System.Windows.Forms.Label();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.buttonInsertNews = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,19 @@ namespace GameStore
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(1121, 664);
-            this.panel.TabIndex = 0;
+            this.panel.TabIndex = 1;
+            // 
+            // buttonInsertNews
+            // 
+            this.buttonInsertNews.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonInsertNews.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsertNews.Location = new System.Drawing.Point(369, 361);
+            this.buttonInsertNews.Name = "buttonInsertNews";
+            this.buttonInsertNews.Size = new System.Drawing.Size(224, 44);
+            this.buttonInsertNews.TabIndex = 9;
+            this.buttonInsertNews.Text = "Confirm";
+            this.buttonInsertNews.UseVisualStyleBackColor = true;
+            this.buttonInsertNews.Click += new System.EventHandler(this.buttonInsertNews_Click_1);
             // 
             // textBoxGameTopic
             // 
@@ -131,18 +143,6 @@ namespace GameStore
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title :";
             // 
-            // buttonInsertNews
-            // 
-            this.buttonInsertNews.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonInsertNews.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInsertNews.Location = new System.Drawing.Point(369, 361);
-            this.buttonInsertNews.Name = "buttonInsertNews";
-            this.buttonInsertNews.Size = new System.Drawing.Size(224, 44);
-            this.buttonInsertNews.TabIndex = 9;
-            this.buttonInsertNews.Text = "Confirm";
-            this.buttonInsertNews.UseVisualStyleBackColor = true;
-            this.buttonInsertNews.Click += new System.EventHandler(this.buttonInsertNews_Click);
-            // 
             // UserControlPublishNews
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +159,7 @@ namespace GameStore
         #endregion
 
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Button buttonInsertNews;
         private System.Windows.Forms.TextBox textBoxGameTopic;
         private System.Windows.Forms.Label labelGameTopic;
         private System.Windows.Forms.TextBox textBoxDescription;
@@ -167,6 +168,5 @@ namespace GameStore
         private System.Windows.Forms.Label labelImages;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Button buttonInsertNews;
     }
 }

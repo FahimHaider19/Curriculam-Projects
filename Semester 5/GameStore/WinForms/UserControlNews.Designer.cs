@@ -81,6 +81,8 @@ namespace GameStore
             this.newsBox4.Location = new System.Drawing.Point(12, 0);
             this.newsBox4.Margin = new System.Windows.Forms.Padding(2);
             this.newsBox4.Name = "newsBox4";
+            this.newsBox4.News = null;
+            this.newsBox4.Panel = null;
             this.newsBox4.Size = new System.Drawing.Size(251, 357);
             this.newsBox4.TabIndex = 0;
             // 
@@ -102,6 +104,8 @@ namespace GameStore
             this.newsBox3.Location = new System.Drawing.Point(12, 0);
             this.newsBox3.Margin = new System.Windows.Forms.Padding(2);
             this.newsBox3.Name = "newsBox3";
+            this.newsBox3.News = null;
+            this.newsBox3.Panel = null;
             this.newsBox3.Size = new System.Drawing.Size(252, 357);
             this.newsBox3.TabIndex = 0;
             // 
@@ -123,6 +127,8 @@ namespace GameStore
             this.newsBox2.Location = new System.Drawing.Point(12, 0);
             this.newsBox2.Margin = new System.Windows.Forms.Padding(2);
             this.newsBox2.Name = "newsBox2";
+            this.newsBox2.News = null;
+            this.newsBox2.Panel = null;
             this.newsBox2.Size = new System.Drawing.Size(251, 357);
             this.newsBox2.TabIndex = 0;
             // 
@@ -144,6 +150,8 @@ namespace GameStore
             this.newsBox1.Location = new System.Drawing.Point(12, 0);
             this.newsBox1.Margin = new System.Windows.Forms.Padding(2);
             this.newsBox1.Name = "newsBox1";
+            this.newsBox1.News = null;
+            this.newsBox1.Panel = null;
             this.newsBox1.Size = new System.Drawing.Size(251, 357);
             this.newsBox1.TabIndex = 0;
             // 

@@ -63,12 +63,6 @@
     <Compile Include="Classes\User.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\UsersDataAccess.cs" />
-    <Compile Include="WinForms\UserControlgameManageMentcs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinForms\UserControlgameManageMentcs.Designer.cs">
-      <DependentUpon>UserControlgameManageMentcs.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinForms\FormDeveloper.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,17 +80,35 @@
     <Compile Include="WinForms\UserControlDeveloperManagement.Designer.cs">
       <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinForms\UserControlDLC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlDLC.Designer.cs">
+      <DependentUpon>UserControlDLC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlGameManageMentcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlGameManageMentcs.Designer.cs">
+      <DependentUpon>UserControlGameManageMentcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinForms\UserControlPublishNews.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WinForms\UserControlPublishNews.Designer.cs">
       <DependentUpon>UserControlPublishNews.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\UserControlUserManagement.cs">
+    <Compile Include="WinForms\UserControlReview.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinForms\UserControlUserManagement.Designer.cs">
-      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
+    <Compile Include="WinForms\UserControlReview.Designer.cs">
+      <DependentUpon>UserControlReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlStoreManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlStoreManagement.Designer.cs">
+      <DependentUpon>UserControlStoreManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlPublishGame.cs">
       <SubType>UserControl</SubType>
@@ -122,12 +134,6 @@
     <Compile Include="WinForms\UserControlCart.Designer.cs">
       <DependentUpon>UserControlCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\UserControlBrowse.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WinForms\UserControlBrowse.Designer.cs">
-      <DependentUpon>UserControlBrowse.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinForms\UserControlGamePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,11 +158,17 @@
     <Compile Include="WinForms\UserControlReadNews.Designer.cs">
       <DependentUpon>UserControlReadNews.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\UserControllStore.cs">
+    <Compile Include="WinForms\UserControlStore.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinForms\UserControllStore.Designer.cs">
-      <DependentUpon>UserControllStore.cs</DependentUpon>
+    <Compile Include="WinForms\UserControlStore.Designer.cs">
+      <DependentUpon>UserControlStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\UserControlUserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinForms\UserControlUserManagement.Designer.cs">
+      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForms\UserControlWishlist.cs">
       <SubType>UserControl</SubType>
@@ -186,11 +198,11 @@
     <Compile Include="WinForms\LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\MainWindow.cs">
+    <Compile Include="WinForms\FormGamer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <Compile Include="WinForms\FormGamer.Designer.cs">
+      <DependentUpon>FormGamer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,9 +218,6 @@
     <Compile Include="WinForms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WinForms\UserControlgameManageMentcs.resx">
-      <DependentUpon>UserControlgameManageMentcs.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormDeveloper.resx">
       <DependentUpon>FormDeveloper.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +228,15 @@
     <EmbeddedResource Include="WinForms\UserControlDeveloperManagement.resx">
       <DependentUpon>UserControlDeveloperManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlDLC.resx">
+      <DependentUpon>UserControlDLC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlGameManageMentcs.resx">
+      <DependentUpon>UserControlGameManageMentcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlProfile.resx">
+      <DependentUpon>UserControlProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlPublishNews.resx">
       <DependentUpon>UserControlPublishNews.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,8 +246,11 @@
     <EmbeddedResource Include="WinForms\UserControlReadNews.resx">
       <DependentUpon>UserControlReadNews.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\UserControlUserManagement.resx">
-      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\UserControlReview.resx">
+      <DependentUpon>UserControlReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlStoreManagement.resx">
+      <DependentUpon>UserControlStoreManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlPublishGame.resx">
       <DependentUpon>UserControlPublishGame.cs</DependentUpon>
@@ -246,8 +267,8 @@
     <EmbeddedResource Include="WinForms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\FormGamer.resx">
+      <DependentUpon>FormGamer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -267,17 +288,17 @@
     <EmbeddedResource Include="WinForms\TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\UserControlBrowse.resx">
-      <DependentUpon>UserControlBrowse.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlGamePage.resx">
       <DependentUpon>UserControlGamePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlLibrary.resx">
       <DependentUpon>UserControlLibrary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\UserControllStore.resx">
-      <DependentUpon>UserControllStore.cs</DependentUpon>
+    <EmbeddedResource Include="WinForms\UserControlStore.resx">
+      <DependentUpon>UserControlStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\UserControlUserManagement.resx">
+      <DependentUpon>UserControlUserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\UserControlWishlist.resx">
       <DependentUpon>UserControlWishlist.cs</DependentUpon>
@@ -298,23 +319,33 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="RedDeadRedemption2.jpg" />
-    <None Include="Resources\icons8-browse-page-30.png" />
-    <None Include="Resources\news.png" />
-    <None Include="Resources\dropdown.png" />
-    <None Include="Resources\shop.png" />
+    <None Include="Resources\delete.png" />
     <None Include="Resources\library.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\profile.png" />
+    <None Include="Resources\notification.png" />
+    <None Include="Resources\news.png" />
+    <None Include="Resources\icons8-list-30.png" />
+    <None Include="Resources\dropdown.png" />
+    <None Include="Resources\icons8-shopping-cart-30.png" />
+    <None Include="Resources\icons8-settings-30.png" />
+    <None Include="Resources\icons8-news-30.png" />
+    <None Include="Resources\icons8-home-30.png" />
+    <None Include="Resources\icons8-expand-arrow-30.png" />
+    <None Include="Resources\icons8-contact-details-30.png" />
+    <None Include="Resources\icons8-book-shelf-30.png" />
+    <None Include="Resources\icons8-bell-30.png" />
+    <None Include="Resources\dashboard.png" />
+    <None Include="Resources\shop.png" />
     <None Include="Resources\wishlist.png" />
     <None Include="Resources\sign out.png" />
-    <None Include="Resources\settings.png" />
     <None Include="Resources\home.png" />
-    <None Include="Resources\cart.png" />
     <None Include="Resources\icons8-sign-out-30.png" />
     <None Include="Resources\icons8-shopify-30.png" />
-    <None Include="Resources\icons8-settings-30.png" />
     <None Include="Resources\icons8-online-store-30.png" />
     <None Include="Resources\icons8-list-view-30.png" />
     <None Include="Resources\icons8-fast-cart-30.png" />
-    <None Include="Resources\icons8-book-shelf-30.png" />
     <None Include="Resources\RedDeadRedemption2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

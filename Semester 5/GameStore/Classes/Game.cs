@@ -8,11 +8,7 @@ namespace GameStore.Classes
 {
     public class Game : Product
     {
-        bool isFavourite;
-
-
-
-        SystemRequirements systemRequirments;
+        string systemRequirments;
         List<Dlc> dlcs = new List<Dlc>();
         List<Review> reviews = new List<Review>();
         List<News> news = new List<News>();
@@ -20,7 +16,7 @@ namespace GameStore.Classes
 
         public Game() { }
         public Game(string name) { this.Name = name; }
-        public SystemRequirements SystemRequirements
+        public string SystemRequirements
         {
             set { this.systemRequirments = value; }
             get { return this.systemRequirments; }
@@ -40,11 +36,11 @@ namespace GameStore.Classes
             set { this.news = value; }
             get { return this.news; }
         }
-        public List<string> Genre
+/*        public List<string> Genre
         {
             set { this.genre = value; }
             get { return this.genre; }
-        }
+        }*/
         public Game Copy()
         {
             Game temp = new Game();
@@ -57,6 +53,12 @@ namespace GameStore.Classes
             temp.developer = this.developer;
             temp.publisher = this.publisher;
             temp.releaseDate = this.releaseDate;
+            temp.featured = this.featured;
+            temp.trending = this.trending;
+            temp.OnSale = this.OnSale;
+            temp.genre = this.genre;
+            temp.systemRequirments = this.systemRequirments;
+            temp.published = this.published;
             return temp;
         }
     }

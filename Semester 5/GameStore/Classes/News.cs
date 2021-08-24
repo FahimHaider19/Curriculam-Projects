@@ -14,6 +14,8 @@ namespace GameStore.Classes
         string topic;
         string date;
         string description;
+        string imageBox;
+        string imageCover;
 
         public long NewsId
         {
@@ -45,7 +47,15 @@ namespace GameStore.Classes
             set { this.description = value; }
             get { return this.description; }
         }
-
-
+        public string ImageBox
+        {
+            set { this.imageBox = value; }
+            get { return this.imageBox; }
+        }
+        public string ImageCover
+        {
+            set { this.imageCover = value; }
+            get { return this.imageCover; }
+        }
     }
 }

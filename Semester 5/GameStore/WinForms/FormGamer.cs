@@ -12,36 +12,32 @@ using GameStore.Classes;
 
 namespace GameStore
 {
-    public partial class MainWindow : Form
+    public partial class FormGamer : Form
     {
         Store store;
         Gamer gamer;
-        public MainWindow()
+        public FormGamer()
         {
             InitializeComponent();
-            //panelStoreDropdown.Hide();
-            //UserControlCart tu = new UserControlCart();
-            //panelCenter.Controls.Add(tu);
-
         }
 
-        public MainWindow(Store store)
+        public FormGamer(Store store)
         {
             this.store = store;
             gamer = (Gamer)store.LoggedInUser;
             InitializeComponent();
-
+            store.Uda.getProductRecord(gamer);
             panelCenter.Controls.Clear();
-            UserControllStore ucs = new UserControllStore();
+            labelUsername.Text = gamer.UserName;
+            UserControlStore ucs = new UserControlStore(store, panelCenter);
             ucs.Dock = DockStyle.Top;
             panelCenter.Controls.Add(ucs);
-
         }
 
         private void buttonStore_Click(object sender, EventArgs e)
         {
             panelCenter.Controls.Clear();
-            UserControllStore ucs = new UserControllStore();
+            UserControlStore ucs = new UserControlStore(store, this.panelCenter);
             ucs.Dock = DockStyle.Top;
             panelCenter.Controls.Add(ucs);
         }
@@ -57,29 +53,22 @@ namespace GameStore
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
             panelCenter.Controls.Clear();
-            /*
-            List<Game> games = new List<Game>();
-            for (int i = 0; i < 50; i++)
-            {
-                string str = "Game-";
-                str += i;
-                games.Add(new Game(str));
-            }
-            */
+
             int numOfRows = Convert.ToInt32(Math.Ceiling(store.Games.Count / 6.0)), index = 0;
             List<UserControlLibrary> rows = new List<UserControlLibrary>();
             rows.Add(new UserControlLibrary());
 
             foreach (Game g in store.Games)
             {
-                if (rows[index].Add(g) == false)
+                if (g.Published == false) continue;
+                if (rows[index].Add(store, panelCenter, g) == false)
                 {
 
                     panelCenter.Controls.Add(rows[index]);
                     rows[index].Dock = DockStyle.Bottom;
                     index++;
                     rows.Add(new UserControlLibrary());
-                    rows[index].Add(g);
+                    rows[index].Add(store, panelCenter, g);
                 }
             }
             if (index < numOfRows)
@@ -107,13 +96,13 @@ namespace GameStore
 
             foreach (Game g in gamer.PurchasedGames)
             {
-                if (rows[index].Add(g) == false)
+                if (rows[index].Add(store, panelCenter, g) == false)
                 {
                     panelCenter.Controls.Add(rows[index]);
                     rows[index].Dock = DockStyle.Bottom;
                     index++;
                     rows.Add(new UserControlLibrary());
-                    rows[index].Add(g);
+                    rows[index].Add(store, panelCenter, g);
                 }
             }
             if (index < numOfRows)
@@ -127,11 +116,11 @@ namespace GameStore
         {
             panelCenter.Controls.Clear();
             //Gamer gamer = (Gamer)store.LoggedInUser;
-            foreach (Game g in gamer.Wishlist)
+            foreach (Product p in gamer.Wishlist)
             {
-                UserControlWishlist ucw = new UserControlWishlist();
-                ucw.LabelTitle.Text = g.Name;
-                ucw.TextBoxPriority.Text = "0";
+                UserControlWishlist ucw = new UserControlWishlist(p,gamer.Wishlist);
+                //ucw.LabelTitle.Text = p.Name;
+                //ucw.TextBoxPriority.Text = "0";
                 panelCenter.Controls.Add(ucw);
                 ucw.Dock = DockStyle.Bottom;
             }
@@ -141,15 +130,35 @@ namespace GameStore
         {
             panelCenter.Controls.Clear();
             //Gamer gamer = (Gamer)store.LoggedInUser;
-            foreach (Game g in gamer.Cart)
-            {
-                //cart
-            }
+            UserControlCart ucc = new UserControlCart(gamer);
+            panelCenter.Controls.Add(ucc);
+            ucc.Dock = DockStyle.Top;
         }
 
         private void buttonNews_Click(object sender, EventArgs e)
         {
+            panelCenter.Controls.Clear();
 
+            int numOfRows = Convert.ToInt32(Math.Ceiling(store.News.Count / 4.0)), index = 0;
+            List<UserControlNews> rows = new List<UserControlNews>();
+            rows.Add(new UserControlNews(panelCenter));
+
+            foreach (News n in store.News)
+            {
+                if (rows[index].Add(n) == false)
+                {
+                    panelCenter.Controls.Add(rows[index]);
+                    rows[index].Dock = DockStyle.Bottom;
+                    index++;
+                    rows.Add(new UserControlNews(panelCenter));
+                    rows[index].Add(n);
+                }
+            }
+            if (index < numOfRows)
+            {
+                panelCenter.Controls.Add(rows[index]);
+                rows[index].Dock = DockStyle.Bottom;
+            }
         }
 
         private void buttonSignOut_Click(object sender, EventArgs e)
@@ -158,6 +167,17 @@ namespace GameStore
             LogIn login = new LogIn(store);
             login.Show();
             this.Hide();
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonMyProfile_Click(object sender, EventArgs e)
+        {
+            panelCenter.Controls.Clear();
+            panelCenter.Controls.Add(new UserControlProfile(store));
         }
     }
 }

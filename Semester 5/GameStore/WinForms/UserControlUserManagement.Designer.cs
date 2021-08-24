@@ -50,7 +50,7 @@ namespace GameStore
             this.panelCenter.Location = new System.Drawing.Point(0, 0);
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(1121, 664);
-            this.panelCenter.TabIndex = 0;
+            this.panelCenter.TabIndex = 1;
             // 
             // listViewBanUsers
             // 
@@ -71,7 +71,6 @@ namespace GameStore
             this.listViewBanUsers.TabIndex = 3;
             this.listViewBanUsers.UseCompatibleStateImageBehavior = false;
             this.listViewBanUsers.View = System.Windows.Forms.View.Details;
-            this.listViewBanUsers.SelectedIndexChanged += new System.EventHandler(this.listViewBanUsers_SelectedIndexChanged_1);
             // 
             // columnHeaderuserid
             // 
@@ -101,7 +100,6 @@ namespace GameStore
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(500, 122);
             this.panelButton.TabIndex = 2;
-            this.panelButton.Paint += new System.Windows.Forms.PaintEventHandler(this.panelButton_Paint);
             // 
             // buttonUnbanUser
             // 
@@ -112,7 +110,7 @@ namespace GameStore
             this.buttonUnbanUser.TabIndex = 1;
             this.buttonUnbanUser.Text = "Unban User";
             this.buttonUnbanUser.UseVisualStyleBackColor = true;
-            this.buttonUnbanUser.Click += new System.EventHandler(this.buttonUnbanUser_Click);
+            this.buttonUnbanUser.Click += new System.EventHandler(this.buttonUnbanUser_Click_1);
             // 
             // buttonBan
             // 
@@ -123,7 +121,7 @@ namespace GameStore
             this.buttonBan.TabIndex = 0;
             this.buttonBan.Text = "Ban User";
             this.buttonBan.UseVisualStyleBackColor = true;
-            this.buttonBan.Click += new System.EventHandler(this.buttonBan_Click);
+            this.buttonBan.Click += new System.EventHandler(this.buttonBan_Click_1);
             // 
             // UserControlUserManagement
             // 
@@ -141,13 +139,13 @@ namespace GameStore
         #endregion
 
         private System.Windows.Forms.Panel panelCenter;
-        private System.Windows.Forms.Panel panelButton;
-        private System.Windows.Forms.Button buttonUnbanUser;
-        private System.Windows.Forms.Button buttonBan;
         private System.Windows.Forms.ListView listViewBanUsers;
         private System.Windows.Forms.ColumnHeader columnHeaderuserid;
         private System.Windows.Forms.ColumnHeader columnHeaderusername;
         private System.Windows.Forms.ColumnHeader columnHeaderemail;
         private System.Windows.Forms.ColumnHeader columnHeaderbanstatus;
+        private System.Windows.Forms.Panel panelButton;
+        private System.Windows.Forms.Button buttonUnbanUser;
+        private System.Windows.Forms.Button buttonBan;
     }
 }

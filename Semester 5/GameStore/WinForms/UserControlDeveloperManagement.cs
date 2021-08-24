@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
-using GameStore.DataAccess;
 using GameStore.Classes;
 
 namespace GameStore
@@ -26,7 +24,6 @@ namespace GameStore
             this.store = store;
             InitializeComponent();
         }
-
         private void labelPublishRequest_Click(object sender, EventArgs e)
         {
 
@@ -37,21 +34,11 @@ namespace GameStore
 
         }
 
-        private void textBoxEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-          string checksql = "select email from Users where email='" + textBoxEmail.Text + "'";
+            string checksql = "select email from Users where email='" + textBoxEmail.Text + "'";
             SqlDataReader reader = store.Uda.GetData(checksql);
-            if(reader.HasRows)
+            if (reader.HasRows)
             {
                 MessageBox.Show("already have a email account in same name");
 
@@ -70,18 +57,6 @@ namespace GameStore
                 }
 
             }
-            
-         
-        }
-
-        private void labeluserName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

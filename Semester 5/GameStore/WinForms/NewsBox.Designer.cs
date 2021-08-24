@@ -46,6 +46,7 @@ namespace GameStore
             this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picturebox.TabIndex = 0;
             this.picturebox.TabStop = false;
+            this.picturebox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picturebox_MouseClick);
             // 
             // labelNewsTitle
             // 
@@ -60,8 +61,8 @@ namespace GameStore
             this.labelNewsTitle.Name = "labelNewsTitle";
             this.labelNewsTitle.Size = new System.Drawing.Size(250, 85);
             this.labelNewsTitle.TabIndex = 1;
-            this.labelNewsTitle.Text = "Survive Waves of Enemies in New Call to Arms Mode";
             this.labelNewsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNewsTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picturebox_MouseClick);
             // 
             // NewsBox
             // 

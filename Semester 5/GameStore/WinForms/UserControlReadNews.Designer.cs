@@ -41,11 +41,13 @@ namespace GameStore.WinForms
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelDescription.Location = new System.Drawing.Point(0, 772);
-            this.labelDescription.MaximumSize = new System.Drawing.Size(1150, 0);
+            this.labelDescription.MaximumSize = new System.Drawing.Size(1130, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Padding = new System.Windows.Forms.Padding(10);
-            this.labelDescription.Size = new System.Drawing.Size(80, 33);
+            this.labelDescription.Size = new System.Drawing.Size(109, 40);
             this.labelDescription.TabIndex = 7;
             this.labelDescription.Text = "Description";
             // 
@@ -55,10 +57,10 @@ namespace GameStore.WinForms
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
             this.pictureBox.Location = new System.Drawing.Point(0, 122);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox.MaximumSize = new System.Drawing.Size(1725, 900);
+            this.pictureBox.MaximumSize = new System.Drawing.Size(1140, 650);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox.Size = new System.Drawing.Size(1154, 650);
+            this.pictureBox.Size = new System.Drawing.Size(1140, 650);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 6;
             this.pictureBox.TabStop = false;
@@ -68,6 +70,7 @@ namespace GameStore.WinForms
             this.labelPosted.AutoSize = true;
             this.labelPosted.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelPosted.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPosted.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelPosted.Location = new System.Drawing.Point(0, 104);
             this.labelPosted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPosted.Name = "labelPosted";
@@ -81,9 +84,10 @@ namespace GameStore.WinForms
             this.labelTitle.AutoSize = true;
             this.labelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelTitle.Location = new System.Drawing.Point(0, 0);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTitle.MaximumSize = new System.Drawing.Size(1150, 0);
+            this.labelTitle.MaximumSize = new System.Drawing.Size(1130, 0);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Padding = new System.Windows.Forms.Padding(10);
             this.labelTitle.Size = new System.Drawing.Size(1094, 104);
@@ -94,12 +98,13 @@ namespace GameStore.WinForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelPosted);
             this.Controls.Add(this.labelTitle);
             this.Name = "UserControlReadNews";
-            this.Size = new System.Drawing.Size(1154, 830);
+            this.Size = new System.Drawing.Size(1140, 812);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

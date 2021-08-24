@@ -31,11 +31,11 @@ namespace GameStore
         {
             this.labelLoginBanner = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.checkBoxShowCheckbox = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelDoNotHaveAnAccount = new System.Windows.Forms.Label();
             this.labelRegistered = new System.Windows.Forms.Label();
             this.labelForgotPassword = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
@@ -67,29 +67,29 @@ namespace GameStore
             this.textBoxUserName.TabIndex = 1;
             this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxUserName_TextChanged);
             // 
-            // label2
+            // labelUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(55, 99);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "USERNAME";
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelUsername.Location = new System.Drawing.Point(55, 99);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(85, 17);
+            this.labelUsername.TabIndex = 2;
+            this.labelUsername.Text = "USERNAME";
             // 
-            // label3
+            // labelPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(55, 164);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "PASSWORD";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelPassword.Location = new System.Drawing.Point(55, 164);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(88, 17);
+            this.labelPassword.TabIndex = 4;
+            this.labelPassword.Text = "PASSWORD";
             // 
             // textBoxPassword
             // 
@@ -116,17 +116,17 @@ namespace GameStore
             this.checkBoxShowCheckbox.UseVisualStyleBackColor = true;
             this.checkBoxShowCheckbox.CheckedChanged += new System.EventHandler(this.checkBoxShowCheckbox_CheckedChanged);
             // 
-            // label4
+            // labelDoNotHaveAnAccount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(117, 293);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Do not have an Account!";
+            this.labelDoNotHaveAnAccount.AutoSize = true;
+            this.labelDoNotHaveAnAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelDoNotHaveAnAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelDoNotHaveAnAccount.Location = new System.Drawing.Point(117, 293);
+            this.labelDoNotHaveAnAccount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDoNotHaveAnAccount.Name = "labelDoNotHaveAnAccount";
+            this.labelDoNotHaveAnAccount.Size = new System.Drawing.Size(127, 13);
+            this.labelDoNotHaveAnAccount.TabIndex = 7;
+            this.labelDoNotHaveAnAccount.Text = "Do not have an Account!";
             // 
             // labelRegistered
             // 
@@ -173,12 +173,12 @@ namespace GameStore
             this.ClientSize = new System.Drawing.Size(348, 446);
             this.Controls.Add(this.labelForgotPassword);
             this.Controls.Add(this.labelRegistered);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelDoNotHaveAnAccount);
             this.Controls.Add(this.checkBoxShowCheckbox);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.labelLoginBanner);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -195,11 +195,11 @@ namespace GameStore
 
         private System.Windows.Forms.Label labelLoginBanner;
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.CheckBox checkBoxShowCheckbox;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelDoNotHaveAnAccount;
         private System.Windows.Forms.Label labelRegistered;
         private System.Windows.Forms.Label labelForgotPassword;
         private System.Windows.Forms.Button loginButton;

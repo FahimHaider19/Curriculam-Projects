@@ -29,6 +29,7 @@ namespace GameStore
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameBox));
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.labelGameboxGameName = new System.Windows.Forms.Label();
             this.labelpriceTag = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@ namespace GameStore
             // pictureBox
             // 
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox.Image = global::GameStore.Resource.RedDeadRedemption2;
+            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
             this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
@@ -46,6 +47,7 @@ namespace GameStore
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // labelGameboxGameName
             // 
@@ -59,8 +61,8 @@ namespace GameStore
             this.labelGameboxGameName.Name = "labelGameboxGameName";
             this.labelGameboxGameName.Size = new System.Drawing.Size(155, 40);
             this.labelGameboxGameName.TabIndex = 4;
-            this.labelGameboxGameName.Text = "GameName";
             this.labelGameboxGameName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGameboxGameName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // labelpriceTag
             // 
@@ -72,8 +74,8 @@ namespace GameStore
             this.labelpriceTag.Name = "labelpriceTag";
             this.labelpriceTag.Size = new System.Drawing.Size(155, 16);
             this.labelpriceTag.TabIndex = 6;
-            this.labelpriceTag.Text = "0.00$";
             this.labelpriceTag.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelpriceTag.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // GameBox
             // 
@@ -86,6 +88,7 @@ namespace GameStore
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameBox";
             this.Size = new System.Drawing.Size(157, 245);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

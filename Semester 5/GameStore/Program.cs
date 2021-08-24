@@ -20,22 +20,20 @@ namespace GameStore
             Store store = new Store();
             UsersDataAccess uda = new UsersDataAccess(store);
             store.Uda = uda;
-           uda.GetUsers();
+            uda.GetUsers();
             uda.GetProducts();
-           //uda.getNews();
-            uda.getProductRecord(store.Gamers[0]);
-           // uda.getReceipt(store.Gamers[0]);
+            //uda.getNews();
+            //uda.getProductRecord(store.Gamers[0]);
+            //uda.getReceipt(store.Gamers[0]);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-           //  Application.Run(new LogIn(store));
-           // Application.Run(new Register());
-           // Application.Run(new MainWindow());
-            //Application.Run(new TestForm());
-
-              Application.Run(new FormDeveloper(store));
+            Application.Run(new LogIn(store));
+            //Application.Run(new Register());
+            //Application.Run(new FormGamer(store));
+            //Application.Run(new TestForm(store));
             //Application.Run(new FormAdmin(store));
-            
+            //Application.Run(new FormDeveloper(store));
             
         }
     }

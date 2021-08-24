@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameStore.Classes;
 
 namespace GameStore
 {
     public partial class UserControlNews : UserControl
     {
-        public UserControlNews()
+        Panel Panel;
+        public UserControlNews(Panel panel)
         {
+            this.Panel = panel;
             InitializeComponent();
         }
 
@@ -37,6 +40,43 @@ namespace GameStore
             set { this.newsBox4 = value; }
             get { return this.newsBox4; }
         }
-        
+        public bool Add(News news)
+        {
+            if (NewsBox1.LabelNewsTitle.Text == "")
+            {
+                newsBox1.Panel = Panel;
+                newsBox1.News = news;
+                NewsBox1.LabelNewsTitle.Text = news.Title;
+                //NewsBox1.PictureBox = news.Image;
+                return true;
+            }
+            else if (NewsBox2.LabelNewsTitle.Text == "")
+            {
+                newsBox2.Panel = Panel;
+                newsBox2.News = news;
+                NewsBox2.LabelNewsTitle.Text = news.Title;
+                //NewsBox1.PictureBox = news.Image;
+                return true;
+            }
+            else if (NewsBox3.LabelNewsTitle.Text == "")
+            {
+                newsBox3.Panel = Panel;
+                newsBox3.News = news;
+                NewsBox3.LabelNewsTitle.Text = news.Title;
+                //NewsBox1.PictureBox = news.Image;
+                return true;
+            }
+            else if (NewsBox4.LabelNewsTitle.Text == "")
+            {
+                newsBox4.Panel = Panel;
+                newsBox4.News = news;
+                NewsBox4.LabelNewsTitle.Text = news.Title;
+                //NewsBox1.PictureBox = news.Image;
+                return true;
+            }
+            else
+                return false;
+        }
     }
+    
 }

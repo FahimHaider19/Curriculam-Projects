@@ -83,7 +83,7 @@ namespace GameStore
                 connection.Open();
                 string sql="insert into Users(username,email,user_type,password)  values('"+usernameBox.Text+"','"+textBoxEmail.Text+"','gamer','"+passwordBox.Text+"')";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.ExecuteNonQuery();
+                //command.ExecuteNonQuery();
                 if (command.ExecuteNonQuery() > 0)
                 {
                     MessageBox.Show("Sucessfully Registered");

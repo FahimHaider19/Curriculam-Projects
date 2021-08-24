@@ -13,26 +13,46 @@ namespace GameStore.WinForms
 {
     public partial class UserControlWishlist : UserControl
     {
+        Product product;
+        List<Product> list;
         public UserControlWishlist()
         {
             InitializeComponent();
         }
-        public UserControlWishlist(Game game, string priority)
+        public UserControlWishlist(Product product)
         {
+            this.product = product;
             InitializeComponent();
-            labelTitle.Text = game.Name;
-            labelGenre.Text = "";
-            foreach (string s in game.Genre)
+            labelTitle.Text = product.Name;
+            labelGenre.Text = "Gener : ";
+            foreach (string s in product.Genre)
             {
-                if (s != game.Genre[0])
+                if (s != product.Genre[0])
                     labelGenre.Text += ", ";
                 labelGenre.Text += s;
             }
-            labelPublisher.Text = game.Publisher;
-            labelPrice.Text = game.Price + "$";
-            labelReleaseDate.Text = game.ReleaseDate;
-            textBoxPriority.Text = priority;
-
+            labelPublisher.Text = "Publisher : " + product.Publisher;
+            labelPrice.Text = product.Price.ToString() + "$";
+            labelReleaseDate.Text = "Release Date : " + product.ReleaseDate.ToString();
+        }
+        public UserControlWishlist(Product product, List<Product> list)
+        {
+            //if (itemType == "wishlist") this.wishlist = list;
+            //if (itemType == "cart") this.cart = list;
+            this.list = list;
+            this.product = product;
+            InitializeComponent();
+            labelTitle.Text = product.Name;
+            labelGenre.Text = "Gener : ";
+            foreach (string s in product.Genre)
+            {
+                if (s != product.Genre[0])
+                    labelGenre.Text += ", ";
+                labelGenre.Text += s;
+            }
+            labelPublisher.Text = "Publisher : " + product.Publisher;
+            labelPrice.Text = product.Price.ToString() + "$";
+            labelReleaseDate.Text = "Release Date : " + product.ReleaseDate.ToString();
         }
         public Label LabelTitle
         {
@@ -59,14 +79,19 @@ namespace GameStore.WinForms
             set { this.labelReleaseDate = value; }
             get { return labelReleaseDate; }
         }
-        public TextBox TextBoxPriority
+/*        public TextBox TextBoxPriority
         {
             set { this.textBoxPriority = value; }
             get { return textBoxPriority; }
-        }
+        }*/
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            list.Remove(product);
         }
     }
 }
