@@ -4,6 +4,7 @@
 #include <GL/glu.h>
 #include <vector>
 #include <utility>
+#include <math.h>
 using namespace std;
 struct Color
 {
@@ -14,7 +15,8 @@ struct Color
 
 struct Scene
 {
-    Color sky;
+    Color skyTop;
+    Color skyBottom;
     Color frontMountain;
     Color rearMountain;
     Color lightShadow;
@@ -42,9 +44,17 @@ struct Scene
     //fire
 };
 
+float boatX = 0;
+int factor = 1;
+float birdX = 0, birdWingY = -1;
+float planeX = -60*7*3;
+float plane2X= 60*10*2 + 1920;
+unsigned long long lastFrameTime = 0;
+
 //declare a "Scene here". Assign colors and then assign a scene to "CurrentScene"
 
 Scene day = {
+    {147, 236, 244},
     {147, 236, 244},
     {51, 202, 147},
     {50, 175, 141},
@@ -63,9 +73,45 @@ Scene day = {
     {2, 148, 138},
     {70, 38, 17}
 
+};
+
+Scene night =
+    {
+        {99, 106, 188},
+        {60, 41, 102},
+        {66, 58, 163},
+        {35, 26, 104},
+        {126, 130, 255},
+        {35, 26, 104},
+        {99, 106, 188},
+        {57, 54, 161},
+
+        {23, 1, 54},
+        {38, 29, 107},
+        {11, 0, 26},
+        {255, 203, 21},
+        {0, 0, 0},
+
+        {11, 0, 26},
+        {11, 0, 26},
+        {0, 0, 0},
+        {2, 30, 68},
+        {12, 4, 93},
+
+        {2, 10, 46},
+        {11, 0, 26},
+        {15, 0, 38},
+        {11, 0, 26},
+
+        {2, 110, 123},
+        {2, 148, 138},
+        {70, 38, 17}
 
 };
-void circle(float x, float y, float radius, Color color);
+
+Scene currentScene = night;
+
+
 void quad(float x1, float x2, float y1, float y2, Color color, float Tx = 0, float Ty = 0, float s = 1)
 {
     glColor3ub(color.r, color.g, color.b);
@@ -76,6 +122,18 @@ void quad(float x1, float x2, float y1, float y2, Color color, float Tx = 0, flo
     glVertex2f(s * x1 + Tx, s * y2 + Ty);
     glEnd();
 }
+
+void circle(float x, float y, float radius, float height, Color color)
+{
+    int triangleAmount = 360;
+    glBegin(GL_TRIANGLE_FAN);
+    glColor3ub(color.r, color.g, color.b);
+    glVertex2f(x, y); // center of circle
+    for (int i = 0; i <= 360; i++)
+        glVertex2f(x + (radius * cos(i * 2 * 3.1416 / triangleAmount)), y + (height * sin(i*2*3.1416 / triangleAmount)));
+    glEnd();
+}
+
 void quad(vector<pair<float, float>> coord, Color color = {255, 255, 255}, float Tx = 0, float Ty = 0, float s = 1)
 {
     glColor3ub(color.r, color.g, color.b);
@@ -151,10 +209,10 @@ void house3(float x, float y, int m = 1, Color houseWallShawdowed={20,147,166}, 
     
 
     //chimney left
-    quad({{x + m * 44.27, y + 66.72}, {x + m * 48.7, y + 61.97}, {x + m * 48.7, y + 78.82}, {x + m * 44.27, y + 78.82}}, {245, 180, 30});
+    quad({{x + m * 44.27, y + 66.72}, {x + m * 48.7, y + 61.97}, {x + m * 48.7, y + 78.82}, {x + m * 44.27, y + 78.82}}, currentScene.houseWallSide);
    
     //chimney front
-    quad({{x + m * 48.7, y + 61.97}, {x + m * 55.23, y + 61.97}, {x + m * 55.23, y + 78.8}, {x + m * 48.7, y + 78.82}}, {255, 130, 160});
+    quad({{x + m * 48.7, y + 61.97}, {x + m * 55.23, y + 61.97}, {x + m * 55.23, y + 78.8}, {x + m * 48.7, y + 78.82}}, currentScene.houseWallShadowed);
    
 }
 void house4(float Tx, float Ty, Color houseWallSide={255,254,255}, Color houseRoof={255,197,78},Color houseWindows={37,105,118}, Color houseDoor={18,105,132})
@@ -223,23 +281,46 @@ void tent(float Tx = 0, float Ty = 0, float m = 1, Color tentRoof = {231, 144, 3
     quad({{Tx + m * 36.47, Ty + 69.31}, {Tx + m * 2.54, Ty + 44.22}, {Tx + m * 3.54, Ty + 42.45}, {Tx + m * 37.5, Ty + 68.95}, {Tx + m * 260.36, Ty + 49.25}, {Tx + m * 300.9, Ty + 18.44}, {Tx + m * 301.29, Ty + 19.75}, {Tx + m * 261.43, Ty + 49.8}, {Tx + m * 337.36, Ty + 89.35}, {Tx + m * 368.73, Ty + 70.34}, {Tx + m * 368.98, Ty + 72.55}, {Tx + m * 338.4, Ty + 89.89}, {Tx + m * 337.36, Ty + 89.35}}, tentRope);
     glFlush();
 }
-void boat(float Tx = 0, float Ty = 0, Color boatSails = {58, 59, 95}, Color boatMast = {10, 24, 32}, Color boatBody = {98, 41, 61})
+void boat(float Tx = 0, float Ty = 0, float m = 1, Color boatSails = {58, 59, 95}, Color boatMast = {10, 24, 32}, Color boatBody = {98, 41, 61})
 {
-    polygon({{Tx + 0.34, Ty + 14.87}, {Tx + 128.31, Ty + 14.87}, {Tx + 138.12, Ty + 20.12}, {Tx + 138.12, Ty + 8.16}, {Tx + 137.79, Ty + 6.26}, {Tx + 136.91, Ty + 3.95}, {Tx + 135.59, Ty + 2.48}, {Tx + 134.24, Ty + 1.43}, {Tx + 132.48, Ty + 0.87}, {Tx + 129.5, Ty + 0.38}, {Tx + 126.76, Ty + 0.11}, {Tx + 4.1, Ty + 0.11}, {Tx + 0.34, Ty + 14.87}}, boatBody);
-    triangle({{Tx + 62.27, Ty + 121.69}, {Tx + 2.06, Ty + 27.62}, {Tx + 62.27, Ty + 27.62}}, boatSails);
-    triangle({{Tx + 62.82, Ty + 163.64}, {Tx + 66.01, Ty + 14.48}, {Tx + 121.62, Ty + 47.07}}, boatSails);
-    triangle({{Tx + 62.82, Ty + 163.64}, {Tx + 44.85, Ty + 160.68}, {Tx + 62.8, Ty + 154.21}}, boatMast);
-    triangle({{Tx + 62.82, Ty + 163.64}, {Tx + 62.49, Ty + 13.76}, {Tx + 66.02, Ty + 13.79}}, boatMast);
+    polygon({{Tx + m * 0.34, Ty + 14.87}, {Tx + m * 128.31, Ty + 14.87}, {Tx + m * 138.12, Ty + 20.12}, {Tx + m * 138.12, Ty + 8.16}, {Tx + m * 137.79, Ty + 6.26}, {Tx + m * 136.91, Ty + 3.95}, {Tx + m * 135.59, Ty + 2.48}, {Tx + m * 134.24, Ty + 1.43}, {Tx + m * 132.48, Ty + 0.87}, {Tx + m * 129.5, Ty + 0.38}, {Tx + m * 126.76, Ty + 0.11}, {Tx + m * 4.1, Ty + 0.11}, {Tx + m * 0.34, Ty + 14.87}}, boatBody);
+    triangle({{Tx + m * 62.27, Ty + 121.69}, {Tx + m * 2.06, Ty + 27.62}, {Tx + m * 62.27, Ty + 27.62}}, boatSails);
+    triangle({{Tx + m * 62.82, Ty + 163.64}, {Tx + m * 66.01, Ty + 14.48}, {Tx + m * 121.62, Ty + 47.07}}, boatSails);
+    triangle({{Tx + m * 62.82, Ty + 163.64}, {Tx + m * 44.85, Ty + 160.68}, {Tx + m * 62.8, Ty + 154.21}}, boatMast);
+    triangle({{Tx + m * 62.82, Ty + 163.64}, {Tx + m * 62.49, Ty + 13.76}, {Tx + m * 66.02, Ty + 13.79}}, boatMast);
 }
-Scene currentScene=day;
+void plane(float Tx, float Ty, float m, Color color)
+{
+
+    polygon({{Tx + m * 24.66, Ty + 14.48}, {Tx + m * 22.3, Ty + 20.41}, {Tx + m * 26.4, Ty + 21.04}, {Tx + m * 35.39, Ty + 15.27}, {Tx + m * 52.27, Ty + 16.53}, {Tx + m * 54.2, Ty + 16.33}, {Tx + m * 55.69, Ty + 15.61}, {Tx + m * 57.39, Ty + 14.16}, {Tx + m * 59.97, Ty + 13}, {Tx + m * 60.68, Ty + 11.96}, {Tx + m * 60.67, Ty + 11.21}, {Tx + m * 59.36, Ty + 10.29}, {Tx + m * 36.98, Ty + 8.35}, {Tx + m * 27.61, Ty + 0.26}, {Tx + m * 23.49, Ty + 0.3}, {Tx + m * 25.63, Ty + 7.86}, {Tx + m * 10.7, Ty + 7.96}, {Tx + m * 8.16, Ty + 8.42}, {Tx + m * 6.31, Ty + 9.62}, {Tx + m * 0.24, Ty + 17.64}, {Tx + m * 4.63, Ty + 17.82}, {Tx + m * 7.29, Ty + 15.48}, {Tx + m * 8.58, Ty + 14.35}, {Tx + m * 9.93, Ty + 13.71}, {Tx + m * 13.2, Ty + 13.62}}, {color.r, color.g, color.b});
+}
+
+void bird(float Tx, float Ty, float direction, float birdWingY, Color color)
+{
+    polygon({{Tx + direction * 28.65, Ty + 2.99}, {Tx + direction * 31.98, Ty + 1.74}, {Tx + direction * 31.6, Ty + 0.23}, {Tx + direction * 31.93, Ty + -1.29}, {Tx + direction * 30.43, Ty + -0.38}, {Tx + direction * 28.77, Ty + -1.12}, {Tx + direction * 24.29, Ty + -4.59}, {Tx + direction * 16.47, Ty + -5.28}, {Tx + direction * 10.7, Ty + -4.96}, {Tx + direction * 2.95, Ty + -10.29}, {Tx + direction * 8.55, Ty + -3.22}, {Tx + direction * 0.18, Ty + 1.29}, {Tx + direction * 9.57, Ty + -0.31}, {Tx + direction * 11.02, Ty + 0.27}, {Tx + direction * 22.82, Ty + 1.86}, {Tx + direction * 28.65, Ty + 2.99}}, {color.r, color.g, color.b});
+    polygon({{Tx + direction * 22.82, Ty + birdWingY * 1.86}, {Tx + direction * 23.38, Ty + birdWingY * 8.57}, {Tx + direction * 9.98, Ty + birdWingY * 25.45}, {Tx + direction * 11.02, Ty + birdWingY * 0.27}}, {color.r, color.g, color.b});
+}
+
+
 void display()
 {
     //sky
-    quad(0, 1920, 660, 1080, currentScene.sky);
+    glBegin(GL_QUADS);
+    glColor3ub(99,106,188);
+    glVertex2f(0, 660);
+    glVertex2f(1920, 660);
+    glColor3ub(60,41,102);
+    glVertex2f(1920, 1080);
+    glVertex2f(0, 1080);
+    glEnd();
 
+    //moon
+    circle(1200,900,100,100,{211,210,231});
     //airplanes and birds
-
-    //rear mountain
+   
+    plane(planeX, 990, 1, {67, 99, 155});
+    plane(plane2X, 830, -1, {67, 99, 155});
+        //rear mountain
     polygon({{387.67, 399}, {387.67, 760.73}, {348.32, 765.88}, {320.46, 774.31}, {299.96, 789.06}, {286.54, 781.83}, {243.2, 807.31}, {216.28, 788.02}, {206.29, 788.98}, {149.44, 766.41}, {116.31, 735.41}, {80.72, 735.49}, {42.76, 721.31}, {0, 712.6}, {0, 399}}, currentScene.rearMountain);
     polygon({{690.42, 419.21}, {690.42, 757.24}, {709.64, 766.25}, {728.84, 762.53}, {745.91, 779.31}, {774.19, 797.69}, {787.32, 790.72}, {808.37, 807.38}, {863.74, 769.09}, {876.16, 776.44}, {901.02, 771.37}, {916.09, 757.99}, {945.28, 782.72}, {1002.54, 737.36}, {1024.48, 745.68}, {1024.48, 745.68}, {1084.4, 712.8}, {1096.1, 718.64}, {1125.06, 692.17}, {1166.05, 675.09}, {1195.96, 677.25}, {1230.89, 688.87}, {1267.07, 688.85}, {1300.48, 715.54}, {1357.64, 735.28}, {1366.68, 734.21}, {1393.75, 751.33}, {1437.43, 729.19}, {1450.75, 735.32}, {1471.2, 722.3}, {1498.42, 715.01}, {1537.89, 710.47}, {1537.89, 415.63}}, currentScene.rearMountain);
     polygon({{1841.53, 415.63}, {1841.53, 707.41}, {1860.76, 715.26}, {1879.12, 712.43}, {1914.89, 736.81}, {1914.64, 415.63}}, currentScene.rearMountain);
@@ -292,17 +373,19 @@ void display()
 
     //river
     quad(0, 1920, 215, 415, currentScene.River);
+    bird(birdX, 750, 1, birdWingY, {0, 0, 0});
 
     //far ground
     polygon({{0, 415}, {0, 379.94}, {15.08, 380.05}, {53.25, 379.1}, {98.68, 377.49}, {151.66, 377.26}, {181.72, 380.16}, {208.34, 382.73}, {263.43, 388.14}, {295.28, 390.21}, {347.75, 392.74}, {372.98, 392.56}, {465.02, 391.67}, {548.34, 390.86}, {560.19, 390.93}, {622.69, 391.28}, {655.75, 391.47}, {682.28, 392.62}, {730.36, 392.72}, {785.19, 392.76}, {853.15, 392.43}, {960.38, 391.91}, {982.27, 392.74}, {1025.71, 394.38}, {1063.35, 398.64}, {1085.81, 403.06}, {1136.05, 402.43}, {1191.42, 400.79}, {1245.69, 399.33}, {1289.73, 397.87}, {1415.95, 396.25}, {1697.03, 394.75}, {1883.57, 395.43}, {1920.95, 394.11}, {1920.95, 415}}, currentScene.ground);
-
+   
     //house
-    house2(530, 410);
-    house1(455, 410);
-    house2(1090, 410);
-    house2(1500, 410, -1);
-    house3(1245, 410);
-    house4(280, 410);
+    house2(530, 410,1, currentScene.houseWallShadowed,currentScene.houseWallSide,currentScene.houseRoof,currentScene.houseWindows);
+    house1(455, 410, 1, currentScene.houseWallShadowed, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows);
+    house2(1090, 410, 1, currentScene.houseWallShadowed, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows);
+    house2(1500, 410, -1, currentScene.houseWallShadowed, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows);
+    house3(1245, 410, 1, currentScene.houseWallShadowed, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows,currentScene.houseDoor);
+    house3(1245, 410, 1, currentScene.houseWallShadowed, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows);
+    house4(280, 410, currentScene.houseWallSide, currentScene.houseRoof, currentScene.houseWindows,currentScene.houseDoor);
 
     //far trees
     tree(35, 397, 1, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
@@ -325,16 +408,46 @@ void display()
     //ground marks
 
     //boats
-    boat(1240,250);
+    boat(boatX, 250, factor);
 
     //tent
-    tent(710, 120);
-    tent(590, 120, -1);
+    tent(710, 120,1,currentScene.tentRoof,currentScene.tentRoofdark,currentScene.tentFront,currentScene.tentRope);
+    tent(590, 120, -1, currentScene.tentRoof, currentScene.tentRoofdark, currentScene.tentFront, currentScene.tentRope);
 
     //near trees
 
     //fire
-    glFlush();
+    //glFlush();
+    glutSwapBuffers();
+}
+
+void idle()
+{
+    float frameTime = 1000 / 60.0, currentTime = GetTickCount();
+    if (currentTime - lastFrameTime >= frameTime)
+    {
+        lastFrameTime = currentTime;
+        birdX += 3;
+        birdWingY += 0.5;
+        if (birdWingY > 1)
+            birdWingY = -1;
+        boatX += 6 * factor;
+        birdX += 7;
+        if (boatX > 1920 + 60*4*1.5)
+        {
+            factor = -1;
+        }
+
+        if (boatX < -60*4*2)
+        {
+            factor = 1;
+        }
+        boatX += 4 * factor;
+        planeX += 7;
+        plane2X -= 10;
+    }
+    
+    glutPostRedisplay();
 }
 
 void init(void)
@@ -347,11 +460,12 @@ void init(void)
 int main(int argc, char **argv)
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_RGB);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_MULTISAMPLE);
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(1920, 1080);
     glutCreateWindow("Mountain Landscape");
     init();
     glutDisplayFunc(display);
+    glutIdleFunc(idle);
     glutMainLoop();
 }
