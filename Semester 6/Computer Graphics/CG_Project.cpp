@@ -24,7 +24,7 @@ struct Scene
     Color darkShadow;
     Color River;
     Color ground;
-    Color houseWallShadowed; //polygon
+    Color houseWallShadowed;
     Color houseWallSide;
     Color houseRoof;
     Color houseWindows;
@@ -41,12 +41,11 @@ struct Scene
     Color boatSails;
     Color boatMast;
     Color boatBody;
-    //fire
 };
 float X = 550, Y = 30;
 float boatX = 0;
 int factor = 1;
-float birdX = 0, birdWingY = -1;
+float birdX = 0, birdY=750, birdWingY = -1, birdDirection=1;
 float planeX = -60 * 7 * 3;
 float plane2X = 60 * 10 * 2 + 1920;
 unsigned long long lastFrameTime = 0;
@@ -54,12 +53,12 @@ float cloudX = 0;
 float cloud2X = 500;
 float cloud3X = 1000;
 float cloud4X = 200;
+float angle = 0;
 
 pair<float, float> P1[4] = {{670, 230}, {600, 220}, {590, 170}, {630, 130}};
 pair<float, float> P2[4] = {{670, 230}, {620, 220}, {720, 170}, {680, 130}};
+vector<pair<int,int>> starArray;
 float f1 = 1, f2 = 1;
-//declare a "Scene here". Assign colors and then assign a scene to "CurrentScene"
-
 Scene day = {
     "day",
     {147, 236, 244},
@@ -70,21 +69,27 @@ Scene day = {
     {20, 153, 122},
     {154, 242, 255},
     {46, 189, 143},
+
     {14, 151, 161},
     {255, 255, 255},
     {255, 201, 84},
     {24, 105, 126},
     {24, 105, 126},
+
     {2, 110, 123},
     {2, 148, 138},
     {70, 38, 17},
     {99, 228, 234},
     {119, 217, 185},
+
     {231, 144, 34},
     {220, 121, 45},
     {254, 161, 35},
     {106, 90, 73},
 
+    {255, 255, 255},
+    {135, 196, 240},
+    {1, 63, 86}
 };
 
 Scene afternoon{
@@ -95,7 +100,7 @@ Scene afternoon{
     {255, 110, 65},
     {254, 127, 74},
     {205, 47, 63},
-    {254,143,71}, //dekhte hobe
+    {254, 143, 71},
     {154, 47, 41},
 
     {122, 76, 14},
@@ -107,17 +112,17 @@ Scene afternoon{
     {115, 13, 8},
     {114, 37, 3},
     {0, 0, 0},
-    {186,90,49}, //{170, 85, 40}
-    {178,52,40},  //
+    {186, 90, 49}, 
+    {178, 52, 40}, 
 
     {192, 86, 13},
     {113, 30, 19},
     {165, 49, 22},
     {0, 0, 0},
 
-    {2, 110, 123},
-    {2, 148, 138},
-    {70, 38, 17}};
+    {248, 158, 124},
+    {50, 50, 50},
+    {107, 26, 25}};
 
 Scene night =
     {
@@ -148,13 +153,45 @@ Scene night =
         {15, 0, 38},
         {11, 0, 26},
 
-        {2, 110, 123},
-        {2, 148, 138},
-        {70, 38, 17}
+        {176, 137, 212},
+        {0, 0, 0},
+        {15, 12, 72}
 
 };
+Scene snow = {
+    "snow",
+    {145, 210, 242},
+    {220, 240, 250},
+    {198, 217, 255},
+    {147, 180, 236},
+    {255, 255, 255},
+    {178, 206, 246},
+    {209, 241, 240},
+    {144, 177, 228},
 
-Scene array[4] = {day,afternoon,night};
+    {89, 127, 172},
+    {183, 207, 231},
+    {15, 32, 75},
+    {26, 53, 83},
+    {0, 0, 0},
+
+    {110, 137, 167},
+    {157, 179, 202},
+    {9, 27, 37},
+    {142, 180, 243},
+    {237, 251, 251},
+
+    {128, 195, 213},
+    {85, 141, 163},
+    {176, 222, 232},
+    {11, 0, 26},
+
+    {176, 137, 212},
+    {0, 0, 0},
+    {15, 12, 72}
+
+};
+Scene array[4] = {day,afternoon,night,snow};
 int a = 0;
 Scene currentScene = array[a];
 
@@ -168,41 +205,6 @@ void quad(float x1, float x2, float y1, float y2, Color color, float Tx = 0, flo
     glVertex2f(s * x1 + Tx, s * y2 + Ty);
     glEnd();
 }
-void fire(pair<float, float> P1[], pair<float, float> P2[])
-{
-    pair<float, float> a[120], b[120];
-    for (int i = 0; i < 120; i++)
-    {
-        a[i].first = pow((1 - i / 120.0), 3) * P1[0].first + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P1[1].first + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P1[2].first + pow(i / 120.0, 3) * P1[3].first;
-        a[i].second = pow((1 - i / 120.0), 3) * P1[0].second + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P1[1].second + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P1[2].second + pow(i / 120.0, 3) * P1[3].second;
-        b[i].first = pow((1 - i / 120.0), 3) * P2[0].first + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P2[1].first + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P2[2].first + pow(i / 120.0, 3) * P2[3].first;
-        b[i].second = pow((1 - i / 120.0), 3) * P2[0].second + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P2[1].second + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P2[2].second + pow(i / 120.0, 3) * P2[3].second;
-    }
-    glColor3ub(255, 155, 40);
-    glBegin(GL_LINE_STRIP);
-    for (int i = 0; i < 120; i++)
-    {
-        glVertex2f(a[i].first, a[i].second);
-        glVertex2f(b[i].first, b[i].second);
-    }
-    glEnd();
-    glColor3ub(254, 190, 23);
-    glBegin(GL_LINE_STRIP);
-    for (int i = 0; i < 120; i++)
-    {
-        glVertex2f(327 + a[i].first * 0.5, 65 + a[i].second * 0.5);
-        glVertex2f(327 + b[i].first * 0.5, 65 + b[i].second * 0.5);
-    }
-    glEnd();
-    glColor3ub(248, 238, 126);
-    glBegin(GL_LINE_STRIP);
-    for (int i = 0; i < 120; i++)
-    {
-        glVertex2f(490 + a[i].first * 0.25, 98 + a[i].second * 0.25);
-        glVertex2f(490 + b[i].first * 0.25, 98 + b[i].second * 0.25);
-    }
-    glEnd();
-}
 void circle(float x, float y, float radius, float height, Color color)
 {
     int triangleAmount = 360;
@@ -213,7 +215,6 @@ void circle(float x, float y, float radius, float height, Color color)
         glVertex2f(x + (radius * cos(i * 2 * 3.1416 / triangleAmount)), y + (height * sin(i * 2 * 3.1416 / triangleAmount)));
     glEnd();
 }
-
 void quad(vector<pair<float, float>> coord, Color color = {255, 255, 255}, float Tx = 0, float Ty = 0, float s = 1)
 {
     glColor3ub(color.r, color.g, color.b);
@@ -332,6 +333,15 @@ void house4(float Tx, float Ty, Color houseWallSide = {255, 254, 255}, Color hou
     glVertex2f(Tx + 57, Ty + 76.52);
     glVertex2f(Tx + 28.42, Ty + 91.33);
     glEnd();
+
+    //fan
+    glPushMatrix();
+    glTranslatef(Tx+28.5, Tx+203, 0);
+    glRotatef(angle, 0, 0, 1);
+    quad({{18.16, 11.27}, {41.18, 34.23}, {34.19, 41.19}, {11.17, 18.23}, {-11.37, 18.23}, {-34.4, 41.19}, {-41.38, 34.23}, {-18.36, 11.27}, {-18.36, -11.22}, {-41.38, -34.18}, {-34.4, -41.14}, {-11.37, -18.18}, {11.17, -18.18}, {34.19, -41.14}, {41.18, -34.18}, {18.16, -11.22}, {22.22, -23.16}, {23.15, -22.23}, {1.24, -0.39}, {0.31, -1.31}, {-1.44, -0.39}, {-23.35, -22.23}, {-22.42, -23.16}, {-0.52, -1.31}, {-0.52, 1.36}, {-22.42, 23.21}, {-23.35, 22.28}, {-1.44, 0.44}, {1.24, 0.44}, {23.15, 22.28}, {22.22, 23.21}, {0.31, 1.36}}, currentScene.houseDoor);
+    glPopMatrix();
+    circle(Tx+28.5, Ty+73.5, 3.8, 3.8, currentScene.houseDoor);
+    glEnd();
 }
 void tree(float Tx, float Ty, float s = 1, Color treeleft = {2, 110, 123}, Color treeRight = {2, 148, 138}, Color treeBase = {70, 38, 17})
 {
@@ -342,7 +352,48 @@ void tree(float Tx, float Ty, float s = 1, Color treeleft = {2, 110, 123}, Color
     //base
     triangle({{Tx + s * 4.59, Ty + s * -0.03}, {Tx + s * -0.71, Ty + s * 219.82}, {Tx + s * -10.07, Ty + s * 0.02}, {Tx + s * -0.89, Ty + s * 46.87}, {Tx + s * -25.93, Ty + s * 98.64}, {Tx + s * -0.89, Ty + s * 61.32}, {Tx + s * -0.71, Ty + s * 64.41}, {Tx + s * 16.71, Ty + s * 100.43}, {Tx + s * -0.71, Ty + s * 74.46}, {Tx + s * -0.71, Ty + s * 86.87}, {Tx + s * 16.71, Ty + s * 122.89}, {Tx + s * -0.89, Ty + s * 96.67}, {Tx + s * -0.89, Ty + s * 109.64}, {Tx + s * -18.48, Ty + s * 146.01}, {Tx + s * -0.89, Ty + s * 119.79}, {Tx + s * -0.71, Ty + s * 148.71}, {Tx + s * 11.97, Ty + s * 175.2}, {Tx + s * -0.71, Ty + s * 156.29}, {Tx + s * -0.89, Ty + s * 169.09}, {Tx + s * -12.39, Ty + s * 192.88}, {Tx + s * -0.89, Ty + s * 175.73}, {Tx + s * -0.89, Ty + s * 132.44}, {Tx + s * -12.39, Ty + s * 156.22}, {Tx + s * -0.71, Ty + s * 138.82}}, treeBase);
 }
-
+void fire(pair<float, float> P1[], pair<float, float> P2[])
+{
+    pair<float, float> a[120], b[120];
+    for (int i = 0; i < 120; i++)
+    {
+        a[i].first = pow((1 - i / 120.0), 3) * P1[0].first + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P1[1].first + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P1[2].first + pow(i / 120.0, 3) * P1[3].first;
+        a[i].second = pow((1 - i / 120.0), 3) * P1[0].second + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P1[1].second + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P1[2].second + pow(i / 120.0, 3) * P1[3].second;
+        b[i].first = pow((1 - i / 120.0), 3) * P2[0].first + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P2[1].first + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P2[2].first + pow(i / 120.0, 3) * P2[3].first;
+        b[i].second = pow((1 - i / 120.0), 3) * P2[0].second + 3 * i / 120.0 * pow((1 - i / 120.0), 2) * P2[1].second + 3 * (1 - i / 120.0) * pow(i / 120.0, 2) * P2[2].second + pow(i / 120.0, 3) * P2[3].second;
+    }
+    glColor3ub(255, 155, 40);
+    glBegin(GL_LINE_STRIP);
+    for (int i = 0; i < 120; i++)
+    {
+        glVertex2f(a[i].first, a[i].second);
+        glVertex2f(b[i].first, b[i].second);
+    }
+    glEnd();
+    glColor3ub(254, 190, 23);
+    glBegin(GL_LINE_STRIP);
+    for (int i = 0; i < 120; i++)
+    {
+        glVertex2f(327 + a[i].first * 0.5, 65 + a[i].second * 0.5);
+        glVertex2f(327 + b[i].first * 0.5, 65 + b[i].second * 0.5);
+    }
+    glEnd();
+    glColor3ub(248, 238, 126);
+    glBegin(GL_LINE_STRIP);
+    for (int i = 0; i < 120; i++)
+    {
+        glVertex2f(490 + a[i].first * 0.25, 98 + a[i].second * 0.25);
+        glVertex2f(490 + b[i].first * 0.25, 98 + b[i].second * 0.25);
+    }
+    glEnd();
+}
+void woodfire(float Tx = 0, float Ty = 0)
+{
+    polygon({{Tx+605.94,Ty+50.56},{Tx+693.96,Ty+75.16},{Tx+700.23,Ty+74.32},{Tx+702.83,Ty+71.09},{Tx+704.02,Ty+65},{Tx+701.3,Ty+58.08},{Tx+608.52,Ty+29.7}},{141,103,58});
+    polygon({{Tx+700.68,Ty+50.35},{Tx+610.76,Ty+75.3},{Tx+606.1,Ty+75.09},{Tx+601.71,Ty+70.16},{Tx+601.05,Ty+63.61},{Tx+606.08,Ty+55.96},{Tx+694.57,Ty+29.17}}, {171,123,74});
+    circle(697.31,105.88,5,10,{141,103,58});
+    circle(607.09,105.78,5,10,{141,103,58});
+}
 void tent(float Tx = 0, float Ty = 0, float m = 1, Color tentRoof = {231, 144, 34}, Color tentRoofdark = {220, 121, 45}, Color tentFront = {254, 161, 35}, Color tentRope = {106, 90, 73})
 {
     polygon({{Tx + m * 133.68, Ty + 209.63}, {Tx + m * 259.04, Ty + 48.56}, {Tx + m * 338.81, Ty + 90.11}, {Tx + m * 244.79, Ty + 207.92}}, tentRoof);
@@ -370,7 +421,7 @@ void plane(float Tx, float Ty, float m, Color color)
     polygon({{Tx + m * 24.66, Ty + 14.48}, {Tx + m * 22.3, Ty + 20.41}, {Tx + m * 26.4, Ty + 21.04}, {Tx + m * 35.39, Ty + 15.27}, {Tx + m * 52.27, Ty + 16.53}, {Tx + m * 54.2, Ty + 16.33}, {Tx + m * 55.69, Ty + 15.61}, {Tx + m * 57.39, Ty + 14.16}, {Tx + m * 59.97, Ty + 13}, {Tx + m * 60.68, Ty + 11.96}, {Tx + m * 60.67, Ty + 11.21}, {Tx + m * 59.36, Ty + 10.29}, {Tx + m * 36.98, Ty + 8.35}, {Tx + m * 27.61, Ty + 0.26}, {Tx + m * 23.49, Ty + 0.3}, {Tx + m * 25.63, Ty + 7.86}, {Tx + m * 10.7, Ty + 7.96}, {Tx + m * 8.16, Ty + 8.42}, {Tx + m * 6.31, Ty + 9.62}, {Tx + m * 0.24, Ty + 17.64}, {Tx + m * 4.63, Ty + 17.82}, {Tx + m * 7.29, Ty + 15.48}, {Tx + m * 8.58, Ty + 14.35}, {Tx + m * 9.93, Ty + 13.71}, {Tx + m * 13.2, Ty + 13.62}}, {color.r, color.g, color.b});
 }
 
-void bird(float Tx, float Ty, float direction, float birdWingY, Color color)
+void bird(float Tx, float Ty, float direction, float birdWingY, Color color = {0,0,0})
 {
     polygon({{Tx + direction * 28.65, Ty + 2.99}, {Tx + direction * 31.98, Ty + 1.74}, {Tx + direction * 31.6, Ty + 0.23}, {Tx + direction * 31.93, Ty + -1.29}, {Tx + direction * 30.43, Ty + -0.38}, {Tx + direction * 28.77, Ty + -1.12}, {Tx + direction * 24.29, Ty + -4.59}, {Tx + direction * 16.47, Ty + -5.28}, {Tx + direction * 10.7, Ty + -4.96}, {Tx + direction * 2.95, Ty + -10.29}, {Tx + direction * 8.55, Ty + -3.22}, {Tx + direction * 0.18, Ty + 1.29}, {Tx + direction * 9.57, Ty + -0.31}, {Tx + direction * 11.02, Ty + 0.27}, {Tx + direction * 22.82, Ty + 1.86}, {Tx + direction * 28.65, Ty + 2.99}}, {color.r, color.g, color.b});
     polygon({{Tx + direction * 22.82, Ty + birdWingY * 1.86}, {Tx + direction * 23.38, Ty + birdWingY * 8.57}, {Tx + direction * 9.98, Ty + birdWingY * 25.45}, {Tx + direction * 11.02, Ty + birdWingY * 0.27}}, {color.r, color.g, color.b});
@@ -410,7 +461,39 @@ void cloud3(float Tx, float Ty, float s)
     circle(Tx + s * 43, Ty + s * 17, 17, 17, {255, 255, 255});
     circle(Tx + s * 23, Ty + s * 33, 22, 22, {255, 255, 255});
 }
-
+int random(int low, int high)
+{
+    int r = rand();
+    r = r % (high-low+1);
+    return r+low;
+}
+void stars(int x1, int x2, int y1, int y2)
+{
+    if(starArray.size() == 0){
+        for(int i=0;i<50;i++)
+        {
+            int size = random(2,4);
+            
+            int x = random(x1, x2), y = random(y1, y2);
+            glPointSize(size);
+            
+            if(x>=1100 && x<= 1300 && y<=1000 && y>=800)
+            {
+                i--;
+                continue;
+            }
+            starArray.push_back({x,y});
+        }
+    }
+    glColor3ub(255, 255, 255);
+    for(int i=0;i<starArray.size(); i++){
+        glPointSize(i%3+3);
+        glBegin(GL_POINTS);
+        glVertex2i(starArray[i].first, starArray[i].second);
+        glEnd();
+    }
+    glPointSize(1);
+}
 void display()
 {
     //sky
@@ -423,6 +506,10 @@ void display()
     glVertex2f(0, 1080);
     glEnd();
 
+    //stars
+    if (currentScene.scene == "night")
+        stars(0, 1920, 660, 1080);
+
     //moon and sun
     if (currentScene.scene == "night")
         circle(1200, 900, 100, 100, {211, 210, 231}); //moon
@@ -431,9 +518,9 @@ void display()
         circle(1169, 715, 100, 100, {255, 196, 62}); //sun
 
     //airplanes
+    plane(planeX, 990, 1, {69,171,193});
+    plane(plane2X, 830, -1, {69, 171, 193});
 
-    plane(planeX, 990, 1, {67, 99, 155});
-    plane(plane2X, 830, -1, {67, 99, 155});
     //rear mountain
     polygon({{387.67, 399}, {387.67, 760.73}, {348.32, 765.88}, {320.46, 774.31}, {299.96, 789.06}, {286.54, 781.83}, {243.2, 807.31}, {216.28, 788.02}, {206.29, 788.98}, {149.44, 766.41}, {116.31, 735.41}, {80.72, 735.49}, {42.76, 721.31}, {0, 712.6}, {0, 399}}, currentScene.rearMountain);
     polygon({{690.42, 419.21}, {690.42, 757.24}, {709.64, 766.25}, {728.84, 762.53}, {745.91, 779.31}, {774.19, 797.69}, {787.32, 790.72}, {808.37, 807.38}, {863.74, 769.09}, {876.16, 776.44}, {901.02, 771.37}, {916.09, 757.99}, {945.28, 782.72}, {1002.54, 737.36}, {1024.48, 745.68}, {1024.48, 745.68}, {1084.4, 712.8}, {1096.1, 718.64}, {1125.06, 692.17}, {1166.05, 675.09}, {1195.96, 677.25}, {1230.89, 688.87}, {1267.07, 688.85}, {1300.48, 715.54}, {1357.64, 735.28}, {1366.68, 734.21}, {1393.75, 751.33}, {1437.43, 729.19}, {1450.75, 735.32}, {1471.2, 722.3}, {1498.42, 715.01}, {1537.89, 710.47}, {1537.89, 415.63}}, currentScene.rearMountain);
@@ -485,10 +572,21 @@ void display()
     polygon({{1742.57, 742.96}, {1733.18, 765.39}, {1753.4, 748.31}, {1770.02, 721.36}, {1832.11, 689.25}, {1820.34, 665.02}, {1754.65, 668}, {1736.93, 708.73}}, currentScene.darkShadow);
     polygon({{1901.39, 673.68}, {1880.29, 687.21}, {1914.96, 682.09}, {1914.96, 633.64}, {1910.08, 627.23}, {1902.11, 602.16}, {1902.11, 641.15}, {1871.3, 598.16}, {1867.67, 628.14}, {1896.04, 655.89}}, currentScene.darkShadow);
 
+    //clouds
+    cloud1(cloudX, 950, 1);
+    cloud2(cloud2X, 900, 1);
+    cloud3(cloud3X, 850, 1);
+    cloud3(cloud4X, 800, 1);
+
     //river
     quad(0, 1920, 215, 415, currentScene.River);
+
     //birds
-    bird(birdX, 750, 1, birdWingY, {0, 0, 0});
+    bird(birdX+20, birdY, birdDirection, birdWingY);
+    bird(birdX, birdY-20, birdDirection, -birdWingY);
+    bird(birdX-10, birdY-35, birdDirection, birdWingY);
+    bird(birdX-20, birdY+15, birdDirection, birdWingY);
+    bird(birdX-20, birdY-55, birdDirection, birdWingY);
 
     //far ground
     polygon({{0, 415}, {0, 379.94}, {15.08, 380.05}, {53.25, 379.1}, {98.68, 377.49}, {151.66, 377.26}, {181.72, 380.16}, {208.34, 382.73}, {263.43, 388.14}, {295.28, 390.21}, {347.75, 392.74}, {372.98, 392.56}, {465.02, 391.67}, {548.34, 390.86}, {560.19, 390.93}, {622.69, 391.28}, {655.75, 391.47}, {682.28, 392.62}, {730.36, 392.72}, {785.19, 392.76}, {853.15, 392.43}, {960.38, 391.91}, {982.27, 392.74}, {1025.71, 394.38}, {1063.35, 398.64}, {1085.81, 403.06}, {1136.05, 402.43}, {1191.42, 400.79}, {1245.69, 399.33}, {1289.73, 397.87}, {1415.95, 396.25}, {1697.03, 394.75}, {1883.57, 395.43}, {1920.95, 394.11}, {1920.95, 415}}, currentScene.ground);
@@ -518,14 +616,24 @@ void display()
     tree(380, 397, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(400, 397, 0.6, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(425, 397, 0.3, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
-    tree(760, 397, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(445, 410, 0.3, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+
+    tree(700, 407, 0.25, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(720, 407, 0.35, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(740, 407, 0.30, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+
+    tree(760, 407, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(790, 410, 0.6, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(810, 415, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(835, 410, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(865, 410, 0.3, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(1020, 412, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(1050, 402, 0.6, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+    tree(1070, 410, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
+
 
     tree(1352, 410, 0.18, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(1238, 410, 0.18, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
-    //tree(, 405, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
-    //tree(, 405, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
-
     tree(1485, 405, 0.4, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(1500, 410, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
     tree(1520, 405, 0.5, currentScene.treeLeft, currentScene.treeRight, currentScene.treeBase);
@@ -559,7 +667,8 @@ void display()
     polygon({{1187.36, 270.55}, {1185.55, 268.53}, {1187.71, 266.2}, {1196.22, 263.62}, {1208.8, 262.16}, {1280.47, 264.54}, {1460.98, 271.41}}, currentScene.riverMark);
 
     //boats
-    boat(boatX, 250, factor);
+    if(currentScene.scene!="snow")
+        boat(boatX, 250, factor, currentScene.boatSails, currentScene.boatMast, currentScene.boatBody);
 
     //near ground
     quad(0, 1920, 0, 215, currentScene.ground);
@@ -606,16 +715,13 @@ void display()
     tent(710, 120, 1, currentScene.tentRoof, currentScene.tentRoofdark, currentScene.tentFront, currentScene.tentRope);
     tent(590, 120, -1, currentScene.tentRoof, currentScene.tentRoofdark, currentScene.tentFront, currentScene.tentRope);
 
-    //near trees
-
     //fire
     //cloud
-    cloud1(cloudX, 950, 1);
-    cloud2(cloud2X, 950, 1);
-    cloud3(cloud3X, 850, 1);
-    cloud3(cloud4X, 800, 1);
-
-    fire(P1, P2);
+    if(currentScene.scene!="afternoon")
+    {
+        fire(P1, P2);
+        woodfire(0,66);
+    }
     //glFlush();
     glutSwapBuffers();
 }
@@ -626,46 +732,52 @@ void idle()
     if (currentTime - lastFrameTime >= frameTime)
     {
         lastFrameTime = currentTime;
-        birdX += .05;
+
+        birdX += 7*birdDirection;
         birdWingY += 0.5;
+        if (birdWingY > 1) birdWingY = -1;
+        if(birdX>3000) birdDirection=-1;
+        if(birdX<-1500) birdDirection=1;
+
+        
         cloudX += 0.5;
         cloud2X += 0.8;
         cloud3X += 1.2;
         cloud4X += 0.7;
-        if (birdWingY > 1)
-            birdWingY = -1;
-        boatX += 6 * factor;
-        birdX += 7;
+        if (cloudX > 1920)
+        {
+            cloudX = -60*3*0.5;
+        }
+        if(cloud2X>1920) cloud2X = -60*3*0.8;
+        if(cloud3X>1920) cloud3X = -60*3*1.2;
+        if(cloud4X>1920) cloud4X = -60*3*0.7;
+
+        boatX += 3.5 * factor;
         if (boatX > 1920 + 60 * 4 * 1.5)
         {
             factor = -1;
         }
-
         if (boatX < -60 * 4 * 2)
         {
             factor = 1;
         }
-        boatX += 4 * factor;
+
         planeX += 7;
         plane2X -= 10;
-        if (cloudX > 1920)
-        {
-            cloudX = -200;
-        }
+        if(planeX > 1920)  planeX = -6*60*7;
+        if(plane2X < 0) plane2X = 1920+3*60*10;
+        
 
-        if (P1[0].first < 615)
-            f1 = -1;
-        if (P1[0].first > 665)
-            f1 = 1;
+        if(P1[0].first < 615) f1 = -1;
+        if(P1[0].first > 665) f1 = 1;
+        if(P1[1].first < 600) f2 = 1;
+        if(P1[1].first > 680)  f2 = -1;
         P1[0].first -= 5 * f1;
         P2[0].first -= 5 * f1;
-
-        if (P1[1].first < 600)
-            f2 = 1;
-        if (P1[1].first > 680)
-            f2 = -1;
         P1[1].first += 5 * f2;
         P2[1].first += 5 * f2;
+
+        angle += 3;
     }
 
     glutPostRedisplay();
