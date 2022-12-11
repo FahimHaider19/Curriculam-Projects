@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../Control/JS/jquery-3.6.0.min.js"></script>
+    <script src="../Control/JS/script.js"></script>
+    <title>Sale Management</title>
+</head>
+<body>
+    <div id="create-sale-box">
+        <div id="create-sale-box-title-button">
+            <div class="store-management-title">Sale Events</div>
+            <button class="button" id="create-sale-event-button">Create Sale Event</button>
+        </div>
+        <div id="sale-event-list">
+            <div class="sale-type">Previous Sales</div>
+            <div class="sale-list">
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>
+
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>
+
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>
+
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>
+            </div>
+            <div class="sale-type">Current Sales</div>
+            <div class="sale-list">
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>
+
+                <div class="sale-box">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div class="sale-game-number">Games on sale: 5</div>
+                    <div class="sale-status">Active</div>
+                </div>  
+            </div>
+        </div>
+        <div id="sale-management-table">
+            <div id="sale-management-table-items">
+                <div id="sale-management-table-top">
+                    <div class="sale-name">Summer Sale 2022</div>
+                    <div>
+                        <button class="button" id="end-sale-button">End Sale</button>
+                        <input type="text">
+                        <button class="button">Add</button>
+                        <span class="material-icons-round">delete</span>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <th>Game Name</th>
+                        <th>Developer</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th>Discount Price</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Red Dead Redemption 2</td>
+                        <td>Rockstar Games</td>
+                        <td>30$</td>
+                        <td><input type="text" value="100">%</td>
+                        <td><input type="text" value="50">$</td>    
+                        <td><span class="material-icons-round">delete</span></td>
+                    </tr>
+                    <tr>
+                        <td>Red Dead Redemption 2</td>
+                        <td>Rockstar Games</td>
+                        <td>30$</td>
+                        <td><input type="text" value="100">%</td>
+                        <td><input type="text" value="50">$</td>
+                        <td><span class="material-icons-round">delete</span></td>
+                    </tr>
+                </table>
+                <button class="button" id="save-table-management">Save</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

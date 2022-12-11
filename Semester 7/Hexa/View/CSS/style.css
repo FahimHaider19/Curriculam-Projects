@@ -1,0 +1,691 @@
+:root{
+    --sidemenu-background: #243F44;
+    --sidemenu-hover-background: #3B5656;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#loginbody{
+    align-content: baseline;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+#login-box{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #425F5B;
+    border-radius: 10px;
+    align-self: baseline;
+    justify-self: center;
+
+}
+
+#login-box label{
+    color: white;
+}
+
+#login-box:first-child{
+    align-self: center;
+}
+
+#loginlabel{
+    font-size: 25px;
+    text-align: center;
+}
+
+.dashboard-sidebar{
+    height: 100%;
+    width: 100%;
+    min-width: 80px;
+    max-width: 285px;
+    min-height: 100vh;
+    background: var(--sidemenu-background);
+    position: sticky;
+    top: 0px;
+}
+
+#showbutton{
+    display: none;
+}
+
+#hidebutton{
+    display: block;
+}
+
+.dashboard-sidebar-item-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-sidebar-item-list li, .dashboard-sidebar-item-list a{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center right;
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+}
+
+.dashboard-sidebar-item-list li:hover, .dashboard-sidebar-item-list a:hover{
+    background-color: var(--sidemenu-hover-background);
+    border-radius: 10px;
+    
+}
+
+.dashboard-sidebar-items{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+}
+
+.dashboard-sidebar-items span{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    min-width: 158px;
+    padding: 0px;
+}
+
+.material-icons-round{
+    color: white;
+    font-size: 32px;
+    padding: 5px 10px 5px 10px;
+}
+
+
+.dashboard-sidebar-items-submenu{
+    display: none;
+    padding-left: 65px;
+    color: rgb(238, 237, 237);
+    font-size: 18px;
+}
+
+.dashboard-sidebar-items-submenu :hover{
+    padding-left: 65px;
+    color: white;
+    font-size: 20px;
+    background-color: var(--sidemenu-hover-background);
+}
+
+/*trending games*/
+.store-management{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+}
+
+#trending-game-list, #trending-news-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    gap: 20px 20px;
+    padding: 0px 20px 20px 20px;
+}
+
+#trending-game-list{
+    column-gap: 40px;
+}
+
+.homepage-control{
+    border-radius: 5px;
+    background-color: #425F5B;
+    width: 100%;
+}
+#showcase-image-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#showcase-image-upload-box{
+    height: 300px;
+    width: 80%;
+    align-self: center;
+    border: 3px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#showcase-image-upload-box .material-icons-round{
+    font-size: 200px;
+}
+
+#showcase-image-upload-box span{
+    color: white;
+    font-size: 20px;
+}
+
+#showcase-preview{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    background-color: rgba(1,1,1,0.5);
+}
+
+#hiddenshowcaseimageinput{
+    display: none;
+}
+
+.button{
+    background-color: #208ac7;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+#showcaseuploadbutton,#uploadshowcaseimagebutton,#updatetrendinggamesbutton,#updatetrendingnewsbutton{
+    width: 70%;
+    align-self:flex-start;
+    margin-left: 15%;
+}
+
+.store-management-title{
+    color: White;
+    padding: 10px;
+    font-size: 30px;
+    padding: 20px 0px 0px 10px;
+}
+
+.add-item{
+    padding:0px 25px 25px 25px  ;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.add-item input{
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+.add-item button{
+    width: 15%;
+}
+
+/*gamebox*/
+.poster {
+    height: 300px;
+    width: 190px;
+    border: 15px #026d56;
+    border-radius: 10px;
+    background-color: gray;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.poster:hover, .newsbox:hover{
+    transform: scale(1.1);
+}
+
+.poster .material-icons-round, .newsbox .material-icons-round{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.poster .material-icons-round:hover, .newsbox .material-icons-round:hover{
+    font-size: 30px;
+    color: red;
+}
+
+.poster img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 80%;
+    width: 100%;
+
+}
+
+.poster > *{
+    color: aliceblue;
+    align-items: center;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.product-details > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    flex: 1 0 auto;    
+}
+
+.product-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.current-price{
+    font-size: 18px;
+}
+
+.price-before-discount{
+    font-size: 12px;
+}
+
+.poster span{
+    display: none;
+}
+
+.poster:hover ~ span{
+    display: block;
+}
+
+.hide{
+    display: block;
+}
+
+/*newsbox*/
+.newsbox{
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.newsbox a{
+    height: 300px;
+    width: 291px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: darkgray;
+    border-radius: 10px;
+}
+
+.newsbox a img{
+    width:100%;
+    height: 60%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.news-box-title{
+    max-height:25%;
+    text-align: justify;
+    flex:1 1 auto;
+    padding: 0px 10px 0px 10px;
+    color: white;
+}
+
+.news-box-domain{
+    height: 10%;
+    font-size: small;
+    font-weight:bolder;
+    padding: 0px 10px 0px 10px;
+    color: white;
+}
+
+#dashboard-body{
+    max-width: 1620px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+
+
+/*sale management*/
+#create-sale-box{
+    display: flex;
+    flex-direction: column;
+    background-color: #425F5B;
+    width: 100%;
+    padding: 10px;
+}
+
+#create-sale-box-title-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.sale-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#sale-event-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: #182b2e;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.sale-box{
+    background-color: #243F44;
+    border-radius: 10px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    row-gap: 8px;
+}
+.sale-box > *{
+    color: white;
+}
+
+.sale-name, .sale-type{
+    color: white;
+    font-size: 25px;
+}
+
+.sale-list{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: rgb(80, 97, 97);
+    padding: 20px;
+}
+
+.sale-list{
+    width: 100%;
+}
+
+#sale-management-table{
+    display: block;
+    align-self: center;
+    margin: 20px 0px 20px 0px;
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+#sale-management-table-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#sale-management-table-top{
+    display: flex;
+    justify-content: space-between;
+}
+#sale-management-table-top .sale-name{
+    padding: 20px;
+}
+
+#sale-management-table-top input{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+table{
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    background-color: #182b2e;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+td span{
+    cursor: pointer;
+}
+
+td span:hover{
+    color: red;
+}
+
+td input{
+    color: white;
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    width: 60px;
+    padding: 20px 0px 20px 0px;
+    text-align: right;
+    font-size: 18px;
+}
+
+#hidden-input{
+    display: none;
+}
+
+#end-sale-button{
+    background-color: red;
+}
+
+#save-developer-table-management,
+#save-employee-table-management,
+#save-customer-table-management
+{
+    align-self: center;
+    width: 98%;
+}
+
+
+#user-manage-info{
+    position: relative;
+}
+
+.user-management{
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    height: fit-content;
+}
+/*
+select[class='textinput']{
+    height: 50px;
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}*/
+
+#remove-employee-profile-edit-details-box,
+#remove-customer-profile-edit-details-box,
+#remove-developer-profile-edit-details-box{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.user-manage-info{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*profile*/
+.container {
+    background-color: #f2f2f2;
+    padding: 0px 10px 10px 20px;
+    border-radius: 10px;
+}
+
+.edit-profile-name-box,
+.profile-payment-info-expire div {
+    display: flex;
+}
+
+.edit-profile-name-box span {
+    width: 50%;
+}
+
+.edit-profile,
+.edit-profile form,
+.edit-profile-name-box span,
+.profile-payment-info,
+.profile-payment-info-expire {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile {
+    background-color: #E7E9EB;
+    padding: 20px;
+}
+
+.profile-payment-info-expire div select {
+    width: 50%;
+}
+
+.edit-profile-upper-box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.edit-profile-upper-box #edit-button {
+    position: absolute;
+    right: 10px;
+    margin: 10px;
+    background-color: cornsilk;
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-short-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 10px 10px 20px 5px;
+}
+
+.profile-short-info-name {
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.profile-short-info-username {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#update-profile-picture, #update-profile-picture>* {
+    height: 40px;
+    display: flex;
+    background-color: #208ac7;
+    color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.edit-profile .profile-picture {
+    width: 180px;
+    height: 180px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+}
+
+label {
+    padding: 20px 10px 10px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+.textinput {
+    margin: 0px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    height: 50px;
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #45a049;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 96%;
+    align-self: center;
+    color: white;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#profile-edit-submit-hidden {
+    display: none;
+}
+
+.formerror {
+    font-size: 12px;
+    color: red;
+    padding-left: 10px;
+}

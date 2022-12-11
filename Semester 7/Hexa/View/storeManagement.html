@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+<link rel="stylesheet" href="CSS/style.css">
+<script type="text/javascript" src="../Control/JS/jquery-3.6.0.min.js"></script>
+<script src="../Control/JS/script.js"></script>
+<script src="../Control/JS/ajax.js"></script>
+
+<div class="store-management">
+    <div class="homepage-control" id="homepage-showcase">
+        <div class="store-management-title">Showcase</div>
+            <div id="showcase-image-container">
+                <div id='showcase-image-upload-box'>
+                    <img src="../Files/img/showcase.jpg" id="showcase-preview">
+                    <span class="material-icons-round">upload_file</span>
+                    <span>Upload an image</span>
+                </div>
+                <input type="file" name="showcaseimage" id="hiddenshowcaseimageinput">
+                <button type="button" id="showcaseuploadbutton" class="button">Select File</button>
+                <button class="button" type="submit" id="uploadshowcaseimagebutton">Upload</button>
+            </div>
+    </div>
+
+    <div class="homepage-control" id="homepage-slider-items">
+    
+    </div>
+
+    <div class="homepage-control" id="homepage-trending-games">
+        <div class="store-management-title">Trending Games</div>
+        <div class="add-item">
+            <input type="text" name="" id="">
+            <button type="submit" class="button">Add</button>
+        </div>
+        <div id="trending-game-list"> 
+            <script>showTrendingGames();</script>
+        </div>
+        <button type="button" class="button" id="updatetrendinggamesbutton">Update</button>
+
+    </div>
+    
+    <div class="homepage-control" id="trending-news">
+        <div class="store-management-title">Trending News</div>
+        <div class="add-item">
+            <input type="text" name="">
+            <button class="button" type="submit">Add</button>
+        </div>
+        <div id="trending-news-list">
+            <script>showTrendingNews();</script>
+        </div>
+        <button type="button" class="button" id="updatetrendingnewsbutton">Update</button>
+    </div>
+</div>
