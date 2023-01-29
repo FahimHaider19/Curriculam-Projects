@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c441a10c3fc84a46964f427f9df367a5" Name="Diagram1">
+        <EntityTypeShape EntityType="nohungerModel.Food" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="nohungerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nohungerModel.Task" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nohungerModel.TaskUser" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="nohungerModel.User" Width="1.5" PointX="5.875" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="nohungerModel.FK_taskuser_task" ManuallyRouted="false" />
+        <AssociationConnector Association="nohungerModel.FK_taskuser_user" ManuallyRouted="false" />
+        <AssociationConnector Association="nohungerModel.FK_Food_Task" />
+        <AssociationConnector Association="nohungerModel.FK_Food_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

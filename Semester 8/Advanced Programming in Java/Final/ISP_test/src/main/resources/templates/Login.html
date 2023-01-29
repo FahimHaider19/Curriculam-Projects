@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://daisyui.com/_app/assets/pages/__layout.svelte-e69cdd76.css">
+</head>
+<body>
+    <div class="hero min-h-screen bg-base-200">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body w-96 justify-center">
+<!--            <p th:if="${loginError}" class="error"></p>-->
+            <form  th:action="@{/login}" method="post" class="card-body my-5">
+<!--              <div th:if="${param.error}"><div class="alert alert-danger"><span th:text="${login.error}"></span></div></div>-->
+              <div class="form-control">
+                <h1 class="text-5xl font-bold">Login</h1>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input name="username" type="text" placeholder="Email" class="input input-bordered" />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Password</span>
+                </label>
+                <input name="password" type="password" placeholder="Password" class="input input-bordered" />
+                <label class="label">
+                  <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                </label>
+              </div>
+              <div class="form-control mt-6">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+              <div class="form-control mt-6">
+                <a class="btn btn-primary" href="/register">Register</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nhd.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="food">
+    <Key>
+      <PropertyRef Name="foodid" />
+    </Key>
+    <Property Name="foodid" Type="int" Nullable="false" />
+    <Property Name="foodname" Type="varchar" MaxLength="50" />
+    <Property Name="expire" Type="varchar" MaxLength="50" />
+    <Property Name="foodtype" Type="varchar" MaxLength="50" />
+    <Property Name="personquantity" Type="int" />
+    <Property Name="pickuppoint" Type="varchar" MaxLength="50" />
+    <Property Name="fooddonor" Type="nchar" MaxLength="10" />
+    <Property Name="taskid" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="taskid" />
+    </Key>
+    <Property Name="taskid" Type="int" Nullable="false" />
+    <Property Name="taskdetails" Type="varchar" MaxLength="50" />
+    <Property Name="distributionpoit" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="taskuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="taskid" Type="int" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="role" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_food_task">
+    <End Role="task" Type="Self.task" Multiplicity="0..1" />
+    <End Role="food" Type="Self.food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="taskid" />
+      </Principal>
+      <Dependent Role="food">
+        <PropertyRef Name="taskid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taskuser_task">
+    <End Role="task" Type="Self.task" Multiplicity="0..1" />
+    <End Role="taskuser" Type="Self.taskuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="taskid" />
+      </Principal>
+      <Dependent Role="taskuser">
+        <PropertyRef Name="taskid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taskuser_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="taskuser" Type="Self.taskuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="taskuser">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nhdStoreContainer">
+    <EntitySet Name="food" EntityType="Self.food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="task" EntityType="Self.task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taskuser" EntityType="Self.taskuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_food_task" Association="Self.FK_food_task">
+      <End Role="task" EntitySet="task" />
+      <End Role="food" EntitySet="food" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taskuser_task" Association="Self.FK_taskuser_task">
+      <End Role="task" EntitySet="task" />
+      <End Role="taskuser" EntitySet="taskuser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taskuser_user" Association="Self.FK_taskuser_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="taskuser" EntitySet="taskuser" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

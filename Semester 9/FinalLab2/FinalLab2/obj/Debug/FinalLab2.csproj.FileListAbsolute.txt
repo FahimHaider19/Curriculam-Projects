@@ -1,0 +1,2 @@
+C:\Users\fhmha\Desktop\FinalLab2\FinalLab2\obj\Debug\FinalLab2.csproj.AssemblyReference.cache
+C:\Users\fhmha\Desktop\FinalLab2\FinalLab2\obj\Debug\FinalLab2.csproj.CoreCompileInputs.cache

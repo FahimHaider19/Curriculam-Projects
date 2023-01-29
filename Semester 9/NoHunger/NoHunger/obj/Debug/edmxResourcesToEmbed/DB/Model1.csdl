@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nhd" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="food">
+    <Key>
+      <PropertyRef Name="foodid" />
+    </Key>
+    <Property Name="foodid" Type="Int32" Nullable="false" />
+    <Property Name="foodname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="expire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="foodtype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personquantity" Type="Int32" />
+    <Property Name="pickuppoint" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fooddonor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="taskid" Type="Int32" />
+    <NavigationProperty Name="task" Relationship="Self.FK_food_task" FromRole="food" ToRole="task" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="taskid" />
+    </Key>
+    <Property Name="taskid" Type="Int32" Nullable="false" />
+    <Property Name="taskdetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="distributionpoit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="foods" Relationship="Self.FK_food_task" FromRole="task" ToRole="food" />
+    <NavigationProperty Name="taskusers" Relationship="Self.FK_taskuser_task" FromRole="task" ToRole="taskuser" />
+  </EntityType>
+  <EntityType Name="taskuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="taskid" Type="Int32" />
+    <NavigationProperty Name="task" Relationship="Self.FK_taskuser_task" FromRole="taskuser" ToRole="task" />
+    <NavigationProperty Name="user" Relationship="Self.FK_taskuser_user" FromRole="taskuser" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="taskusers" Relationship="Self.FK_taskuser_user" FromRole="user" ToRole="taskuser" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_food_task">
+    <End Role="task" Type="Self.task" Multiplicity="0..1" />
+    <End Role="food" Type="Self.food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="taskid" />
+      </Principal>
+      <Dependent Role="food">
+        <PropertyRef Name="taskid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taskuser_task">
+    <End Role="task" Type="Self.task" Multiplicity="0..1" />
+    <End Role="taskuser" Type="Self.taskuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="taskid" />
+      </Principal>
+      <Dependent Role="taskuser">
+        <PropertyRef Name="taskid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_taskuser_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="taskuser" Type="Self.taskuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="taskuser">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nohungerEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="foods" EntityType="Self.food" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tasks" EntityType="Self.task" />
+    <EntitySet Name="taskusers" EntityType="Self.taskuser" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_food_task" Association="Self.FK_food_task">
+      <End Role="task" EntitySet="tasks" />
+      <End Role="food" EntitySet="foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taskuser_task" Association="Self.FK_taskuser_task">
+      <End Role="task" EntitySet="tasks" />
+      <End Role="taskuser" EntitySet="taskusers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_taskuser_user" Association="Self.FK_taskuser_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="taskuser" EntitySet="taskusers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

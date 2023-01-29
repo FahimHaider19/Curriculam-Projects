@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nhdStoreContainer" CdmEntityContainer="nohungerEntities1">
+    <EntitySetMapping Name="foods">
+      <EntityTypeMapping TypeName="nhd.food">
+        <MappingFragment StoreEntitySet="food">
+          <ScalarProperty Name="foodid" ColumnName="foodid" />
+          <ScalarProperty Name="foodname" ColumnName="foodname" />
+          <ScalarProperty Name="expire" ColumnName="expire" />
+          <ScalarProperty Name="foodtype" ColumnName="foodtype" />
+          <ScalarProperty Name="personquantity" ColumnName="personquantity" />
+          <ScalarProperty Name="pickuppoint" ColumnName="pickuppoint" />
+          <ScalarProperty Name="fooddonor" ColumnName="fooddonor" />
+          <ScalarProperty Name="taskid" ColumnName="taskid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="nhd.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tasks">
+      <EntityTypeMapping TypeName="nhd.task">
+        <MappingFragment StoreEntitySet="task">
+          <ScalarProperty Name="taskid" ColumnName="taskid" />
+          <ScalarProperty Name="taskdetails" ColumnName="taskdetails" />
+          <ScalarProperty Name="distributionpoit" ColumnName="distributionpoit" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taskusers">
+      <EntityTypeMapping TypeName="nhd.taskuser">
+        <MappingFragment StoreEntitySet="taskuser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="taskid" ColumnName="taskid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="nhd.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

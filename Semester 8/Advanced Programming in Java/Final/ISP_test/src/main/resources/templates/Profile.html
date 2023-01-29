@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/FahimHaider19/APJ_Summer22/main/style_tailwind_1.css">
+</head>
+
+<body tabindex="-1">
+<div class="bg-base-100 drawer drawer-mobile"> <input type="checkbox" class="drawer-toggle">
+    <div class="drawer-content" style="scroll-behavior: smooth; scroll-padding-top: 5rem;">
+        <div class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-sm">
+            <nav class="navbar w-full flex justify-between p-6">
+
+                <h1 class="text-3xl font-bold">Profile...</h1>
+                <div class="username">
+                    <h3 class="text-xl p-6" th:text="${loggedInUser.getFirstName() + loggedInUser.getLastName()}"></h3>
+                    <div class="avatar">
+                        <div class="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src="https://placeimg.com/192/192/people" />
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <div class="p-6 pb-16">
+            <div class="flex flex-col-reverse justify-between gap-6 xl:flex-col">
+
+                <form th:action="@{/profile}" th:object="${user}" method="post" class="card w-full bg-base-100 shadow-xl py-6">
+                    <div class="card-body">
+                        <div class="card-actions justify-left">
+                            <h1 class="text-3xl font-bold" th:text="${user.getRole()}"></h1>
+                        </div>
+
+                        <div class="flex justify-between gap-6">
+                            <div class="form-control w-1/2 ">
+                                <label class="label">
+                                    <span class="label-text">First Name</span>
+                                </label>
+                                <input type="hidden" name="userId" class="invisible" th:value="${user.getUserId()}">
+                                <input type="text" name="firstName" placeholder="First Name" class="input input-bordered" th:value="${user.getFirstName()}">
+                            </div>
+                            <div class="form-control w-1/2">
+                                <label class="label">
+                                    <span class="label-text">Last Name</span>
+                                </label>
+                                <input type="text" name="lastName" placeholder="Last Name" class="input input-bordered" th:value="${user.getLastName()}">
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text"  >Email</span>
+                            </label>
+                            <input type="text" name="Email" th:value="${user.getEmail()}" placeholder="Email" class="input input-bordered">
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Connection Status</span>
+                            </label>
+                            <input type="text" name="connectionStatus" class="input input-bordered" th:value="${user.getConnectionStatus()}" disabled="true">
+                        </div>
+
+
+                        <div class="card-actions justify-center">
+                            <button type="submit" class="btn btn-primary btn-wide">Save</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="drawer-side" style="scroll-behavior: smooth; scroll-padding-top: 5rem;">
+        <aside class="bg-base-200 w-80 px-3">
+            <div
+                    class="z-20 bg-base-200 bg-opacity-90 backdrop-blur sticky top-0 items-center gap-2 px-4 py-2 hidden lg:flex shadow-sm">
+                <a href="/" aria-current="page" aria-label="Homepage" class="flex-0 btn btn-ghost px-2">
+                    <div
+                            class="font-title text-primary inline-flex text-lg transition-all duration-200 md:text-3xl">
+                        <span class="lowercase">inter</span> <span class="text-base-content uppercase">NET</span>
+                    </div>
+                </a> <a href="/docs/changelog" class="link link-hover font-mono text-xs text-opacity-50">
+                <div data-tip="Changelog" class="tooltip tooltip-bottom">@ggwp</div>
+            </a>
+            </div>
+            <div class="h-4"></div>
+            <ul class="menu bg-base-100 w-4/5 p-2 rounded-box">
+
+                <li class="menu-title"><span>Home</span></li>
+                <div class="collapse p-0 m-0">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/profile" class="sidemenu_button">Profile</a></li>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/change-password" class="sidemenu_button">Change Password</a></li>
+                    </div>
+                </div>
+
+                <li class="menu-title" th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}"> <span>User Management</span>
+                <li><a class="sidemenu_button p-0"></a></li>
+                <div class="collapse p-0 m-0 " th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/user" class="sidemenu_button">User Management</a></li>
+                    </div>
+
+                </div>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/customer" class="sidemenu_button">Customer Management</a></li>
+                    </div>
+                    <div class="collapse-content">
+                        <ul class="menu bg-base-100 w-56 p-0 rounded-box">
+                            <li><a href="/customer" class="sidemenu_button">View Customers</a></li>
+                            <li><a href="/add-remove-customer" class="sidemenu_button">Add/Delete Customers</a></li>
+                            <li><a href="/connection" class="sidemenu_button">Connection Status</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('admin')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/employee" class="sidemenu_button">Employee Management</a></li>
+                    </div>
+                    <div class="collapse-content" >
+                        <ul class="menu bg-base-100 w-56 p-0 rounded-box">
+                            <li><a href="/employee" class="sidemenu_button">View Employees</a></li>
+                            <li><a href="/add-remove-employee" class="sidemenu_button">Add/Remove Employees</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0 w-4/5" th:if="${user.getRole().equals('admin')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title py-0">
+                        <li><a href="/admin" class="sidemenu_button">Admin Management</a></li>
+                    </div>
+                    <div class="collapse-content" >
+                        <ul class="menu bg-base-100 w-full p-0 rounded-box">
+                            <li><a href="/admin" class="sidemenu_button">View Admins</a></li>
+                            <li><a href="/add-remove-admin" class="sidemenu_button">Add Admins</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <li class="menu-title"><span>Payment</span></li>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('user')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/make-payment" class="sidemenu_button">Make Payment</a></li>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/payment" class="sidemenu_button">Payment History</a></li>
+                    </div>
+                </div>
+
+                <li class="menu-title"><span>Ticket</span></li>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('user')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/create-ticket" class="sidemenu_button">Create Ticket</a></li>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/ticket" class="sidemenu_button">View Tickets</a></li>
+                    </div>
+                </div>
+
+                <li class="menu-title" th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}"><span>IP</span></li>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/ip" class="sidemenu_button">IP Management</a></li>
+                    </div>
+                </div>
+                <div class="collapse p-0 m-0" th:if="${user.getRole().equals('admin') or user.getRole().equals('employee')}">
+                    <input type="checkbox" class="peer" />
+                    <div class="collapse-title">
+                        <li><a href="/set-ip" class="sidemenu_button">Set IP</a></li>
+                    </div>
+                </div>
+            </ul>
+        </aside>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    //window.location.pathname
+    $(document).ready(function () {
+        $('.sidemenu_button')
+            .click(function (e) {
+                $('.sidemenu_button')
+                    .removeClass('active');
+                $(this).addClass('active');
+            });
+    });
+</script>
+</body>
+
+</html>
